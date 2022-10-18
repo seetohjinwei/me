@@ -1,11 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import { ContentContainer } from "../styles/Containers.styled";
+import { ContentContainer, ContentSection } from "../styles/Containers.styled";
 import me from "../images/me.png";
+import Divider from "./Divider";
+
+const Section = styled(ContentSection)`
+  background: #f8f89f;
+`;
 
 const Container = styled(ContentContainer)`
-  margin-top: 10%;
-
   @media (min-width: 1000px) {
     /* move the image to the right, if screen is large enough */
     display: flex;
@@ -13,6 +16,7 @@ const Container = styled(ContentContainer)`
   }
 `;
 
+// TODO: Animate image into view. Differently, based on phone or PC.
 const Image = styled.img`
   display: block;
   margin: auto;
@@ -24,8 +28,13 @@ const Image = styled.img`
 
 const LinkContainer = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
-  margin-top: 2em;
+
+  @media (min-width: 1000px) {
+    margin-top: 2em;
+    flex-direction: row;
+  }
 `;
 
 const LinkSpan = styled.span`
@@ -48,6 +57,12 @@ const githubIcon = (
 const linkedinIcon = (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
     <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z" />
+  </svg>
+);
+
+const mailIcon = (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+    <path d="M0 128C0 92.65 28.65 64 64 64H448C483.3 64 512 92.65 512 128V384C512 419.3 483.3 448 448 448H64C28.65 448 0 419.3 0 384V128zM48 128V150.1L220.5 291.7C241.1 308.7 270.9 308.7 291.5 291.7L464 150.1V127.1C464 119.2 456.8 111.1 448 111.1H64C55.16 111.1 48 119.2 48 127.1L48 128zM48 212.2V384C48 392.8 55.16 400 64 400H448C456.8 400 464 392.8 464 384V212.2L322 328.8C283.6 360.3 228.4 360.3 189.1 328.8L48 212.2z" />
   </svg>
 );
 
@@ -74,31 +89,40 @@ const Links = (): JSX.Element => {
           seetohjinwei
         </SocialLink>
       </LinkSpan>
+      <LinkSpan>
+        {mailIcon}
+        <SocialLink href="mailto:seetohjinwei@gmail.com">
+          seetohjinwei@gmail.com
+        </SocialLink>
+      </LinkSpan>
     </LinkContainer>
   );
 };
 
 const AboutMe = (): JSX.Element => {
   return (
-    <Container>
-      <Image src={me} width={"200px"} />
-      <div>
-        <h1>Hey there, I'm Jin Wei! 👋</h1>
-        <p>
-          I'm a Computer Science undergraduate at National University of
-          Singapore.
-        </p>
-        <p>
-          I'm someone who loves developing applications and finding new things
-          to learn about!
-        </p>
-        <p>
-          I am a Backend Developer, but dabble with a bit of Frontend and
-          DevOps.
-        </p>
-        <Links />
-      </div>
-    </Container>
+    <Section>
+      <Divider {...{ colour: "#d5d5d5", width: 102 }} />
+      <Container>
+        <Image src={me} width={"200px"} />
+        <div>
+          <h1>Hey there, I'm Jin Wei! 👋</h1>
+          <p>
+            I'm a Backend Developer, but dabble with a bit of Frontend and
+            DevOps.
+          </p>
+          <p>
+            I'm someone who loves developing applications and finding new things
+            to learn about!
+          </p>
+          <p>
+            I'm currently studying Computer Science at National University of
+            Singapore.
+          </p>
+          <Links />
+        </div>
+      </Container>
+    </Section>
   );
 };
 

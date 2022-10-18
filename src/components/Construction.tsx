@@ -1,11 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import { ContentContainer } from "../styles/Containers.styled";
+import { ContentContainer, ContentSection } from "../styles/Containers.styled";
+
+const Section = styled(ContentSection)`
+  background: orange;
+`;
 
 const Container = styled(ContentContainer)`
-  background: orange;
   color: black;
-  margin-top: 3%;
   text-align: center;
   padding: 1px;
 `;
@@ -16,9 +18,11 @@ const Text = styled.p`
 
 const ConstructionWarning = (): JSX.Element => {
   return (
-    <Container>
-      <Text>Site is under construction!</Text>
-    </Container>
+    <Section>
+      <Container>
+        <Text>Site is under construction!</Text>
+      </Container>
+    </Section>
   );
 };
 

@@ -38,10 +38,12 @@ const lightColours: ColourShape = {
   linkHover: "#ff002b",
 };
 
+// TODO: Add nicer font
 const GlobalStyle = createGlobalStyle`
   body {
     background: ${(props) => props.theme.colours.pageBackground};
     color: ${(props) => props.theme.colours.text};
+    margin: 0;
   }
 
   a {
@@ -77,7 +79,7 @@ const themes = {
 
 const Layout = ({ children }: { children: JSX.Element }): JSX.Element => {
   /* TODO: introduce a mechanism to change this, and save in cookies */
-  const theme: ThemeShape = themes.dark;
+  const theme: ThemeShape = themes.light;
 
   return (
     <>
