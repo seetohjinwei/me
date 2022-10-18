@@ -43,7 +43,14 @@ const GlobalStyle = createGlobalStyle`
   body {
     background: ${(props) => props.theme.colours.pageBackground};
     color: ${(props) => props.theme.colours.text};
+    font-family: "Asar";
     margin: 0;
+    font-size: 120%;
+  }
+
+  h1, h2 {
+    font-family: "Alegreya Sans", sans-serif;
+    font-size: 200%;
   }
 
   a {

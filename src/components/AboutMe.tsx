@@ -16,6 +16,11 @@ const Container = styled(ContentContainer)`
   }
 `;
 
+const LineBreak = styled.span`
+  display: inline-block;
+  line-height: 100%;
+`;
+
 // TODO: Animate image into view. Differently, based on phone or PC.
 const Image = styled.img`
   display: block;
@@ -106,7 +111,11 @@ const AboutMe = (): JSX.Element => {
       <Container>
         <Image src={me} width={"200px"} />
         <div>
-          <h1>Hey there, I'm Jin Wei! 👋</h1>
+          {/* Force line breaks to occur at that point. */}
+          <h1>
+            <LineBreak>Hey there,&nbsp;</LineBreak>
+            <LineBreak>I'm Jin Wei! 👋</LineBreak>
+          </h1>
           <p>
             I'm a Backend Developer, but dabble with a bit of Frontend and
             DevOps.
