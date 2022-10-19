@@ -5,6 +5,7 @@ import styled from "styled-components";
 const NavWrapper = styled.nav`
   width: 100%;
   overflow: hidden;
+  margin-top: 1em;
 `;
 
 const List = styled.ul`
@@ -27,6 +28,7 @@ const Item = styled.li`
 
   > * {
     color: ${(props) => props.theme.colours.text};
+    font-size: 1.3em;
     font-weight: 600;
   }
 `;
@@ -36,6 +38,7 @@ const LeftItem = styled(Item)<{ selected: boolean }>`
     props.selected &&
     "border: 2px solid " + props.theme.colours.link + "; border-radius: 6px;"}
   display: inline;
+  padding: 0.7ch 1ch;
 `;
 
 const RightItem = styled(Item)`
