@@ -117,8 +117,8 @@ const AboutMe = (): JSX.Element => {
             <LineBreak>I'm Jin Wei! 👋</LineBreak>
           </h1>
           <p>
-            I'm a Backend Developer, but dabble with a bit of Frontend and
-            DevOps.
+            I'm a <b>Software Engineer</b>, mainly doing work in <b>Backend</b>{" "}
+            but dabble with a bit of Frontend and DevOps.
           </p>
           <p>
             I'm someone who loves developing applications and finding new things
