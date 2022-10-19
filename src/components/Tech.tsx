@@ -227,7 +227,7 @@ const Tech = (): JSX.Element => {
     <Section>
       <Divider {...{ colour: "#f8f89f", width: 165 }} />
       <Container>
-        <h1>Things I've used...</h1>
+        <h2>Things I've used...</h2>
         <Grid>
           {typescript(true)}
           {java(true)}

@@ -14,7 +14,7 @@ const Projects = (): JSX.Element => {
     <Section>
       <Divider {...{ colour: "#a2f6a2", width: 274 }} />
       <Container>
-        <h1>Things I've made...</h1>
+        <h2>Things I've made...</h2>
       </Container>
     </Section>
   );
