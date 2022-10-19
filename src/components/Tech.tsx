@@ -1,8 +1,9 @@
 import Divider from "./Divider";
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { ContentContainer, ContentSection } from "../styles/Containers.styled";
 
+import cppIcon from "../images/cpp.svg";
 import cssIcon from "../images/css.svg";
 import dockerIcon from "../images/docker.svg";
 import gitIcon from "../images/git.svg";
@@ -23,12 +24,35 @@ const Section = styled(ContentSection)`
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, 250px);
-  /* grid-template-rows: repeat(auto-fill, ); */
   column-gap: 10px;
   row-gap: 20px;
 `;
 
-const Item = styled.div``;
+const ShowButton = styled.button`
+  border: 1px solid black;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  height: 75px;
+  margin: auto 0;
+  /* backdrop-filter isn't supported by some smaller browsers (they will just see the same background colour as the section) */
+  backdrop-filter: brightness(1.3);
+  background: transparent;
+
+  &:hover,
+  &:active {
+    backdrop-filter: brightness(1.5);
+  }
+`;
+
+const Item = styled.div<{ show: boolean }>`
+  ${(props) => !props.show && "display: none;"}
+
+  /* backdrop-filter isn't supported by some smaller browsers (they will just see the same background colour as the section) */
+  backdrop-filter: brightness(1.1);
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
+`;
 
 const List = styled.ul`
   list-style-position: outside;
@@ -49,189 +73,179 @@ const ItemTitle = styled.div`
 
 const Container = styled(ContentContainer)``;
 
-const typescript = (
-  <Item>
-    <ItemTitle>
-      <Image src={typescriptIcon} />
-      <b>TypeScript & JavaScript</b>
-    </ItemTitle>
-    <List>
-      <li>React</li>
-      <li>Jest</li>
-      <li>React Testing Library</li>
-      <li>Next.js</li>
-    </List>
-  </Item>
+const ItemElement = (
+  icon: "*.svg" | null,
+  name: string,
+  details: JSX.Element
+) => {
+  return (show: boolean): JSX.Element => (
+    <Item show={show}>
+      <ItemTitle>
+        {icon !== null && <Image src={icon} />}
+        <b>{name}</b>
+      </ItemTitle>
+      {details}
+    </Item>
+  );
+};
+
+const typescript = ItemElement(
+  typescriptIcon,
+  "TypeScript & JavaScript",
+  <List>
+    <li>React</li>
+    <li>Jest</li>
+    <li>React Testing Library</li>
+    <li>Next.js</li>
+  </List>
 );
 
-const java = (
-  <Item>
-    <ItemTitle>
-      <Image src={javaIcon} />
-      <b>Java</b>
-    </ItemTitle>
-    <List>
-      <li>Java Standard Edition</li>
-      <li>JUnit</li>
-      <li>
-        A <em>bit</em> of JavaFX
-      </li>
-    </List>
-  </Item>
+const java = ItemElement(
+  javaIcon,
+  "Java",
+  <List>
+    <li>Java Standard Edition</li>
+    <li>JUnit</li>
+    <li>
+      A <em>bit</em> of JavaFX
+    </li>
+  </List>
 );
 
-const python = (
-  <Item>
-    <ItemTitle>
-      <Image src={pythonIcon} />
-      <b>Python</b>
-    </ItemTitle>
-    <List>
-      <li>Scripting</li>
-      <li>Coding questions</li>
-    </List>
-  </Item>
+const golang = ItemElement(
+  goIcon,
+  "Golang",
+  <List>
+    <li>Gin Web Framework</li>
+    <li>Gorilla Web Socket Framework</li>
+    <li>Go Testing Library</li>
+  </List>
 );
 
-const html = (
-  <Item>
-    <ItemTitle>
-      <Image src={htmlIcon} />
-      <b>HTML</b>
-    </ItemTitle>
-    <List>
-      <li>
-        With a <em>bit</em> of Googling.
-      </li>
-    </List>
-  </Item>
+const sql = ItemElement(
+  sqlIcon,
+  "SQL",
+  <List>
+    <li>PostgreSQL</li>
+    <li>Relational Database</li>
+  </List>
 );
 
-const css = (
-  <Item>
-    <ItemTitle>
-      <Image src={cssIcon} />
-      <b>CSS</b>
-    </ItemTitle>
-    <List>
-      <li>Styled Components</li>
-      <li>SASS</li>
-      <li>Tailwind</li>
-      <li>... and regular CSS</li>
-    </List>
-  </Item>
+const mongodb = ItemElement(
+  mongoIcon,
+  "MongoDB",
+  <List>
+    <li>NoSQL</li>
+  </List>
 );
 
-const golang = (
-  <Item>
-    <ItemTitle>
-      <Image src={goIcon} />
-      <b>Golang</b>
-    </ItemTitle>
-    <List>
-      <li>Gin Web Framework</li>
-      <li>Gorilla Web Socket Framework</li>
-      <li>Go Testing Library</li>
-    </List>
-  </Item>
+const css = ItemElement(
+  cssIcon,
+  "CSS",
+  <List>
+    <li>Styled Components</li>
+    <li>SCSS</li>
+    <li>Tailwind</li>
+    <li>... and regular CSS</li>
+  </List>
 );
 
-const ruby = (
-  <Item>
-    <ItemTitle>
-      <Image src={rubyIcon} />
-      <b>Ruby</b>
-    </ItemTitle>
-    <List>
-      <li>Ruby on Rails</li>
-    </List>
-  </Item>
+const git = ItemElement(
+  gitIcon,
+  "Git & GitHub",
+  <List>
+    <li>Git commands</li>
+    <li>General GitHub usage</li>
+    <li>GitHub Actions</li>
+  </List>
 );
 
-const lua = (
-  <Item>
-    <ItemTitle>
-      <Image src={luaIcon} />
-      <b>Lua</b>
-    </ItemTitle>
-    <List>
-      <li>
-        Lua LÖVE Framework - <em>2D Game Engine</em>
-      </li>
-      <li>Light scripting</li>
-    </List>
-  </Item>
+const others = ItemElement(
+  null,
+  "Others",
+  <List>
+    <li>Software Engineering</li>
+    <li>RESTful APIs</li>
+    <li>Data Structures & Algorithms</li>
+  </List>
 );
 
-const sql = (
-  <Item>
-    <ItemTitle>
-      <Image src={sqlIcon} />
-      <b>SQL</b>
-    </ItemTitle>
-    <List>
-      <li>PostgreSQL</li>
-      <li>Relational Database</li>
-    </List>
-  </Item>
+const python = ItemElement(
+  pythonIcon,
+  "Python",
+  <List>
+    <li>Scripting</li>
+    <li>Coding questions</li>
+  </List>
 );
 
-const mongodb = (
-  <Item>
-    <ItemTitle>
-      <Image src={mongoIcon} />
-      <b>MongoDB</b>
-    </ItemTitle>
-    <List>
-      <li>NoSQL</li>
-    </List>
-  </Item>
+const html = ItemElement(
+  htmlIcon,
+  "HTML",
+  <List>
+    <li>Responsive Web Design</li>
+    <li>
+      With a <em>bit</em> of Googling
+    </li>
+  </List>
 );
 
-const git = (
-  <Item>
-    <ItemTitle>
-      <Image src={gitIcon} />
-      <b>Git & GitHub</b>
-    </ItemTitle>
-    <List>
-      <li>Git commands</li>
-      <li>GitHub Actions</li>
-    </List>
-  </Item>
+const docker = ItemElement(dockerIcon, "Docker", <List>Know the basics</List>);
+
+const cpp = ItemElement(
+  cppIcon,
+  "C & C++",
+  <List>
+    <li>Used for miscellaneous stuff</li>
+    <li>Coding questions</li>
+  </List>
 );
 
-const docker = (
-  <Item>
-    <ItemTitle>
-      <Image src={dockerIcon} />
-      <b>Docker</b>
-    </ItemTitle>
-    <List>
-      <li>Know the basics</li>
-    </List>
-  </Item>
+const ruby = ItemElement(
+  rubyIcon,
+  "Ruby",
+  <List>
+    <li>Ruby on Rails</li>
+  </List>
+);
+
+const lua = ItemElement(
+  luaIcon,
+  "Lua",
+  <List>
+    <li>
+      Lua LÖVE Framework - <em>2D Game Engine</em>
+    </li>
+    <li>Light scripting</li>
+  </List>
 );
 
 const Tech = (): JSX.Element => {
+  const [show, setShow] = useState<boolean>(false);
+
   return (
     <Section>
       <Divider {...{ colour: "#f8f89f", width: 165 }} />
       <Container>
         <h1>Things I've used...</h1>
         <Grid>
-          {typescript}
-          {java}
-          {golang}
-          {sql}
-          {mongodb}
-          {css}
-          {git}
-          {python}
-          {html}
-          {ruby}
-          {lua}
-          {docker}
+          {typescript(true)}
+          {java(true)}
+          {golang(true)}
+          {sql(true)}
+          {mongodb(true)}
+          {css(true)}
+          {git(true)}
+          {others(true)}
+          {python(show)}
+          {html(show)}
+          {docker(show)}
+          {cpp(show)}
+          {ruby(show)}
+          {lua(show)}
+          <ShowButton onClick={() => setShow((s) => !s)}>
+            {show ? "Hide Some" : "Show More"}
+          </ShowButton>
         </Grid>
       </Container>
     </Section>

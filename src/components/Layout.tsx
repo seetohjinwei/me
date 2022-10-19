@@ -6,7 +6,6 @@ interface ColourShape {
   containerBackground: string;
   text: string;
   link: string;
-  linkVisited: string;
   linkHover: string;
 }
 
@@ -25,7 +24,6 @@ const darkColours: ColourShape = {
   containerBackground: "#010057",
   text: "#eeeeee",
   link: "#ffc0cb",
-  linkVisited: "#fc7c92",
   linkHover: "#f9536f",
 };
 
@@ -33,12 +31,10 @@ const lightColours: ColourShape = {
   pageBackground: "#d5d5d5",
   containerBackground: "#7ca0f5",
   text: "#000000",
-  link: "#9d3847",
-  linkVisited: "#943041",
+  link: "#ed7788",
   linkHover: "#ff002b",
 };
 
-// TODO: Add nicer font
 const GlobalStyle = createGlobalStyle`
   body {
     background: ${(props) => props.theme.colours.pageBackground};
@@ -55,10 +51,7 @@ const GlobalStyle = createGlobalStyle`
 
   a {
     color: ${(props) => props.theme.colours.link};
-  }
-
-  a:visited {
-    color: ${(props) => props.theme.colours.linkVisited};
+    text-decoration: none;
   }
 
   a:hover {
