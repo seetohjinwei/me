@@ -15,3 +15,13 @@ export const ContentContainer = styled.div`
   padding: 3em;
   width: clamp(200px, 95%, 900px);
 `;
+
+export const Icon = styled.img`
+  fill: ${(props) => props.theme.colours.text};
+  height: 30px;
+`;
+
+export const SmallIcon = styled.img`
+  fill: ${(props) => props.theme.colours.text};
+  height: 20px;
+`;

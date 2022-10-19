@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { ContentContainer, ContentSection } from "../styles/Containers.styled";
 
+// Icons from https://devicon.dev/
 import cppIcon from "../images/cpp.svg";
 import cssIcon from "../images/css.svg";
 import dockerIcon from "../images/docker.svg";

@@ -5,6 +5,7 @@ import Layout from "../components/Layout";
 import Tech from "../components/Tech";
 import Projects from "../components/Projects";
 import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
 
 const IndexPage = () => {
   return (
@@ -16,7 +17,7 @@ const IndexPage = () => {
         <AboutMe />
         <Tech />
         <Projects />
-        {/* Add a footer. */}
+        <Footer />
       </>
     </Layout>
   );

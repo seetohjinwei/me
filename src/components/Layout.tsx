@@ -5,6 +5,7 @@ interface ColourShape {
   pageBackground: string;
   containerBackground: string;
   text: string;
+  faded: string;
   link: string;
   linkHover: string;
 }
@@ -23,6 +24,7 @@ const darkColours: ColourShape = {
   pageBackground: "#03002e",
   containerBackground: "#010057",
   text: "#eeeeee",
+  faded: "#eeeeee",
   link: "#ffc0cb",
   linkHover: "#f9536f",
 };
@@ -30,7 +32,8 @@ const darkColours: ColourShape = {
 const lightColours: ColourShape = {
   pageBackground: "#d5d5d5",
   containerBackground: "#7ca0f5",
-  text: "#000000",
+  text: "#424242",
+  faded: "#585858",
   link: "#ed7788",
   linkHover: "#ff002b",
 };
@@ -60,11 +63,6 @@ const GlobalStyle = createGlobalStyle`
 
   a:hover {
     color: ${(props) => props.theme.colours.linkHover};
-  }
-
-  svg {
-    fill: ${(props) => props.theme.colours.text};
-    height: 30px;
   }
 `;
 
