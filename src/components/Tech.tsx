@@ -1,7 +1,11 @@
 import Divider from "./Divider";
 import React, { useState } from "react";
 import styled from "styled-components";
-import { ContentContainer, ContentSection } from "../styles/Containers.styled";
+import {
+  ContentContainer,
+  ContentSection,
+  List,
+} from "../styles/Containers.styled";
 
 // Icons from https://devicon.dev/
 import cppIcon from "../images/icons/cpp.svg";
@@ -53,13 +57,6 @@ const Item = styled.div<{ show: boolean }>`
   border: 1px solid black;
   border-radius: 10px;
   padding: 10px;
-`;
-
-const List = styled.ul`
-  list-style-position: outside;
-  list-style-type: circle;
-  margin: 0;
-  padding: 0 20px;
 `;
 
 const Image = styled.img`

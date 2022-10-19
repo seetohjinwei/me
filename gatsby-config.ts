@@ -22,7 +22,7 @@ const config: GatsbyConfig = {
         web: [
           {
             name: `Asar`,
-            file: `https://fonts.googleapis.com/css2?family=Asar&family=Alegreya+Sans:wght@70&display=swap`,
+            file: `https://fonts.googleapis.com/css2&family=Kaisei+HarunoUmi&family=Alegreya+Sans:wght@70&display=swap`,
           },
         ],
       },

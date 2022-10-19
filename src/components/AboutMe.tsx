@@ -23,6 +23,8 @@ const Container = styled(ContentContainer)`
     display: flex;
     flex-direction: row-reverse;
   }
+
+  font-size: 120%;
 `;
 
 const LineBreak = styled.span`
@@ -117,6 +119,7 @@ const AboutMe = (): JSX.Element => {
             I'm currently studying Computer Science at National University of
             Singapore.
           </p>
+          <p>PS: I love watching sci-fi / fantasy shows and books!</p>
           <Links />
         </div>
       </Container>
