@@ -11,7 +11,7 @@ const Container = styled(ContentContainer)``;
 
 const Projects = (): JSX.Element => {
   return (
-    <Section>
+    <Section id="projects">
       <Divider {...{ colour: "#a2f6a2", width: 274 }} />
       <Container>
         <h2>Things I've made...</h2>

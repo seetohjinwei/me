@@ -223,8 +223,14 @@ const lua = ItemElement(
 const Tech = (): JSX.Element => {
   const [show, setShow] = useState<boolean>(false);
 
+  const handleClick: React.MouseEventHandler<HTMLButtonElement> = (event) => {
+    event.preventDefault();
+
+    setShow((s) => !s);
+  };
+
   return (
-    <Section>
+    <Section id="tech">
       <Divider {...{ colour: "#f8f89f", width: 165 }} />
       <Container>
         <h2>Things I've used...</h2>
@@ -243,7 +249,7 @@ const Tech = (): JSX.Element => {
           {cpp(show)}
           {ruby(show)}
           {lua(show)}
-          <ShowButton onClick={() => setShow((s) => !s)}>
+          <ShowButton onClick={handleClick}>
             {show ? "Hide Some" : "Show More"}
           </ShowButton>
         </Grid>

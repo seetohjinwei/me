@@ -106,7 +106,7 @@ const Links = (): JSX.Element => {
 
 const AboutMe = (): JSX.Element => {
   return (
-    <Section>
+    <Section id="aboutme">
       <Divider {...{ colour: "#d5d5d5", width: 102 }} />
       <Container>
         <Image src={me} width={"200px"} />

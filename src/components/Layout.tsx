@@ -36,6 +36,10 @@ const lightColours: ColourShape = {
 };
 
 const GlobalStyle = createGlobalStyle`
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     background: ${(props) => props.theme.colours.pageBackground};
     color: ${(props) => props.theme.colours.text};
