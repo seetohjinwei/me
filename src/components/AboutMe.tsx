@@ -7,11 +7,11 @@ import {
 } from "../styles/Containers.styled";
 import Divider from "./Divider";
 
-import me from "../images/me.png";
+import me from "../images/icons/me.png";
 // Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc.
-import githubIcon from "../images/github.svg";
-import linkedinIcon from "../images/linkedin.svg";
-import mailIcon from "../images/mail.svg";
+import githubIcon from "../images/icons/github.svg";
+import linkedinIcon from "../images/icons/linkedin.svg";
+import mailIcon from "../images/icons/mail.svg";
 
 const Section = styled(ContentSection)`
   background: #f8f89f;

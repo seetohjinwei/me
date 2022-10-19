@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-
-import starIcon from "../images/star.svg";
 import { SmallIcon } from "../styles/Containers.styled";
+
+import starIcon from "../images/icons/star.svg";
 
 const Foot = styled.footer`
   height: 30px;

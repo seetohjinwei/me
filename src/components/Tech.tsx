@@ -4,19 +4,19 @@ import styled from "styled-components";
 import { ContentContainer, ContentSection } from "../styles/Containers.styled";
 
 // Icons from https://devicon.dev/
-import cppIcon from "../images/cpp.svg";
-import cssIcon from "../images/css.svg";
-import dockerIcon from "../images/docker.svg";
-import gitIcon from "../images/git.svg";
-import goIcon from "../images/go.svg";
-import htmlIcon from "../images/html.svg";
-import javaIcon from "../images/java.svg";
-import luaIcon from "../images/lua.svg";
-import mongoIcon from "../images/mongodb.svg";
-import pythonIcon from "../images/python.svg";
-import rubyIcon from "../images/ruby.svg";
-import sqlIcon from "../images/sql.svg";
-import typescriptIcon from "../images/typescript.svg";
+import cppIcon from "../images/icons/cpp.svg";
+import cssIcon from "../images/icons/css.svg";
+import dockerIcon from "../images/icons/docker.svg";
+import gitIcon from "../images/icons/git.svg";
+import goIcon from "../images/icons/go.svg";
+import htmlIcon from "../images/icons/html.svg";
+import javaIcon from "../images/icons/java.svg";
+import luaIcon from "../images/icons/lua.svg";
+import mongoIcon from "../images/icons/mongodb.svg";
+import pythonIcon from "../images/icons/python.svg";
+import rubyIcon from "../images/icons/ruby.svg";
+import sqlIcon from "../images/icons/sql.svg";
+import typescriptIcon from "../images/icons/typescript.svg";
 
 const Section = styled(ContentSection)`
   background: #a2f6a2;
@@ -197,7 +197,7 @@ const cpp = ItemElement(
   cppIcon,
   "C & C++",
   <List>
-    <li>Used for miscellaneous stuff</li>
+    <li>Using for miscellaneous stuff</li>
     <li>Coding questions</li>
   </List>
 );

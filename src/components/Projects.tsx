@@ -9,13 +9,21 @@ const Section = styled(ContentSection)`
 
 const Container = styled(ContentContainer)``;
 
+const ProjectContainer = styled.div``;
+
+const Project = (
+  <ProjectContainer>
+    <h3>Personal Site</h3>
+  </ProjectContainer>
+);
+
 const Projects = (): JSX.Element => {
   return (
     <Section id="projects">
       <Divider {...{ colour: "#a2f6a2", width: 274 }} />
       <Container>
         <h2>Things I've made...</h2>
-        <p>Section is still incomplete!</p>
+        {Project}
       </Container>
     </Section>
   );
