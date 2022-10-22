@@ -7,6 +7,8 @@ export interface ColourShape {
   faded: string;
   link: string;
   linkHover: string;
+  buttonDarkMode: string;
+  buttonLightMode: string;
 }
 
 export interface ThemeShape {
@@ -28,6 +30,8 @@ export const darkColours: ColourShape = {
   faded: "#eeeeee",
   link: "#f6e1d3",
   linkHover: "#ffc1cc",
+  buttonDarkMode: "#424242",
+  buttonLightMode: "#eeeeee",
 };
 
 export const lightColours: ColourShape = {
@@ -39,6 +43,8 @@ export const lightColours: ColourShape = {
   faded: "#585858",
   link: "#ed7788",
   linkHover: "#ff002b",
+  buttonDarkMode: "#424242",
+  buttonLightMode: "#eeeeee",
 };
 
 const darkTheme = {

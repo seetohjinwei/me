@@ -2,6 +2,7 @@ import { Link } from "gatsby";
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { ModeContext } from "../context/ModeProvider";
+import DarkModeSwitcher from "./DarkModeSwitcher";
 
 const NavWrapper = styled.nav`
   width: 100%;
@@ -73,16 +74,9 @@ const NavBar = ({ page }: { page: pages }): JSX.Element => {
         <RightItem>
           <Link to="#projects">Projects</Link>
         </RightItem>
-        <label>
-          {/* TODO: make this switcher look nice */}
-          {/* https://alvarotrigo.com/blog/toggle-switch-css/ */}
-          <input
-            type="checkbox"
-            checked={mode === "dark"}
-            onChange={toggleTheme}
-          />
-          <span />
-        </label>
+        <RightItem>
+          <DarkModeSwitcher checked={mode === "light"} onChange={toggleTheme} />
+        </RightItem>
       </RightList>
     </NavWrapper>
   );
