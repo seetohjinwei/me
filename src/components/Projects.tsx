@@ -135,6 +135,9 @@ const Me = (
       browser (or using a different device)!
     </p>
     <p>As I am not much of a designer, I opted for a simpler look :D</p>
+    <p>
+      Check out the dark / light mode switcher on the top right of the page!
+    </p>
     <p>Deployed and hosted on my own remote server!</p>
     <TechStack>Tech Stack</TechStack>
     <TechList>

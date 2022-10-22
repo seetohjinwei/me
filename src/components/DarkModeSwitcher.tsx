@@ -5,14 +5,15 @@ const Wrapper = styled.div`
   display: inline-block;
   position: relative;
   width: 100px;
-  scale: 0.7;
+  scale: 0.6;
   /* Hacky CSS alignment, but looks good. */
   top: -15px;
-  right: 15px;
+  right: 20px;
 
   @media (min-width: 1000px) {
     right: 0;
     top: -30px;
+    scale: 0.7;
   }
 `;
 
