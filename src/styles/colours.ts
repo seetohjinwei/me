@@ -1,6 +1,8 @@
 export interface ColourShape {
   pageBackground: string;
-  containerBackground: string;
+  yellowBackground: string;
+  greenBackground: string;
+  blueBackground: string;
   text: string;
   faded: string;
   link: string;
@@ -18,17 +20,21 @@ declare module "styled-components" {
 }
 
 export const darkColours: ColourShape = {
-  pageBackground: "#03002e",
-  containerBackground: "#010057",
+  pageBackground: "#171214",
+  yellowBackground: "#5b4628",
+  greenBackground: "#0b525b",
+  blueBackground: "#212f45",
   text: "#eeeeee",
   faded: "#eeeeee",
-  link: "#ffc0cb",
-  linkHover: "#f9536f",
+  link: "#f6e1d3",
+  linkHover: "#ffc1cc",
 };
 
 export const lightColours: ColourShape = {
   pageBackground: "#d5d5d5",
-  containerBackground: "#7ca0f5",
+  yellowBackground: "#f8f89f",
+  greenBackground: "#a2f6a2",
+  blueBackground: "#ade4f9",
   text: "#424242",
   faded: "#585858",
   link: "#ed7788",

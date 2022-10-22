@@ -6,9 +6,7 @@ export const ContentSection = styled.section`
   width: 100%;
 `;
 
-// TODO: slight gradient on background
 export const ContentContainer = styled.div`
-  /* background: ${(props) => props.theme.colours.containerBackground}; */
   border-radius: 20px;
   box-sizing: border-box;
   margin: 0 auto;
@@ -21,14 +19,4 @@ export const List = styled.ul`
   list-style-type: circle;
   margin: 0;
   padding: 0 20px;
-`;
-
-export const Icon = styled.img`
-  fill: ${(props) => props.theme.colours.text};
-  height: 30px;
-`;
-
-export const SmallIcon = styled.img`
-  fill: ${(props) => props.theme.colours.text};
-  height: 20px;
 `;

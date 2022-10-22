@@ -1,5 +1,7 @@
+import { HeadFC, Link } from "gatsby";
 import * as React from "react";
-import { Link, HeadFC } from "gatsby";
+
+// TODO: theme & style 404 page
 
 const pageStyles = {
   color: "#232129",

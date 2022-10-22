@@ -1,20 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import {
-  ContentContainer,
-  ContentSection,
-  Icon,
-} from "../styles/Containers.styled";
+import { ContentContainer, ContentSection } from "../styles/Containers.styled";
 import Divider from "./Divider";
 
 import me from "../images/icons/me.png";
-// Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc.
-import githubIcon from "../images/icons/github.svg";
-import linkedinIcon from "../images/icons/linkedin.svg";
-import mailIcon from "../images/icons/mail.svg";
+import { GitHubSvg, LinkedinSvg, MailSvg } from "./Svg";
 
 const Section = styled(ContentSection)`
-  background: #f8f89f;
+  background: ${(props) => props.theme.colours.yellowBackground};
 `;
 
 const Container = styled(ContentContainer)`
@@ -66,7 +59,7 @@ const Links = (): JSX.Element => {
   return (
     <LinkContainer>
       <LinkSpan>
-        <Icon src={githubIcon} />
+        {GitHubSvg}
         <SocialLink
           href="https://github.com/seetohjinwei/"
           target="_blank"
@@ -76,7 +69,7 @@ const Links = (): JSX.Element => {
         </SocialLink>
       </LinkSpan>
       <LinkSpan>
-        <Icon src={linkedinIcon} />
+        {LinkedinSvg}
         <SocialLink
           href="https://www.linkedin.com/in/seetohjinwei/"
           target="_blank"
@@ -86,7 +79,7 @@ const Links = (): JSX.Element => {
         </SocialLink>
       </LinkSpan>
       <LinkSpan>
-        <Icon src={mailIcon} />
+        {MailSvg}
         <SocialLink href="mailto:seetohjinwei@gmail.com">
           seetohjinwei@gmail.com
         </SocialLink>
@@ -98,7 +91,7 @@ const Links = (): JSX.Element => {
 const AboutMe = (): JSX.Element => {
   return (
     <Section id="aboutme">
-      <Divider {...{ colour: "#d5d5d5", width: 102 }} />
+      <Divider {...{ colour: "pageBackground", width: 102 }} />
       <Container>
         <Image src={me} width={"200px"} />
         <div>

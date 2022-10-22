@@ -1,13 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-import { SmallIcon } from "../styles/Containers.styled";
 
-import starIcon from "../images/icons/star.svg";
+import { StarSvg } from "./Svg";
 
 const Foot = styled.footer`
   height: 30px;
   /* very subtle gradient */
-  background-image: linear-gradient(#ade4f9, transparent 30%);
+  background-image: linear-gradient(
+    ${(props) => props.theme.colours.blueBackground},
+    transparent 30%
+  );
 
   > * {
     color: ${(props) => props.theme.colours.faded};
@@ -32,9 +34,7 @@ const Footer = (): JSX.Element => {
         Made by <a href="https://github.com/seetohjinwei/">See Toh Jin Wei</a>
       </LeftSide>
       <RightSide>
-        <a href="https://github.com/seetohjinwei/me">
-          <SmallIcon src={starIcon} /> on GitHub
-        </a>
+        <a href="https://github.com/seetohjinwei/me">{StarSvg} on GitHub</a>
       </RightSide>
     </Foot>
   );

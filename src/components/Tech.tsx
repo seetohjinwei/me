@@ -1,4 +1,3 @@
-import Divider from "./Divider";
 import React, { useState } from "react";
 import styled from "styled-components";
 import {
@@ -6,6 +5,7 @@ import {
   ContentSection,
   List,
 } from "../styles/Containers.styled";
+import Divider from "./Divider";
 
 // Icons from https://devicon.dev/
 import cppIcon from "../images/icons/cpp.svg";
@@ -23,7 +23,7 @@ import sqlIcon from "../images/icons/sql.svg";
 import typescriptIcon from "../images/icons/typescript.svg";
 
 const Section = styled(ContentSection)`
-  background: #a2f6a2;
+  background: ${(props) => props.theme.colours.greenBackground};
 `;
 
 const Grid = styled.div`
@@ -36,6 +36,7 @@ const Grid = styled.div`
 const ShowButton = styled.button`
   border: 1px solid black;
   border-radius: 10px;
+  color: ${(props) => props.theme.colours.text};
   font-size: 1.5rem;
   height: 75px;
   margin: auto 0;
@@ -229,7 +230,7 @@ const Tech = (): JSX.Element => {
 
   return (
     <Section id="tech">
-      <Divider {...{ colour: "#f8f89f", width: 165 }} />
+      <Divider {...{ colour: "yellowBackground", width: 165 }} />
       <Container>
         <h2>Things I've used...</h2>
         <Grid>

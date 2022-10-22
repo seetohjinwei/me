@@ -12,7 +12,7 @@ import me from "../images/sites/me.png";
 import organius from "../images/sites/organius.png";
 
 const Section = styled(ContentSection)`
-  background: #ade4f9;
+  background: ${(props) => props.theme.colours.blueBackground};
 `;
 
 const Container = styled(ContentContainer)``;
@@ -159,7 +159,7 @@ const Me = (
 const Projects = (): JSX.Element => {
   return (
     <Section id="projects">
-      <Divider {...{ colour: "#a2f6a2", width: 274 }} />
+      <Divider {...{ colour: "greenBackground", width: 274 }} />
       <Container>
         <h2>Things I've made...</h2>
         {Organius}

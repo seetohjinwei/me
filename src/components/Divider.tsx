@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { ColourShape } from "../styles/colours";
 
 const DividerDiv = styled.div`
   position: absolute;
@@ -17,15 +18,16 @@ const DividerSvg = styled.svg<{ width: number }>`
   height: 100px;
 `;
 
-const DividerPath = styled.path<{ colour: string }>`
-  fill: ${(props) => props.colour};
+type colours = keyof ColourShape;
+const DividerPath = styled.path<{ colour: colours }>`
+  fill: ${(props) => props.theme.colours[props.colour]};
 `;
 
 /*
   SVG for waves generated from https://www.shapedivider.app.
   I changed the syntax to suit React + Styled Components & made it customisable with code.
 */
-const Divider = ({ colour, width }: { colour: string; width: number }) => {
+const Divider = ({ colour, width }: { colour: colours; width: number }) => {
   return (
     <DividerDiv>
       <DividerSvg
