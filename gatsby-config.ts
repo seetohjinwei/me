@@ -21,12 +21,13 @@ const config: GatsbyConfig = {
         ],
         web: [
           {
-            name: `Asar`,
-            file: `https://fonts.googleapis.com/css2&family=Kaisei+HarunoUmi&family=Alegreya+Sans:wght@70&display=swap`,
+            name: `Alegreya Sans`,
+            file: `https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@700&family=Kaisei+HarunoUmi&display=swap`,
           },
         ],
       },
     },
+
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
