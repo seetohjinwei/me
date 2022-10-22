@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const RegularSvg = styled.svg`
-  fill: ${(props) => props.theme.colours.text};
+  fill: var(--color-text);
 `;
 
 const SocialSvg = styled(RegularSvg)`

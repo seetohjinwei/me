@@ -7,12 +7,12 @@ const Foot = styled.footer`
   height: 30px;
   /* very subtle gradient */
   background-image: linear-gradient(
-    ${(props) => props.theme.colours.blueBackground},
+    var(--color-blue-background),
     transparent 30%
   );
 
   > * {
-    color: ${(props) => props.theme.colours.faded};
+    color: var(--color-faded);
     margin: 1em 0;
   }
 `;

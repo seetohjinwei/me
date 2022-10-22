@@ -7,7 +7,7 @@ import me from "../images/icons/me.png";
 import { GitHubSvg, LinkedinSvg, MailSvg } from "./Svg";
 
 const Section = styled(ContentSection)`
-  background: ${(props) => props.theme.colours.yellowBackground};
+  background: var(--color-yellow-background);
 `;
 
 const Container = styled(ContentContainer)`
@@ -91,7 +91,7 @@ const Links = (): JSX.Element => {
 const AboutMe = (): JSX.Element => {
   return (
     <Section id="aboutme">
-      <Divider {...{ colour: "pageBackground", width: 102 }} />
+      <Divider {...{ colour: "page", width: 102 }} />
       <Container>
         <Image src={me} width={"200px"} />
         <div>

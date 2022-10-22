@@ -6,8 +6,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: ${(props) => props.theme.colours.pageBackground};
-    color: ${(props) => props.theme.colours.text};
+    background: var(--color-page-background);
+    color: var(--color-text);
     font-family: "Kaisei HarunoUmi", sans-serif;
     margin: 0;
     font-size: 100%;
@@ -22,12 +22,12 @@ const GlobalStyle = createGlobalStyle`
   }
 
   a {
-    color: ${(props) => props.theme.colours.link};
+    color: var(--color-link);
     text-decoration: none;
   }
 
   a:hover {
-    color: ${(props) => props.theme.colours.linkHover};
+    color: var(--color-link-hover);
   }
 `;
 

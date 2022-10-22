@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { ColourShape } from "../styles/colours";
 
 const DividerDiv = styled.div`
   position: absolute;
@@ -18,9 +17,9 @@ const DividerSvg = styled.svg<{ width: number }>`
   height: 100px;
 `;
 
-type colours = keyof ColourShape;
+type colours = "page" | "yellow" | "green" | "blue";
 const DividerPath = styled.path<{ colour: colours }>`
-  fill: ${(props) => props.theme.colours[props.colour]};
+  fill: var(--color-${(props) => props.colour}-background);
 `;
 
 /*

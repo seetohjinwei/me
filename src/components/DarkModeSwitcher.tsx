@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { modes } from "../context/ModeProvider";
 
 const Wrapper = styled.div`
   display: inline-block;
@@ -18,7 +19,7 @@ const Wrapper = styled.div`
 `;
 
 const Label = styled.label`
-  background-color: ${(props) => props.theme.colours.buttonDarkMode};
+  background-color: var(--color-button-dark-mode);
   border-radius: 25px;
   cursor: pointer;
   height: 50px;
@@ -27,7 +28,7 @@ const Label = styled.label`
 `;
 
 const Slider = styled.span`
-  border: 3px solid ${(props) => props.theme.colours.text};
+  border: 3px solid var(--color-text);
   border-radius: 25px;
   height: 100%;
   position: absolute;
@@ -35,9 +36,9 @@ const Slider = styled.span`
   width: 100%;
 
   &::before {
-    background-color: ${(props) => props.theme.colours.buttonDarkMode};
+    background-color: var(--color-button-dark-mode);
     border-radius: 50%;
-    box-shadow: inset 14px -2px 0px 0px ${(props) => props.theme.colours.buttonLightMode};
+    box-shadow: inset 14px -2px 0px 0px var(--color-button-light-mode);
     content: "";
     height: 37.5px;
     left: 8px;
@@ -53,12 +54,12 @@ const Input = styled.input`
   position: absolute;
 
   &:checked ~ ${Slider} {
-    background-color: ${(props) => props.theme.colours.buttonLightMode};
+    background-color: var(--color-button-light-mode);
   }
 
   &:checked ~ ${Slider}::before {
     transform: translateX(47.5px);
-    background-color: ${(props) => props.theme.colours.buttonDarkMode};
+    background-color: var(--color-button-dark-mode);
     box-shadow: none;
   }
 `;
@@ -68,16 +69,16 @@ Found at: https://alvarotrigo.com/blog/toggle-switch-css/
 Code pen: https://codepen.io/alvarotrigo/pen/zYPydpB
 */
 const DarkModeSwitcher = ({
-  checked,
+  mode,
   onChange,
 }: {
-  checked: boolean;
+  mode: modes;
   onChange: () => void;
 }): JSX.Element => {
   return (
     <Wrapper>
       <Label>
-        <Input type="checkbox" checked={checked} onChange={onChange} />
+        <Input type="checkbox" checked={mode === "light"} onChange={onChange} />
         <Slider />
       </Label>
     </Wrapper>

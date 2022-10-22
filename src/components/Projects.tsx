@@ -12,7 +12,7 @@ import me from "../images/sites/me.png";
 import organius from "../images/sites/organius.png";
 
 const Section = styled(ContentSection)`
-  background: ${(props) => props.theme.colours.blueBackground};
+  background: var(--color-blue-background);
 `;
 
 const Container = styled(ContentContainer)``;
@@ -131,8 +131,8 @@ const Me = (
     <ProjectImage src={me} />
     <p>My very own personal site!</p>
     <p>
-      The site is built with Responsive Web Design in mind. Try resizing your
-      browser (or using a different device)!
+      The site is built with Responsive Web Design in mind, so the layout adapts
+      to your screen size. Go ahead and try it out!
     </p>
     <p>As I am not much of a designer, I opted for a simpler look :D</p>
     <p>
@@ -162,7 +162,7 @@ const Me = (
 const Projects = (): JSX.Element => {
   return (
     <Section id="projects">
-      <Divider {...{ colour: "greenBackground", width: 274 }} />
+      <Divider {...{ colour: "green", width: 274 }} />
       <Container>
         <h2>Things I've made...</h2>
         {Organius}

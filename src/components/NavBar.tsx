@@ -29,7 +29,7 @@ const Item = styled.li`
   padding: 0 0.5ch;
 
   > * {
-    color: ${(props) => props.theme.colours.text};
+    color: var(--color-text);
     font-size: 1.3em;
     font-weight: 600;
   }
@@ -38,7 +38,7 @@ const Item = styled.li`
 const LeftItem = styled(Item)<{ selected: boolean }>`
   ${(props) =>
     props.selected &&
-    "border: 2px solid " + props.theme.colours.link + "; border-radius: 6px;"}
+    "border: 2px solid var(--color-link); border-radius: 6px;"}
   display: inline;
   padding: 0.7ch 1ch;
 `;
@@ -75,7 +75,7 @@ const NavBar = ({ page }: { page: pages }): JSX.Element => {
           <Link to="#projects">Projects</Link>
         </RightItem>
         <RightItem>
-          <DarkModeSwitcher checked={mode === "light"} onChange={toggleTheme} />
+          <DarkModeSwitcher mode={mode} onChange={toggleTheme} />
         </RightItem>
       </RightList>
     </NavWrapper>

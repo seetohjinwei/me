@@ -23,7 +23,7 @@ import sqlIcon from "../images/icons/sql.svg";
 import typescriptIcon from "../images/icons/typescript.svg";
 
 const Section = styled(ContentSection)`
-  background: ${(props) => props.theme.colours.greenBackground};
+  background: var(--color-green-background);
 `;
 
 const Grid = styled.div`
@@ -36,7 +36,7 @@ const Grid = styled.div`
 const ShowButton = styled.button`
   border: 1px solid black;
   border-radius: 10px;
-  color: ${(props) => props.theme.colours.text};
+  color: var(--color-text);
   font-size: 1.5rem;
   height: 75px;
   margin: auto 0;
@@ -230,7 +230,7 @@ const Tech = (): JSX.Element => {
 
   return (
     <Section id="tech">
-      <Divider {...{ colour: "yellowBackground", width: 165 }} />
+      <Divider {...{ colour: "yellow", width: 165 }} />
       <Container>
         <h2>Things I've used...</h2>
         <Grid>
