@@ -7,9 +7,10 @@ import {
 } from "../styles/Containers.styled";
 import Divider from "./Divider";
 
-// TODO: update this, with dark + light mode
+import deaths from "../images/sites/50deaths.png";
 import me from "../images/sites/me.png";
 import organius from "../images/sites/organius.png";
+import tm from "../images/sites/tm.png";
 
 const Section = styled(ContentSection)`
   background: var(--color-blue-background);
@@ -51,6 +52,11 @@ const ProjectImage = styled.img`
   width: 100%;
 `;
 
+const ProjectVerticalImage = styled.img`
+  height: 500px;
+  width: auto;
+`;
+
 const ProjectLinks = styled.div`
   display: flex;
   margin-top: 0.5em;
@@ -75,13 +81,8 @@ const Organius = (
     </p>
     <p>
       This is a complete full-stack web application with a React frontend and
-      Golang backend with RESTful architecture, and was developed with a friend
-      of mine as part of a University module! More details can be found in the
+      Golang backend with RESTful architecture. More details can be found in the
       Project Documentation link!
-    </p>
-    <p>
-      Design is pretty simple because time was spent perfecting everything else
-      instead :p
     </p>
     <TechStack>Tech Stack</TechStack>
     <TechList>
@@ -125,18 +126,54 @@ const Organius = (
   </ProjectContainer>
 );
 
+const TM = (
+  <ProjectContainer>
+    <ProjectTitle>Task Manager</ProjectTitle>
+    <ProjectImage src={tm} />
+    <p>
+      Create, edit, tag, sort, re-arrange, filter, remove your tasks easily with
+      this Task Manager.
+    </p>
+    <p>
+      Features a login system, 3 themes to choose from, a variety of options,
+      with configurable defaults!
+    </p>
+    <TechStack>Tech Stack</TechStack>
+    <TechList>
+      <li>TypeScript, React</li>
+      <li>Ruby on Rails, PostgreSQL</li>
+      <li>Bootstrap Components</li>
+    </TechList>
+    <ProjectLinks>
+      <a
+        href="https://github.com/seetohjinwei/task-manager"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GitHub Repo
+      </a>
+      <a href="https://tm.jinwei.dev" target="_blank" rel="noopener noreferrer">
+        Website
+      </a>
+    </ProjectLinks>
+  </ProjectContainer>
+);
+
 const Me = (
   <ProjectContainer>
     <ProjectTitle>Personal Site</ProjectTitle>
     <ProjectImage src={me} />
-    <p>My very own personal site!</p>
     <p>
-      The site is built with Responsive Web Design in mind, so the layout adapts
-      to your screen size. Go ahead and try it out!
+      My very own personal site! Here, you can find all kinds of things related
+      to me!
     </p>
-    <p>As I am not much of a designer, I opted for a simpler look :D</p>
     <p>
-      Check out the dark / light mode switcher on the top right of the page!
+      This is built with Responsive Web Design in mind, so the layout adapts to
+      your screen size. Go ahead and try it out!
+    </p>
+    <p>
+      I picked the initial color mode based on your preference but check out the
+      dark / light mode switcher at the top right if you wanna change things up!
     </p>
     <p>Deployed and hosted on my own remote server!</p>
     <TechStack>Tech Stack</TechStack>
@@ -159,14 +196,147 @@ const Me = (
   </ProjectContainer>
 );
 
+const TaskBook = (
+  <ProjectContainer>
+    <ProjectTitle>TaskBook</ProjectTitle>
+    <ProjectVerticalImage src="https://github.com/AY2223S1-CS2103T-T13-4/tp/raw/master/docs/images/Ui.png" />
+    <p>
+      A contact and task management desktop application, built with Software
+      Engineering principles in mind!
+    </p>
+    <TechStack>Tech Stack</TechStack>
+    <TechList>
+      <li>Java, JUnit, JavaFX</li>
+    </TechList>
+    <ProjectLinks>
+      <a
+        href="https://github.com/AY2223S1-CS2103T-T13-4/tp"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GitHub Repo
+      </a>
+      <a
+        href="https://github.com/AY2223S1-CS2103T-T13-4/tp/releases"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Application Download
+      </a>
+      <a
+        href="https://ay2223s1-cs2103t-t13-4.github.io/tp/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Developer and User Guide
+      </a>
+      <a
+        href="https://ay2223s1-cs2103t-t13-4.github.io/tp/team/seetohjinwei.html"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        My Contribution!
+      </a>
+    </ProjectLinks>
+  </ProjectContainer>
+);
+
+const LittleDuke = (
+  <ProjectContainer>
+    <ProjectTitle>Little Duke</ProjectTitle>
+    <ProjectVerticalImage src="https://github.com/seetohjinwei/ip/raw/master/docs/Ui.png" />
+    <p>
+      A todo-list desktop application, built with Software Engineering
+      principles in mind!
+    </p>
+    <TechStack>Tech Stack</TechStack>
+    <TechList>
+      <li>Java, JUnit, JavaFX</li>
+    </TechList>
+    <ProjectLinks>
+      <a
+        href="https://github.com/seetohjinwei/ip"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GitHub Repo
+      </a>
+      <a
+        href="https://github.com/seetohjinwei/ip/releases"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Application Download
+      </a>
+      <a
+        href="https://seetohjinwei.github.io/ip/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        User Guide
+      </a>
+    </ProjectLinks>
+  </ProjectContainer>
+);
+
+const FiftyDeaths = (
+  <ProjectContainer>
+    <ProjectTitle>50 Deaths</ProjectTitle>
+    <ProjectImage src={deaths} />
+    <p>
+      A short rogue-like game where you fight your way through multiple levels
+      and eventually beat the final boss!{" "}
+      <em>Hopefully you don't actually need 50 deaths to finish the game!</em>
+    </p>
+    <TechStack>Tech Stack</TechStack>
+    <TechList>
+      <li>Lua, LÖVE Framework</li>
+    </TechList>
+    <ProjectLinks>
+      <a
+        href="https://github.com/seetohjinwei/50deaths"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GitHub Repo
+      </a>
+      <a
+        href="https://github.com/seetohjinwei/50deaths/blob/main/README.md#launching-the-game"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Game Download
+      </a>
+      <a
+        href="https://www.youtube.com/watch?v=AAngr3Ti0kc"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Video Demo
+      </a>
+      <a
+        href="https://github.com/seetohjinwei/50deaths/blob/main/README.md"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Development Docs
+      </a>
+    </ProjectLinks>
+  </ProjectContainer>
+);
+
 const Projects = (): JSX.Element => {
   return (
     <Section id="projects">
       <Divider {...{ colour: "green", width: 274 }} />
       <Container>
-        <h2>Things I've made...</h2>
+        <h2>Things I've done...</h2>
         {Organius}
+        {TM}
         {Me}
+        {TaskBook}
+        {LittleDuke}
+        {FiftyDeaths}
       </Container>
     </Section>
   );
