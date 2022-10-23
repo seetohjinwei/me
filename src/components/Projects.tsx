@@ -38,7 +38,7 @@ const TechList = styled(List)`
   }
 `;
 
-const TechStack = styled.b`
+const BoldUnderline = styled.b`
   text-decoration: underline;
 `;
 
@@ -84,7 +84,7 @@ const Organius = (
       Golang backend with RESTful architecture. More details can be found in the
       Project Documentation link!
     </p>
-    <TechStack>Tech Stack</TechStack>
+    <BoldUnderline>Tech Stack</BoldUnderline>
     <TechList>
       <li>TypeScript, React, Create React App</li>
       <li>Golang, Gin Web Framework, Gorilla Web Socket Framework</li>
@@ -138,7 +138,7 @@ const TM = (
       Features a login system, 3 themes to choose from, a variety of options,
       with configurable defaults!
     </p>
-    <TechStack>Tech Stack</TechStack>
+    <BoldUnderline>Tech Stack</BoldUnderline>
     <TechList>
       <li>TypeScript, React</li>
       <li>Ruby on Rails, PostgreSQL</li>
@@ -175,8 +175,7 @@ const Me = (
       I picked the initial color mode based on your preference but check out the
       dark / light mode switcher at the top right if you wanna change things up!
     </p>
-    <p>Deployed and hosted on my own remote server!</p>
-    <TechStack>Tech Stack</TechStack>
+    <BoldUnderline>Tech Stack</BoldUnderline>
     <TechList>
       <li>TypeScript, React, Gatsby</li>
       <li>Styled Components</li>
@@ -204,7 +203,7 @@ const TaskBook = (
       A contact and task management desktop application, built with Software
       Engineering principles in mind!
     </p>
-    <TechStack>Tech Stack</TechStack>
+    <BoldUnderline>Tech Stack</BoldUnderline>
     <TechList>
       <li>Java, JUnit, JavaFX</li>
     </TechList>
@@ -249,7 +248,7 @@ const LittleDuke = (
       A todo-list desktop application, built with Software Engineering
       principles in mind!
     </p>
-    <TechStack>Tech Stack</TechStack>
+    <BoldUnderline>Tech Stack</BoldUnderline>
     <TechList>
       <li>Java, JUnit, JavaFX</li>
     </TechList>
@@ -288,7 +287,7 @@ const FiftyDeaths = (
       and eventually beat the final boss!{" "}
       <em>Hopefully you don't actually need 50 deaths to finish the game!</em>
     </p>
-    <TechStack>Tech Stack</TechStack>
+    <BoldUnderline>Tech Stack</BoldUnderline>
     <TechList>
       <li>Lua, LÖVE Framework</li>
     </TechList>
@@ -325,6 +324,50 @@ const FiftyDeaths = (
   </ProjectContainer>
 );
 
+const DevOps = (
+  <ProjectContainer>
+    <ProjectTitle>DevOps Experience</ProjectTitle>
+    <p>
+      In most of my projects, I am the one doing the general DevOps work,
+      including set up and deployment.
+    </p>
+    <p>
+      In fact, my web projects are all hosted and deployed on my own remote
+      Ubuntu server, reverse-proxied by an Nginx instance. You are being served
+      content from it right now!
+    </p>
+    <p>
+      Even though I am not aiming to do work in DevOps, I believe the general
+      experience can help a lot in other areas too!
+    </p>
+    <BoldUnderline>Experience</BoldUnderline>
+    <TechList>
+      <li>General Linux / Unix CLI familiarity</li>
+      <li>Continuous Integration & Continuous Deployment (CI/CD) scripts</li>
+      <li>Basic Docker scripts</li>
+      <li>Basic hosting and server setup</li>
+      <li>Setting up various types of tech projects</li>
+    </TechList>
+  </ProjectContainer>
+);
+
+const Others = (
+  <ProjectContainer>
+    <ProjectTitle>Others</ProjectTitle>
+    <p>
+      <BoldUnderline>LeetCode</BoldUnderline>
+      {": "}
+      <a
+        href="https://leetcode.com/seetohjinwei/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Link
+      </a>
+    </p>
+  </ProjectContainer>
+);
+
 const Projects = (): JSX.Element => {
   return (
     <Section id="projects">
@@ -337,6 +380,8 @@ const Projects = (): JSX.Element => {
         {TaskBook}
         {LittleDuke}
         {FiftyDeaths}
+        {DevOps}
+        {Others}
       </Container>
     </Section>
   );

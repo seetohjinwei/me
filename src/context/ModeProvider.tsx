@@ -1,15 +1,6 @@
 import React, { createContext, useEffect, useReducer } from "react";
 
 export type modes = undefined | "light" | "dark";
-// Simple type validation: https://stackoverflow.com/a/57065841
-const isValidMode = (
-  maybeMode: string | null | undefined
-): maybeMode is modes => {
-  if (maybeMode === null) {
-    return false;
-  }
-  return ["light", "dark", undefined].includes(maybeMode);
-};
 
 const switcher: { [initial: string]: modes } = {
   light: "dark",
@@ -23,6 +14,8 @@ interface IModeContext {
 
 export const ModeContext = createContext<IModeContext>({} as IModeContext);
 
+// Make sure to update the colors in `/gatsby-ssr.tsx` as well!
+// Reason is found there too.
 const darkColors = {
   pageBackground: "#171214",
   yellowBackground: "#5b4628",
@@ -30,7 +23,7 @@ const darkColors = {
   blueBackground: "#212f45",
   text: "#eeeeee",
   faded: "#eeeeee",
-  link: "#f6e1d3",
+  link: "#f790e8",
   linkHover: "#ffc1cc",
   buttonDarkMode: "#424242",
   buttonLightMode: "#eeeeee",

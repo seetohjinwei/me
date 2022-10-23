@@ -112,7 +112,7 @@ const AboutMe = (): JSX.Element => {
             I'm currently studying Computer Science at National University of
             Singapore.
           </p>
-          <p>PS: I love watching sci-fi / fantasy shows and books!</p>
+          <p>PS: I love watching and reading sci-fi shows and books!</p>
           <Links />
         </div>
       </Container>

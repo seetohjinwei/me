@@ -4,6 +4,7 @@
  */
 import React from "react";
 
+// Make sure to update the colors in `/src/context/ModeProvider.tsx` as well!
 const MagicScriptTag = () => {
   const codeToRunOnClient = `
   (function() {
@@ -14,7 +15,7 @@ const MagicScriptTag = () => {
     blueBackground: "#212f45",
     text: "#eeeeee",
     faded: "#eeeeee",
-    link: "#f6e1d3",
+    link: "#f790e8",
     linkHover: "#ffc1cc",
     buttonDarkMode: "#424242",
     buttonLightMode: "#eeeeee",
