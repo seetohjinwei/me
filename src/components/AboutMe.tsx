@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { ContentContainer, ContentSection } from "../styles/Containers.styled";
 import Divider from "./Divider";
 
@@ -55,6 +55,27 @@ const SocialLink = styled.a`
   margin: 0 1ch;
 `;
 
+const waveAnimation = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(20deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+`;
+
+const WaveEmoji = styled.span`
+  display: inline-block;
+
+  :hover,
+  :focus {
+    animation: ${waveAnimation} 0.7s linear infinite;
+  }
+`;
+
 const Links = (): JSX.Element => {
   return (
     <LinkContainer>
@@ -98,7 +119,9 @@ const AboutMe = (): JSX.Element => {
           {/* Force line breaks to occur at that point. */}
           <h1>
             <LineBreak>Hey there,&nbsp;</LineBreak>
-            <LineBreak>I'm Jin Wei! 👋</LineBreak>
+            <LineBreak>
+              I'm Jin Wei! <WaveEmoji>👋</WaveEmoji>
+            </LineBreak>
           </h1>
           <p>
             I'm a <b>Software Engineer</b>, mainly doing work in <b>Backend</b>{" "}
