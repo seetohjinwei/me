@@ -1,11 +1,13 @@
-import * as React from "react";
 import type { HeadFC } from "gatsby";
+import * as React from "react";
 import AboutMe from "../components/AboutMe";
-import Layout from "../components/Layout";
-import Tech from "../components/Tech";
-import Projects from "../components/Projects";
-import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
+import Layout from "../components/Layout";
+import NavBar from "../components/NavBar";
+import Projects from "../components/Projects";
+import Tech from "../components/Tech";
+
+import "animate.css/animate.min.css";
 
 const IndexPage = () => {
   return (
