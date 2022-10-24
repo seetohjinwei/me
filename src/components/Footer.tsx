@@ -27,6 +27,21 @@ const RightSide = styled.div`
   margin-right: 2em;
 `;
 
+const StarSpan = styled.span`
+  > svg {
+    transform: scale(1);
+    transition: all 0.2s ease-out;
+  }
+
+  :hover,
+  :focus {
+    > svg {
+      fill: var(--color-link-hover);
+      transform: scale(1.2);
+    }
+  }
+`;
+
 const Footer = (): JSX.Element => {
   return (
     <Foot>
@@ -46,7 +61,7 @@ const Footer = (): JSX.Element => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          {StarSvg} on GitHub
+          <StarSpan>{StarSvg} on GitHub</StarSpan>
         </a>
       </RightSide>
     </Foot>
