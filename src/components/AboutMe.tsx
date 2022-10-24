@@ -3,6 +3,7 @@ import styled, { keyframes } from "styled-components";
 import { ContentContainer, ContentSection } from "../styles/Containers.styled";
 import Divider from "./Divider";
 
+import { AnimationOnScroll } from "react-animation-on-scroll";
 import me from "../images/icons/me.png";
 import { GitHubSvg, LinkedinSvg, MailSvg } from "./Svg";
 
@@ -25,7 +26,6 @@ const LineBreak = styled.span`
   line-height: 100%;
 `;
 
-// TODO: Animate image into view. Differently, based on phone or PC.
 const Image = styled.img`
   display: block;
   margin: auto;
@@ -114,7 +114,9 @@ const AboutMe = (): JSX.Element => {
     <Section id="aboutme">
       <Divider {...{ colour: "page", width: 102 }} />
       <Container>
-        <Image src={me} width={"200px"} />
+        <AnimationOnScroll animateIn={"animate__fadeInRight"}>
+          <Image src={me} width={"200px"} />
+        </AnimationOnScroll>
         <div>
           {/* Force line breaks to occur at that point. */}
           <h1>
