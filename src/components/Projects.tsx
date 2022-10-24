@@ -53,8 +53,9 @@ const ProjectImage = styled.img`
 `;
 
 const ProjectVerticalImage = styled.img`
-  height: 500px;
+  max-height: 500px;
   width: auto;
+  max-width: 100%;
 `;
 
 const ProjectLinks = styled.div`
@@ -172,8 +173,9 @@ const Me = (
       your screen size. Go ahead and try it out!
     </p>
     <p>
-      I picked the initial color mode based on your preference but check out the
-      dark / light mode switcher at the top right if you wanna change things up!
+      I picked the initial color mode based on <em>your</em> preference but
+      check out the dark / light mode switcher at the top right if you wanna
+      change things up!
     </p>
     <BoldUnderline>Tech Stack</BoldUnderline>
     <TechList>
