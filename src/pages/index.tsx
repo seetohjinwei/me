@@ -3,7 +3,7 @@ import * as React from "react";
 import AboutMe from "../components/AboutMe";
 import Footer from "../components/Footer";
 import Layout from "../components/Layout";
-import NavBar from "../components/NavBar";
+import { NavBarMain } from "../components/NavBar";
 import Projects from "../components/Projects";
 import Tech from "../components/Tech";
 
@@ -14,7 +14,7 @@ const IndexPage = () => {
     <Layout>
       <>
         <header>
-          <NavBar page="me" />
+          <NavBarMain />
         </header>
         <AboutMe />
         <Tech />

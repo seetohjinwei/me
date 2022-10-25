@@ -49,9 +49,15 @@ const RightItem = styled(Item)`
   }
 `;
 
-type pages = "me" | "notes";
+type pages = "404" | "me" | "notes";
 
-const NavBar = ({ page }: { page: pages }): JSX.Element => {
+const NavBar = ({
+  page,
+  children,
+}: {
+  page: pages;
+  children: JSX.Element | null;
+}): JSX.Element => {
   const { mode, toggleTheme } = useContext(ModeContext);
 
   return (
@@ -65,6 +71,20 @@ const NavBar = ({ page }: { page: pages }): JSX.Element => {
         </LeftItem> */}
       </LeftList>
       <RightList>
+        {children}
+        <RightItem>
+          <DarkModeSwitcher mode={mode} onChange={toggleTheme} />
+        </RightItem>
+      </RightList>
+    </NavWrapper>
+  );
+};
+
+export const NavBarMain = (): JSX.Element =>
+  NavBar({
+    page: "me",
+    children: (
+      <>
         <RightItem>
           <Link to="#aboutme">About Me</Link>
         </RightItem>
@@ -74,12 +94,12 @@ const NavBar = ({ page }: { page: pages }): JSX.Element => {
         <RightItem>
           <Link to="#projects">Projects</Link>
         </RightItem>
-        <RightItem>
-          <DarkModeSwitcher mode={mode} onChange={toggleTheme} />
-        </RightItem>
-      </RightList>
-    </NavWrapper>
-  );
-};
+      </>
+    ),
+  });
 
-export default NavBar;
+export const NavBar404 = (): JSX.Element =>
+  NavBar({
+    page: "404",
+    children: null,
+  });
