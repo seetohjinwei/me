@@ -9,6 +9,7 @@ import Divider from "./Divider";
 
 import deaths from "../images/sites/50deaths.png";
 import me from "../images/sites/me.png";
+import mono from "../images/sites/mono.png";
 import organius from "../images/sites/organius.png";
 import tm from "../images/sites/tm.png";
 
@@ -326,6 +327,34 @@ const FiftyDeaths = (
   </ProjectContainer>
 );
 
+const Mono = (
+  <ProjectContainer>
+    <ProjectTitle>MonO</ProjectTitle>
+    <ProjectImage src={mono} />
+    <p>
+      <em>Very difficult</em> platformer where the player can shift between 2
+      forms, allowing for different interactions with different blocks.
+    </p>
+    <p>
+      Developed as part of NUS Games Development Group's GameCraft 2017 24-hour
+      hackathon where the theme was "shift".
+    </p>
+    <BoldUnderline>Tech Stack</BoldUnderline>
+    <TechList>
+      <li>GameMaker Studio 2</li>
+    </TechList>
+    <ProjectLinks>
+      <a
+        href="https://teamfizzy.itch.io/mono"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Game Page
+      </a>
+    </ProjectLinks>
+  </ProjectContainer>
+);
+
 const DevOps = (
   <ProjectContainer>
     <ProjectTitle>DevOps Experience</ProjectTitle>
@@ -382,6 +411,7 @@ const Projects = (): JSX.Element => {
         {TaskBook}
         {LittleDuke}
         {FiftyDeaths}
+        {Mono}
         {DevOps}
         {Others}
       </Container>
