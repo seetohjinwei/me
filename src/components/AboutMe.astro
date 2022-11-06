@@ -3,12 +3,11 @@ import Svg from "./Svg.astro";
 import Divider from "./Divider.astro";
 
 import me from "../images/icons/me.png";
-import GitHubSvg from "../images/icons/github.svg";
 ---
 
-<section class="section">
+<section class="section-global section" id="aboutme">
   <Divider colour="page" type="one" />
-  <div class="container">
+  <div class="container-global container">
     <img src={me} alt="" width="200px" />
     <div>
       <h1>
@@ -56,17 +55,9 @@ import GitHubSvg from "../images/icons/github.svg";
 <style>
   .section {
     background: var(--color-yellow-background);
-    padding-top: 5%;
-    position: relative;
-    width: 100%;
   }
 
   .container {
-    border-radius: 20px;
-    box-sizing: border-box;
-    margin: 0 auto;
-    padding: 3em 0;
-    width: clamp(300px, 95%, 900px);
     font-size: 120%;
   }
 

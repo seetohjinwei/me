@@ -1,0 +1,399 @@
+---
+import Divider from "./Divider.astro";
+
+import deaths from "../images/sites/50deaths.png";
+import me from "../images/sites/me.png";
+import mono from "../images/sites/mono.png";
+import organius from "../images/sites/organius.png";
+import tm from "../images/sites/tm.png";
+---
+
+<section class="section-global section" id="projects">
+  <Divider colour="green" type="two" />
+  <div class="container-global">
+    <h2>Things I've done...</h2>
+
+    <div class="container">
+      <h3 class="title">OrgaNiUS</h3>
+      <div class="image">
+        <img class="horizontal" src={organius} />
+      </div>
+      <p>A central hub for forming, planning and organising group work.</p>
+      <p>
+        Key features include managing projects, events and tasks, both at an
+        individual and project level. Do check out the promotional video if this
+        sounds interesting!
+      </p>
+      <p>
+        This is a complete full-stack web application with a React frontend and
+        Golang backend with RESTful architecture. More details can be found in
+        the Project Documentation link!
+      </p>
+      <b class="underline">Tech Stack</b>
+      <ul class="tech">
+        <li>TypeScript, React, Create React App</li>
+        <li>Golang, Gin Web Framework, Gorilla Web Socket Framework</li>
+        <li>Jest, React Testing Library, Go Testing Library</li>
+        <li>Styled Components, Tailwind</li>
+        <li>MongoDB</li>
+        <li>Docker</li>
+      </ul>
+      <div class="links">
+        <a
+          href="https://github.com/organius/organius"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub Repo
+        </a>
+        <a
+          href="https://organius.jinwei.dev"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Website
+        </a>
+        <a
+          href="https://docs.google.com/document/d/1i6PSnL6ETGeS_o3-guyhrTmHUamMz73ZENaw63N_GPI/edit?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Project Documentation
+        </a>
+        <a
+          href="https://www.youtube.com/watch?v=An4ZFKv77Oc"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Promotional Video (with Demo)
+        </a>
+      </div>
+    </div>
+
+    <div class="container">
+      <h3 class="title">Task Manager</h3>
+      <div class="image">
+        <img class="horizontal" src={tm} />
+      </div>
+      <p>
+        Create, edit, tag, sort, re-arrange, filter, remove your tasks easily
+        with this Task Manager.
+      </p>
+      <p>
+        Features a login system, 3 themes to choose from, a variety of options,
+        with configurable defaults!
+      </p>
+      <b class="underline">Tech Stack</b>
+      <ul class="tech">
+        <li>TypeScript, React</li>
+        <li>Ruby on Rails, PostgreSQL</li>
+        <li>Bootstrap Components</li>
+      </ul>
+      <div class="links">
+        <a
+          href="https://github.com/seetohjinwei/task-manager"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub Repo
+        </a>
+        <a
+          href="https://tm.jinwei.dev"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Website
+        </a>
+      </div>
+    </div>
+
+    <div class="container">
+      <h3 class="title">Personal Site</h3>
+      <div class="image">
+        <img class="horizontal" src={me} />
+      </div>
+      <p>
+        My very own personal site! Here, you can find all kinds of things
+        related to me!
+      </p>
+      <p>
+        This is built with Responsive Web Design in mind, so the layout adapts
+        to your screen size. Go ahead and give it a try!
+      </p>
+      <p>
+        I picked the initial color mode based on <em>your</em> preference but check
+        out the dark / light mode switcher at the top right if you wanna change things
+        up!
+      </p>
+      <b class="underline">Tech Stack</b>
+      <ul class="tech">
+        <li>TypeScript, Astro</li>
+      </ul>
+      <div class="links">
+        <a
+          href="https://github.com/seetohjinwei/me"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub Repo
+        </a>
+        <a href="https://jinwei.dev" target="_blank" rel="noopener noreferrer">
+          Website (here!)
+        </a>
+      </div>
+    </div>
+
+    <div class="container">
+      <h3 class="title">TaskBook</h3>
+      <div class="image">
+        <img
+          class="vertical"
+          src="https://github.com/AY2223S1-CS2103T-T13-4/tp/raw/master/docs/images/Ui.png"
+        />
+      </div>
+      <p>
+        A contact and task management desktop application, built with Software
+        Engineering principles in mind!
+      </p>
+      <b class="underline">Tech Stack</b>
+      <ul class="tech">
+        <li>Java, JUnit, JavaFX</li>
+      </ul>
+      <div class="links">
+        <a
+          href="https://github.com/AY2223S1-CS2103T-T13-4/tp"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub Repo
+        </a>
+        <a
+          href="https://github.com/AY2223S1-CS2103T-T13-4/tp/releases"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Application Download
+        </a>
+        <a
+          href="https://ay2223s1-cs2103t-t13-4.github.io/tp/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Developer and User Guide
+        </a>
+        <a
+          href="https://ay2223s1-cs2103t-t13-4.github.io/tp/team/seetohjinwei.html"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          My Contribution!
+        </a>
+      </div>
+    </div>
+
+    <div class="container">
+      <h3 class="title">Little Duke</h3>
+      <div class="image">
+        <img
+          class="vertical"
+          src="https://github.com/seetohjinwei/ip/raw/master/docs/Ui.png"
+        />
+      </div>
+      <p>
+        A todo-list desktop application, built with Software Engineering
+        principles in mind!
+      </p>
+      <b class="underline">Tech Stack</b>
+      <ul class="tech">
+        <li>Java, JUnit, JavaFX</li>
+      </ul>
+      <div class="links">
+        <a
+          href="https://github.com/seetohjinwei/ip"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub Repo
+        </a>
+        <a
+          href="https://github.com/seetohjinwei/ip/releases"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Application Download
+        </a>
+        <a
+          href="https://seetohjinwei.github.io/ip/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          User Guide
+        </a>
+      </div>
+    </div>
+
+    <div class="container">
+      <h3 class="title">50 Deaths</h3>
+      <div class="image">
+        <img class="horizontal" src={deaths} />
+      </div>
+      <p>
+        A short rogue-like game where you fight your way through multiple levels
+        and eventually beat the final boss!{" "}
+        <em>Hopefully you don't actually need 50 deaths to finish the game!</em>
+      </p>
+      <b class="underline">Tech Stack</b>
+      <ul class="tech">
+        <li>Lua, LÖVE Framework</li>
+      </ul>
+      <div class="links">
+        <a
+          href="https://github.com/seetohjinwei/50deaths"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub Repo
+        </a>
+        <a
+          href="https://github.com/seetohjinwei/50deaths/blob/main/README.md#launching-the-game"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Game Download
+        </a>
+        <a
+          href="https://www.youtube.com/watch?v=AAngr3Ti0kc"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Video Demo
+        </a>
+        <a
+          href="https://github.com/seetohjinwei/50deaths/blob/main/README.md"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Development Docs
+        </a>
+      </div>
+    </div>
+
+    <div class="container">
+      <h3 class="title">MonO</h3>
+      <div class="image">
+        <img class="horizontal" src={mono} />
+      </div>
+      <p>
+        <em>Very difficult</em> platformer where the player can shift between 2 forms,
+        allowing for different interactions with different blocks.
+      </p>
+      <p>
+        Developed as part of NUS Games Development Group's GameCraft 2017
+        24-hour hackathon where the theme was "shift".
+      </p>
+      <b class="underline">Tech Stack</b>
+      <ul class="tech">
+        <li>GameMaker Studio 2</li>
+      </ul>
+      <div class="links">
+        <a
+          href="https://teamfizzy.itch.io/mono"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Game Page
+        </a>
+      </div>
+    </div>
+
+    <div class="container">
+      <h3 class="title">DevOps Experience</h3>
+      <p>
+        In most of my projects, I am the one doing the general DevOps work,
+        including set up and deployment.
+      </p>
+      <p>
+        In fact, my web projects are all hosted and deployed on my own remote
+        Ubuntu server, reverse-proxied by an Nginx instance. You are being
+        served content from it right now!
+      </p>
+      <p>
+        Even though I am not aiming to do work in DevOps, I believe the general
+        experience can help a lot in other areas too!
+      </p>
+      <b class="underline">Experience</b>
+      <ul class="tech">
+        <li>General Linux / Unix CLI familiarity</li>
+        <li>Continuous Integration & Continuous Deployment (CI/CD) scripts</li>
+        <li>Basic Docker scripts</li>
+        <li>Basic hosting and server setup</li>
+        <li>Setting up various types of tech projects</li>
+      </ul>
+    </div>
+
+    <div class="container">
+      <h3 class="title">Others</h3>
+      <p>
+        <a
+          href="https://leetcode.com/seetohjinwei/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LeetCode Profile Link
+        </a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section {
+    background: var(--color-blue-background);
+  }
+
+  .container {
+    /* backdrop-filter isn't supported by some smaller browsers (they will just see the same background colour as the section) */
+    backdrop-filter: brightness(1.1);
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px 40px;
+    margin-bottom: 1em;
+  }
+
+  .title {
+    font-size: 1.5em;
+    margin: 0 0 0.3em;
+  }
+
+  .tech > * {
+    font-size: 90%;
+  }
+
+  div.image {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  img.horizontal {
+    width: 100%;
+  }
+
+  img.vertical {
+    max-height: 500px;
+    max-width: 100%;
+    width: auto;
+  }
+
+  div.links {
+    display: flex;
+    margin-top: 0.5em;
+    justify-content: space-around;
+  }
+
+  @media (max-width: 1000px) {
+    div.links {
+      flex-direction: column;
+    }
+  }
+</style>
