@@ -1,0 +1,42 @@
+:root {
+  --color-page-background: #171214;
+  --color-yellow-background: #5b4628;
+  --color-green-background: #0b525b;
+  --color-blue-background: #212f45;
+  --color-text: #eeeeee;
+  --color-faded: #cacaca;
+  --color-link: #f790e8;
+  --color-link-hover: #ffc1cc;
+  --color-button-dark-mode: #424242;
+  --color-button-light-mode: #424242;
+  --initial-color-mode: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-page-background);
+  color: var(--color-text);
+  font-family: "Kaisei HarunoUmi", sans-serif;
+  margin: 0;
+  font-size: 100%;
+}
+
+h1, h2, h3 {
+  font-family: "Alegreya Sans", sans-serif;
+}
+
+h1, h2 {
+  font-size: 2em;
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-link-hover);
+}

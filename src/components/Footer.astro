@@ -1,0 +1,68 @@
+---
+import Svg from "./Svg.astro";
+---
+
+<footer>
+  <div class="left">
+    Made by <a
+      href="https://github.com/seetohjinwei/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      See Toh Jin Wei
+    </a>
+  </div>
+  <div class="right">
+    <a
+      href="https://github.com/seetohjinwei/me"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span class="star-container">
+        <span class="star">
+          <Svg icon="star" />
+        </span>
+        on GitHub
+      </span>
+    </a>
+  </div>
+</footer>
+
+<style>
+  footer {
+    height: 30px;
+    /* very subtle gradient */
+    background-image: linear-gradient(
+      var(--color-blue-background),
+      transparent 30%
+    );
+  }
+
+  footer > * {
+    color: var(--color-faded);
+    margin: 1em 0;
+  }
+
+  .left {
+    float: left;
+    margin-left: 2em;
+  }
+
+  .right {
+    float: right;
+    margin-right: 2em;
+  }
+
+  span.star {
+    display: inline-block;
+  }
+
+  span.star-container > span.star {
+    transform: scale(1);
+    transition: all 0.2s ease-out;
+  }
+
+  span.star-container:hover > span.star {
+    transform: scale(1.2);
+  }
+</style>

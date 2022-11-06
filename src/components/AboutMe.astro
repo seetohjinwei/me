@@ -1,0 +1,135 @@
+---
+import Svg from "./Svg.astro";
+import Divider from "./Divider.astro";
+
+import me from "../images/icons/me.png";
+import GitHubSvg from "../images/icons/github.svg";
+---
+
+<section class="section">
+  <Divider colour="page" type="one" />
+  <div class="container">
+    <img src={me} alt="" width="200px" />
+    <div>
+      <h1>
+        <span class="linebreak">Hey there,</span>
+        <span class="linebreak">I'm Jin Wei! <span class="wave">👋</span></span>
+      </h1>
+      <p>
+        I'm a <b>Software Engineer</b>, mainly doing work in <b>Backend</b>{" "}
+        but dabble with a bit of Frontend and DevOps too!
+      </p>
+      <p>
+        I'm someone who loves developing applications and finding new things to
+        learn about!
+      </p>
+      <p>
+        I'm currently studying Computer Science at National University of
+        Singapore.
+      </p>
+      <div class="link">
+        <span class="link">
+          <Svg icon="github" />
+          <a
+            href="https://github.com/seetohjinwei/"
+            target="_blank"
+            rel="noopener noreferrer">seetohjinwei</a
+          >
+        </span>
+        <span class="link">
+          <Svg icon="linkedin" />
+          <a
+            href="https://www.linkedin.com/in/seetohjinwei/"
+            target="_blank"
+            rel="noopener noreferrer">seetohjinwei</a
+          >
+        </span>
+        <span class="link">
+          <Svg icon="mail" />
+          <a href="mailto:seetohjinwei@gmail.com">seetohjinwei@gmail.com</a>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section {
+    background: var(--color-yellow-background);
+    padding-top: 5%;
+    position: relative;
+    width: 100%;
+  }
+
+  .container {
+    border-radius: 20px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 3em 0;
+    width: clamp(300px, 95%, 900px);
+    font-size: 120%;
+  }
+
+  span.linebreak {
+    display: inline-block;
+    line-height: 100%;
+  }
+
+  img {
+    display: block;
+    margin: auto;
+  }
+
+  div.link {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  span.link {
+    align-items: center;
+    display: flex;
+  }
+
+  span.link > a {
+    margin: 0 1ch;
+  }
+
+  @media (min-width: 1000px) {
+    .container {
+      /* move the image to the right, if screen is large enough */
+      display: flex;
+      flex-direction: row-reverse;
+    }
+
+    img {
+      margin-left: 2em;
+    }
+
+    div.link {
+      margin-top: 2em;
+      flex-direction: row;
+    }
+  }
+
+  @keyframes wave {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(20deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
+  span.wave {
+    display: inline-block;
+  }
+
+  span.wave:hover,
+  span.wave:focus {
+    animation: 0.7s linear infinite wave;
+  }
+</style>
