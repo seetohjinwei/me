@@ -3,6 +3,8 @@
   --color-yellow-background: #5b4628;
   --color-green-background: #0b525b;
   --color-blue-background: #212f45;
+  --color-footer: #171214;
+  --color-footer-text: #cacaca;
   --color-text: #eeeeee;
   --color-faded: #cacaca;
   --color-link: #f790e8;
@@ -16,6 +18,8 @@
   --color-yellow-background: #f8f89f;
   --color-green-background: #a2f6a2;
   --color-blue-background: #ade4f9;
+  --color-footer: #171214;
+  --color-footer-text: #cacaca;
   --color-text: #424242;
   --color-faded: #585858;
   --color-link: #ed7788;
@@ -36,11 +40,14 @@ body {
   font-size: 100%;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: "Alegreya Sans", sans-serif;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-size: 2em;
 }
 
