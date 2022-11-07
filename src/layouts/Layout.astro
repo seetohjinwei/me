@@ -21,6 +21,38 @@ const { title = "Jin Wei" } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@700&family=Kaisei+HarunoUmi&display=swap"
       rel="stylesheet"
     />
+
+    <script is:inline>
+      /**
+       * Inline script ensures that this runs before page load.
+       * This script is used to load the theme/mode of the user on each page load.
+       */
+
+      // true => light mode, false => dark mode
+      function getInitialColorMode() {
+        const persistedColorPreference = window.localStorage.getItem("mode");
+        const hasPersistedPreference =
+          typeof persistedColorPreference === "string";
+
+        if (hasPersistedPreference) {
+          return persistedColorPreference === "light";
+        }
+
+        const mql = window.matchMedia("(prefers-color-scheme: dark)");
+        const hasMediaQueryPreference = typeof mql.matches === "boolean";
+        if (hasMediaQueryPreference) {
+          return !mql.matches;
+        }
+
+        // Default to light mode.
+        return true;
+      }
+
+      if (getInitialColorMode()) {
+        document.querySelector("html").classList.add("light-mode");
+      }
+    </script>
+
     <title>{title}</title>
   </head>
   <body>

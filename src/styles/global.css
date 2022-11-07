@@ -8,8 +8,20 @@
   --color-link: #f790e8;
   --color-link-hover: #ffc1cc;
   --color-button-dark-mode: #424242;
-  --color-button-light-mode: #424242;
-  --initial-color-mode: dark;
+  --color-button-light-mode: #eeeeee;
+}
+
+.light-mode {
+  --color-page-background: #d5d5d5;
+  --color-yellow-background: #f8f89f;
+  --color-green-background: #a2f6a2;
+  --color-blue-background: #ade4f9;
+  --color-text: #424242;
+  --color-faded: #585858;
+  --color-link: #ed7788;
+  --color-link-hover: #ff002b;
+  --color-button-dark-mode: #424242;
+  --color-button-light-mode: #eeeeee;
 }
 
 html {

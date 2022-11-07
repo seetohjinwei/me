@@ -1,0 +1,130 @@
+<script>
+  const localStorageKey: string = "mode";
+  const light: string = "light";
+  const dark: string = "dark";
+
+  // true => light mode, false => dark mode
+  function getInitialColorMode(): boolean {
+    const persistedColorPreference =
+      window.localStorage.getItem(localStorageKey);
+    const hasPersistedPreference = typeof persistedColorPreference === "string";
+
+    if (hasPersistedPreference) {
+      return persistedColorPreference === "light";
+    }
+
+    const mql = window.matchMedia("(prefers-color-scheme: dark)");
+    const hasMediaQueryPreference = typeof mql.matches === "boolean";
+    if (hasMediaQueryPreference) {
+      return !mql.matches;
+    }
+
+    // Default to light mode.
+    return true;
+  }
+
+  const lightMode: string = "light-mode";
+
+  const maybeCheckbox = document.querySelector("#checkbox");
+  if (maybeCheckbox === null) {
+    throw "Dark Mode Switcher checkbox is missing in DOM.";
+  }
+  const checkbox: HTMLInputElement = maybeCheckbox as HTMLInputElement;
+  checkbox.checked = getInitialColorMode();
+
+  setTheme();
+
+  // Sets theme by adding a class to the body element and changing local storage.
+  function setTheme() {
+    // checkbox.checked === light mode
+    const html = document.querySelector("html");
+    if (html === null) {
+      return;
+    }
+
+    if (checkbox.checked) {
+      html.classList.add(lightMode);
+      window.localStorage.setItem(localStorageKey, light);
+    } else {
+      html.classList.remove(lightMode);
+      window.localStorage.setItem(localStorageKey, dark);
+    }
+  }
+
+  checkbox.addEventListener("click", function () {
+    setTheme();
+  });
+</script>
+
+<div class="wrapper">
+  <label class="label">
+    <input id="checkbox" type="checkbox" class="input" />
+    <span class="slider"></span>
+  </label>
+</div>
+
+<style>
+  .wrapper {
+    display: inline-block;
+    position: relative;
+    width: 100px;
+    scale: 0.6;
+    /* Hacky CSS alignment, but looks good. */
+    top: -15px;
+    right: 20px;
+  }
+
+  .label {
+    background-color: var(--color-button-dark-mode);
+    border-radius: 25px;
+    cursor: pointer;
+    height: 50px;
+    position: absolute;
+    width: 100%;
+  }
+
+  .slider {
+    border: 3px solid var(--color-text);
+    border-radius: 25px;
+    height: 100%;
+    position: absolute;
+    transition: 0.3s;
+    width: 100%;
+  }
+
+  .slider::before {
+    background-color: var(--color-button-dark-mode);
+    border-radius: 50%;
+    box-shadow: inset 14px -2px 0px 0px var(--color-button-light-mode);
+    content: "";
+    height: 37.5px;
+    left: 8px;
+    position: absolute;
+    top: 6.5px;
+    transition: 0.3s;
+    width: 37.5px;
+  }
+
+  .input {
+    display: none;
+    position: absolute;
+  }
+
+  .input:checked ~ .slider {
+    background-color: var(--color-button-light-mode);
+  }
+
+  .input:checked ~ .slider::before {
+    transform: translateX(47.5px);
+    background-color: var(--color-button-dark-mode);
+    box-shadow: none;
+  }
+
+  @media (min-width: 1000px) {
+    .wrapper {
+      right: 0;
+      top: -30px;
+      scale: 0.7;
+    }
+  }
+</style>
