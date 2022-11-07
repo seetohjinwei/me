@@ -1,24 +1,44 @@
 ---
 import DarkModeSwitcher from "./DarkModeSwitcher.astro";
+
+export interface Props {
+  page?: string;
+  sections?: { anchor: string; name: string }[];
+}
+
+const { page = "", sections = [] } = Astro.props;
+
+const pages = [
+  {
+    url: "/",
+    name: "me",
+  },
+];
 ---
 
 <header>
   <nav class="wrapper">
     <ul class="list-left">
-      <li class="item-left item-selected">
-        <a href="/">me</a>
-      </li>
+      {
+        pages.map((p) => {
+          const selected: string = p.name === page ? " item-selected" : "";
+
+          return (
+            <li class={"item-left" + selected}>
+              <a href={p.url}>{p.name}</a>
+            </li>
+          );
+        })
+      }
     </ul>
     <ul class="list-right">
-      <li class="item-right">
-        <a href="#aboutme">About Me</a>
-      </li>
-      <li class="item-right">
-        <a href="#tech">Tech</a>
-      </li>
-      <li class="item-right">
-        <a href="#projects">Projects</a>
-      </li>
+      {
+        sections.map((s) => (
+          <li class="item-right">
+            <a href={s.anchor}>{s.name}</a>
+          </li>
+        ))
+      }
       <li class="item-right"><DarkModeSwitcher /></li>
     </ul>
   </nav>

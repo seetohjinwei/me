@@ -6,10 +6,25 @@ import AboutMe from "../components/AboutMe.astro";
 import ProjectsSection from "../components/ProjectsSection.astro";
 import Footer from "../components/Footer.astro";
 import Tech from "../components/Tech.astro";
+
+const sections = [
+  {
+    anchor: "#aboutme",
+    name: "About Me",
+  },
+  {
+    anchor: "#tech",
+    name: "Tech",
+  },
+  {
+    anchor: "#projects",
+    name: "Projects",
+  },
+];
 ---
 
 <Layout title="Jin Wei">
-  <Header />
+  <Header page="me" sections={sections} />
   <AboutMe />
   <Tech />
   <ProjectsSection />
