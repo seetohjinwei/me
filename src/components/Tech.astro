@@ -1,0 +1,257 @@
+---
+import Divider from "./Divider.astro";
+
+// Icons from https://devicon.dev/
+import cppIcon from "../images/icons/cpp.svg";
+import cssIcon from "../images/icons/css.svg";
+import dockerIcon from "../images/icons/docker.svg";
+import gitIcon from "../images/icons/git.svg";
+import goIcon from "../images/icons/go.svg";
+import htmlIcon from "../images/icons/html.svg";
+import javaIcon from "../images/icons/java.svg";
+import luaIcon from "../images/icons/lua.svg";
+import mongoIcon from "../images/icons/mongodb.svg";
+import pythonIcon from "../images/icons/python.svg";
+import rubyIcon from "../images/icons/ruby.svg";
+import sqlIcon from "../images/icons/sql.svg";
+import typescriptIcon from "../images/icons/typescript.svg";
+---
+
+<script>
+  const hideClass: string = "hide";
+  const buttonShowMore: string = "Show More";
+  const buttonHideSome: string = "Hide Some";
+
+  let showing: boolean = false;
+  const initiallyHidden = document.querySelectorAll(".init-hide");
+
+  const maybeButton = document.querySelector("#show-more");
+  if (maybeButton === null) {
+    throw "Show more button is missing in DOM.";
+  }
+  const button: HTMLButtonElement = maybeButton as HTMLButtonElement;
+
+  button.addEventListener("click", function () {
+    if (showing) {
+      initiallyHidden.forEach((elem) => elem.classList.add(hideClass));
+      button.innerText = buttonShowMore;
+      showing = false;
+    } else {
+      initiallyHidden.forEach((elem) => elem.classList.remove(hideClass));
+      button.innerText = buttonHideSome;
+      showing = true;
+    }
+  });
+</script>
+
+<section class="section-global section" id="tech">
+  <Divider colour="yellow" type="two" />
+  <div class="container-global">
+    <h2>Things I've used...</h2>
+    <div class="grid">
+      <div class="item">
+        <div class="title">
+          <img src={typescriptIcon} />
+          <b>TypeScript & JavaScript</b>
+        </div>
+        <ul class="ul-global">
+          <li>React</li>
+          <li>Jest</li>
+          <li>React Testing Library</li>
+          <li>Next.js</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="title">
+          <img src={javaIcon} />
+          <b>Java</b>
+        </div>
+        <ul class="ul-global">
+          <li>Java Standard Edition</li>
+          <li>JUnit</li>
+          <li>
+            A <em>bit</em> of JavaFX
+          </li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="title">
+          <img src={goIcon} />
+          <b>Golang</b>
+        </div>
+        <ul class="ul-global">
+          <li>Gin Web Framework</li>
+          <li>Gorilla Web Socket Framework</li>
+          <li>Go Testing Library</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="title">
+          <img src={sqlIcon} />
+          <b>SQL</b>
+        </div>
+        <ul class="ul-global">
+          <li>PostgreSQL</li>
+          <li>Relational Database</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="title">
+          <img src={mongoIcon} />
+          <b>MongoDB</b>
+        </div>
+        <ul class="ul-global">
+          <li>NoSQL</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="title">
+          <img src={cssIcon} />
+          <b>CSS</b>
+        </div>
+        <ul class="ul-global">
+          <li>Styled Components</li>
+          <li>SCSS</li>
+          <li>Tailwind</li>
+          <li>... and regular CSS</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="title">
+          <img src={gitIcon} />
+          <b>Git & GitHub</b>
+        </div>
+        <ul class="ul-global">
+          <li>Git commands</li>
+          <li>General GitHub usage</li>
+          <li>GitHub Actions</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="title">
+          <b>Others</b>
+        </div>
+        <ul class="ul-global">
+          <li>Software Engineering</li>
+          <li>RESTful APIs</li>
+          <li>Data Structures & Algorithms</li>
+        </ul>
+      </div>
+      <div class="item init-hide hide">
+        <div class="title">
+          <img src={pythonIcon} />
+          <b>Python</b>
+        </div>
+        <ul class="ul-global">
+          <li>Software Engineering</li>
+          <li>RESTful APIs</li>
+          <li>Data Structures & Algorithms</li>
+        </ul>
+      </div>
+      <div class="item init-hide hide">
+        <div class="title">
+          <img src={htmlIcon} />
+          <b>HTML</b>
+        </div>
+        <ul class="ul-global">
+          <li>Responsive Web Design</li>
+          <li>Astro</li>
+        </ul>
+      </div>
+      <div class="item init-hide hide">
+        <div class="title">
+          <img src={dockerIcon} />
+          <b>Docker</b>
+        </div>
+        <ul class="ul-global">
+          <li>Basic Dockerfiles</li>
+        </ul>
+      </div>
+      <div class="item init-hide hide">
+        <div class="title">
+          <img src={cppIcon} />
+          <b>C & C++</b>
+        </div>
+        <ul class="ul-global">
+          <li>Using for miscellaneous stuff</li>
+          <li>Coding questions</li>
+        </ul>
+      </div>
+      <div class="item init-hide hide">
+        <div class="title">
+          <img src={rubyIcon} />
+          <b>Ruby</b>
+        </div>
+        <ul class="ul-global">
+          <li>Ruby on Rails</li>
+        </ul>
+      </div>
+      <div class="item init-hide hide">
+        <div class="title">
+          <img src={luaIcon} />
+          <b>Lua</b>
+        </div>
+        <ul class="ul-global">
+          <li>
+            Lua LÖVE Framework - <em>2D Game Engine</em>
+          </li>
+          <li>Light scripting</li>
+        </ul>
+      </div>
+      <button id="show-more">Show More</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section {
+    background: var(--color-green-background);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 250px);
+    column-gap: 10px;
+    row-gap: 20px;
+  }
+
+  #show-more {
+    border: 1px solid black;
+    border-radius: 10px;
+    color: var(--color-text);
+    font-size: 1.5rem;
+    height: 75px;
+    margin: auto 0;
+    /* backdrop-filter isn't supported by some smaller browsers (they will just see the same background colour as the section) */
+    backdrop-filter: brightness(1.3);
+    background: transparent;
+  }
+
+  #show-more:hover,
+  #show-more:active {
+    backdrop-filter: brightness(1.5);
+  }
+
+  .item {
+    /* backdrop-filter isn't supported by some smaller browsers (they will just see the same background colour as the section) */
+    backdrop-filter: brightness(1.1);
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  img {
+    margin-bottom: 1ch;
+    margin-right: 1ch;
+    width: 50px;
+  }
+
+  div.title {
+    display: flex;
+    align-items: center;
+  }
+</style>
