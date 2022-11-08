@@ -1,0 +1,196 @@
+---
+import type { MarkdownLayoutProps } from "astro";
+
+import Layout from "./Layout.astro";
+
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+type Props = MarkdownLayoutProps<{
+  title: string;
+  date?: string;
+}>;
+
+const { frontmatter, headings } = Astro.props;
+const shouldShowH3 =
+  headings.filter((h) => [1, 2, 3].includes(h.depth)).length <= 15;
+const headingsToShow = !shouldShowH3 ? [1, 2] : [1, 2, 3];
+---
+
+<script>
+  /**
+   * Solution adapted from https://www.bram.us/2020/01/10/smooth-scrolling-sticky-scrollspy-navigation/
+   */
+
+  window.addEventListener("DOMContentLoaded", function () {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.target.children.length === 0) {
+          throw "Section in IntersectionObserver has no children.";
+        }
+
+        const id = entry.target.children[0].getAttribute("id");
+        const maybeLink = document.querySelector(`a[href="#${id}"]`);
+        if (maybeLink === null) {
+          return;
+        }
+        const link: HTMLAnchorElement = maybeLink as HTMLAnchorElement;
+        const anchorDiv = link.parentElement;
+        if (anchorDiv === null) {
+          return;
+        }
+
+        if (entry.intersectionRatio > 0) {
+          anchorDiv.classList.add("active");
+        } else {
+          anchorDiv.classList.remove("active");
+        }
+      });
+    });
+
+    document.querySelectorAll("section > h2[id]").forEach((heading) => {
+      const section = heading.closest("section");
+      if (section === null) {
+        // for type checking
+        return;
+      }
+      observer.observe(section);
+    });
+    document.querySelectorAll("section > h3[id]").forEach((heading) => {
+      const section = heading.closest("section");
+      if (section === null) {
+        // for type checking
+        return;
+      }
+      observer.observe(section);
+    });
+  });
+</script>
+
+<Layout title={frontmatter.title}>
+  <Header page="blog" />
+  <section class="section-global">
+    <div class="container-global container">
+      <div class="content">
+        <h1 id="top">{frontmatter.title}</h1>
+        <slot />
+        {frontmatter.date && <p>Written on {frontmatter.date}</p>}
+      </div>
+      <aside class="toc-container">
+        <h3>Jump points</h3>
+        <div class="toc">
+          <div class="anchor-top">
+            <a href="#top">Back to top</a>
+          </div>
+          {
+            headings
+              .filter((h) => {
+                return headingsToShow.includes(h.depth);
+              })
+              .map((h) => {
+                const shouldIndent: boolean = h.depth === 3;
+                const indent: string = shouldIndent ? " indent" : "";
+                const css: string = indent;
+
+                return (
+                  <div class={css}>
+                    <a href={`#${h.slug}`}>{h.text}</a>
+                  </div>
+                );
+              })
+          }
+        </div>
+      </aside>
+    </div>
+  </section>
+  <Footer />
+</Layout>
+
+<style>
+  .container {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 30px;
+    width: clamp(300px, 95%, 1200px) !important;
+  }
+
+  .content {
+    flex-basis: 70%;
+  }
+
+  .toc-container {
+    height: 100%;
+    max-height: 40vh;
+    width: 70%;
+    overflow-y: auto;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    border-bottom: 1px solid var(--color-link);
+    padding-left: 1em;
+    padding-bottom: 1em;
+  }
+
+  .toc {
+  }
+
+  .toc-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .toc > div {
+    width: fit-content;
+  }
+
+  .anchor-top {
+    display: none;
+  }
+
+  .toc > div > a {
+    color: var(--color-faded-more);
+    transition: all 100ms ease-in-out;
+  }
+
+  .toc > div > a:hover {
+    color: var(--color-link);
+  }
+
+  .indent {
+    text-indent: 1em;
+  }
+
+  @media (min-width: 1000px) {
+    .container {
+      flex-direction: row;
+    }
+
+    .content {
+      width: 40%;
+    }
+
+    .toc-container {
+      width: 30%;
+      border-bottom: none;
+      border-left: 1px solid var(--color-link);
+      height: 100%;
+      max-height: 60vh;
+      padding: 0 0 1em 2em;
+
+      position: sticky;
+      top: 2rem;
+      align-self: start;
+    }
+
+    .toc > div.active > a {
+      color: var(--color-text);
+    }
+
+    .anchor-top {
+      display: inline-block;
+      margin-bottom: 1em;
+    }
+
+    .anchor-top > a {
+      color: var(--color-text) !important;
+    }
+  }
+</style>

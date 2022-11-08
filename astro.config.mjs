@@ -5,7 +5,8 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [
       'remark-math',
-      'remark-gfm'
+      'remark-gfm',
+      'remark-sectionize'
     ],
     rehypePlugins: [
       ['rehype-katex', {
