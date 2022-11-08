@@ -13,8 +13,6 @@
   --color-link-hover: #ffc1cc;
   --color-button-dark-mode: #424242;
   --color-button-light-mode: #eeeeee;
-
-  --footer-height: 50px;
 }
 
 .light-mode {
@@ -44,7 +42,7 @@ body {
   margin: 0;
   font-size: 100%;
   position: relative;
-  min-height: calc(100vh - var(--footer-height) / 2);
+  min-height: calc(100vh - 26px);
 }
 
 h1,
