@@ -14,8 +14,7 @@
     "astro": "^1.6.0",
     "rehype-katex": "^6.0.2",
     "remark-gfm": "^3.0.1",
-    "remark-math": "^5.1.1",
-    "remark-sectionize": "^1.1.1"
+    "remark-math": "^5.1.1"
   },
   "devDependencies": {
     "prettier": "^2.7.1",

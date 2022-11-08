@@ -7,6 +7,7 @@
   --color-footer: #171214;
   --color-footer-text: #cacaca;
   --color-text: #eeeeee;
+  --color-inverted: #424242;
   --color-faded: #cacaca;
   --color-faded-more: #807f7f;
   --color-link: #f790e8;
@@ -23,6 +24,7 @@
   --color-footer: #171214;
   --color-footer-text: #cacaca;
   --color-text: #424242;
+  --color-inverted: #eeeeee;
   --color-faded: #585858;
   --color-faded-more: #939393;
   --color-link: #ed7788;
@@ -47,13 +49,20 @@ body {
 
 h1,
 h2,
-h3 {
+h3,
+h4,
+h5,
+h6 {
   font-family: "Alegreya Sans", sans-serif;
+  margin: 1ch 0;
 }
 
-h1,
-h2 {
+h1 {
   font-size: 2em;
+}
+
+h2 {
+  font-size: 1.7em;
 }
 
 a {
