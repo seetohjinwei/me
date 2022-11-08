@@ -1,3 +1,4 @@
+/* dark mode */
 :root {
   --color-page-background: #171214;
   --color-yellow-background: #5b4628;
@@ -7,10 +8,13 @@
   --color-footer-text: #cacaca;
   --color-text: #eeeeee;
   --color-faded: #cacaca;
+  --color-faded-more: #807f7f;
   --color-link: #f790e8;
   --color-link-hover: #ffc1cc;
   --color-button-dark-mode: #424242;
   --color-button-light-mode: #eeeeee;
+
+  --footer-height: 50px;
 }
 
 .light-mode {
@@ -22,6 +26,7 @@
   --color-footer-text: #cacaca;
   --color-text: #424242;
   --color-faded: #585858;
+  --color-faded-more: #939393;
   --color-link: #ed7788;
   --color-link-hover: #ff002b;
   --color-button-dark-mode: #424242;
@@ -38,6 +43,8 @@ body {
   font-family: "Kaisei HarunoUmi", sans-serif;
   margin: 0;
   font-size: 100%;
+  position: relative;
+  min-height: calc(100vh - var(--footer-height) / 2);
 }
 
 h1,
