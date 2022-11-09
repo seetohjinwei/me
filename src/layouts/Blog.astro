@@ -32,7 +32,10 @@ const headingsToShow = !shouldShowH3 ? [1, 2] : [1, 2, 3];
         }
 
         const id = entry.target.children[0].getAttribute("id");
-        const maybeLink = document.querySelector(`a[href="#${id}"]`);
+        // ensures that only links in the toc are saved
+        const maybeLink = document.querySelector(
+          `.toc > div > a[href="#${id}"]`
+        );
         if (maybeLink === null) {
           return;
         }
@@ -71,7 +74,7 @@ const headingsToShow = !shouldShowH3 ? [1, 2] : [1, 2, 3];
 
 <Layout title={title}>
   <Header page="blog" />
-  <section class="section-global">
+  <section class="section-global section">
     <div class="container-global container">
       <div class="content">
         <h1>{title}</h1>
@@ -119,6 +122,10 @@ const headingsToShow = !shouldShowH3 ? [1, 2] : [1, 2, 3];
 </Layout>
 
 <style>
+  section.section {
+    padding-top: 0;
+  }
+
   .container {
     display: flex;
     flex-direction: column-reverse;

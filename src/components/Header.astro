@@ -7,36 +7,19 @@ export interface Props {
 }
 
 const { page = "", sections = [] } = Astro.props;
-
-const pages = [
-  {
-    url: "/",
-    name: "me",
-  },
-  {
-    url: "/blog",
-    name: "blog",
-  },
-];
 ---
 
 <header>
   <nav class="wrapper">
     <ul class="list-left">
-      <li class="item-left">
-        <span class="logo">Jin Wei</span>
+      <li class={"item-left"}>
+        <a href="/">
+          <span class="logo">Jin Wei</span>
+        </a>
       </li>
-      {
-        pages.map((p) => {
-          const selected: string = p.name === page ? " item-selected" : "";
-
-          return (
-            <li class={"item-left" + selected}>
-              <a href={p.url}>{p.name}</a>
-            </li>
-          );
-        })
-      }
+      <li class={"item-left" + ("blog" === page ? " item-selected" : "")}>
+        <a href="/blog">blog</a>
+      </li>
     </ul>
     <ul class="list-right">
       {
@@ -89,8 +72,8 @@ const pages = [
   }
 
   .item-left {
-    display: inline;
     padding: 0.7ch 1ch;
+    width: fit-content;
   }
 
   .item-selected {
@@ -99,6 +82,10 @@ const pages = [
   }
 
   @media (min-width: 1000px) {
+    .item-left {
+      display: inline;
+    }
+
     .item-right {
       display: inline;
     }

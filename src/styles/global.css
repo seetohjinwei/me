@@ -19,7 +19,7 @@
 }
 
 .light-mode {
-  --color-page-background: #d5d5d5;
+  --color-page-background: #e4e4e4;
   --color-yellow-background: #f8f89f;
   --color-green-background: #a2f6a2;
   --color-blue-background: #ade4f9;
@@ -48,6 +48,7 @@ body {
   font-size: 100%;
   position: relative;
   min-height: calc(100vh - 26px);
+  overflow-wrap: break-word;
 }
 
 h1,
@@ -105,4 +106,11 @@ ul.ul-global {
 code {
   font-family: "Fira Code", monospace;
   font-size: smaller;
+}
+
+/* https://stackoverflow.com/questions/5533636/add-a-horizontal-scrollbar-to-an-html-table */
+table {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
 }
