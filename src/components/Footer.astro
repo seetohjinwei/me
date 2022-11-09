@@ -3,7 +3,7 @@ import Svg from "./Svg.astro";
 ---
 
 <footer>
-  <div class="left">See Toh Jin Wei</div>
+  <div class="left"><span class="logo"> See Toh Jin Wei</span></div>
   <div class="right">
     <a
       href="https://github.com/seetohjinwei/me"
@@ -41,6 +41,13 @@ import Svg from "./Svg.astro";
   .right {
     float: right;
     margin-right: 2em;
+  }
+
+  span.logo {
+    font-family: "Alegreya Sans", sans-serif;
+    font-weight: 800;
+    color: var(--color-logo-dark);
+    font-size: 1.3em;
   }
 
   span.star {

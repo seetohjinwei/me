@@ -32,8 +32,6 @@
   const checkbox: HTMLInputElement = maybeCheckbox as HTMLInputElement;
   checkbox.checked = getInitialColorMode();
 
-  setTheme();
-
   // Sets theme by adding a class to the body element and changing local storage.
   function setTheme() {
     // checkbox.checked === light mode
@@ -64,6 +62,8 @@
 </div>
 
 <style>
+  /* Found here! */
+  /* https://alvarotrigo.com/blog/toggle-switch-css/ */
   .wrapper {
     display: inline-block;
     position: relative;

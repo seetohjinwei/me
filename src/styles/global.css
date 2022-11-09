@@ -12,6 +12,8 @@
   --color-faded-more: #807f7f;
   --color-link: #f790e8;
   --color-link-hover: #ffc1cc;
+  --color-logo: #9494d0;
+  --color-logo-dark: #9494d0;
   --color-button-dark-mode: #424242;
   --color-button-light-mode: #eeeeee;
 }
@@ -29,6 +31,7 @@
   --color-faded-more: #939393;
   --color-link: #ed7788;
   --color-link-hover: #ff002b;
+  --color-logo: #525291;
   --color-button-dark-mode: #424242;
   --color-button-light-mode: #eeeeee;
 }
