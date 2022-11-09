@@ -74,7 +74,7 @@ const headingsToShow = !shouldShowH3 ? [1, 2] : [1, 2, 3];
   <section class="section-global">
     <div class="container-global container">
       <div class="content">
-        <h1 id="top">{title}</h1>
+        <h1>{title}</h1>
         {date && <em class="date">{date}</em>}
         <div class="tag-container">
           {
@@ -92,7 +92,7 @@ const headingsToShow = !shouldShowH3 ? [1, 2] : [1, 2, 3];
         <h3>Jump points</h3>
         <div class="toc">
           <div class="anchor-top">
-            <a href="#top">Back to top</a>
+            <a href="#">Back to top</a>
           </div>
           {
             headings
