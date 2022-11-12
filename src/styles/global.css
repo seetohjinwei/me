@@ -108,7 +108,6 @@ code {
   font-size: smaller;
 }
 
-/* https://stackoverflow.com/questions/5533636/add-a-horizontal-scrollbar-to-an-html-table */
 table {
   display: block;
   overflow-x: auto;
