@@ -18,29 +18,64 @@ import typescriptIcon from "../images/icons/typescript.svg";
 ---
 
 <script>
-  const hideClass: string = "hide";
-  const buttonShowMore: string = "Show More";
-  const buttonHideSome: string = "Hide Some";
-
-  let showing: boolean = false;
-  const initiallyHidden = document.querySelectorAll(".init-hide");
-
-  const maybeButton = document.querySelector("#show-more");
-  if (maybeButton === null) {
-    throw "Show more button is missing in DOM.";
-  }
-  const button: HTMLButtonElement = maybeButton as HTMLButtonElement;
-
-  button.addEventListener("click", function () {
-    if (showing) {
-      initiallyHidden.forEach((elem) => elem.classList.add(hideClass));
-      button.innerText = buttonShowMore;
-      showing = false;
-    } else {
-      initiallyHidden.forEach((elem) => elem.classList.remove(hideClass));
-      button.innerText = buttonHideSome;
-      showing = true;
+  const reveal: string = "reveal";
+  function showCard(id: string): void {
+    const maybeCard = cardMap[id];
+    if (maybeCard === undefined) {
+      throw `Tried to show card ${id}, but it does not exist.`;
     }
+    const card: HTMLDivElement = maybeCard as HTMLDivElement;
+    card.classList.add(reveal);
+    current = id;
+  }
+
+  function hideCard(id: string): void {
+    const maybeCard = cardMap[id];
+    if (maybeCard === undefined) {
+      throw `Tried to hide card ${id}, but it does not exist.`;
+    }
+    const card: HTMLDivElement = maybeCard as HTMLDivElement;
+    card.classList.remove(reveal);
+    current = null;
+  }
+
+  function switchCard(id: string | null): void {
+    const initialId = current;
+    current !== null && hideCard(current);
+    if (initialId === id) {
+      return;
+    }
+    id !== null && showCard(id);
+  }
+
+  let current: string | null = null;
+
+  const cards = document.querySelectorAll(".card");
+  const items = document.querySelectorAll(".item");
+
+  const cardMap: { [id: string]: Element } = {};
+  const itemMap: { [id: string]: Element } = {};
+
+  cards.forEach((card) => {
+    const id = card.id;
+    if (id === "") {
+      console.error(card);
+      throw "Card logged is missing id.";
+    }
+    cardMap[id] = card;
+  });
+
+  items.forEach((item) => {
+    const id = item.id;
+    if (id === "") {
+      console.error(item);
+      throw "Item logged is missing id.";
+    }
+    itemMap[id] = item;
+
+    item.addEventListener("click", function () {
+      switchCard(id);
+    });
   });
 </script>
 
@@ -48,8 +83,8 @@ import typescriptIcon from "../images/icons/typescript.svg";
   <Divider colour="yellow" type="two" />
   <div class="container-global">
     <h2>Things I've used...</h2>
-    <div class="grid">
-      <div class="item">
+    <div class="space">
+      <div id="ts" class="card">
         <div class="title">
           <img src={typescriptIcon} />
           <b>TypeScript & JavaScript</b>
@@ -61,7 +96,7 @@ import typescriptIcon from "../images/icons/typescript.svg";
           <li>Next.js</li>
         </ul>
       </div>
-      <div class="item">
+      <div id="java" class="card">
         <div class="title">
           <img src={javaIcon} />
           <b>Java</b>
@@ -74,7 +109,7 @@ import typescriptIcon from "../images/icons/typescript.svg";
           </li>
         </ul>
       </div>
-      <div class="item">
+      <div id="go" class="card">
         <div class="title">
           <img src={goIcon} />
           <b>Golang</b>
@@ -85,7 +120,7 @@ import typescriptIcon from "../images/icons/typescript.svg";
           <li>Go Testing Library</li>
         </ul>
       </div>
-      <div class="item">
+      <div id="sql" class="card">
         <div class="title">
           <img src={sqlIcon} />
           <b>SQL</b>
@@ -95,7 +130,7 @@ import typescriptIcon from "../images/icons/typescript.svg";
           <li>Relational Database</li>
         </ul>
       </div>
-      <div class="item">
+      <div id="mongo" class="card">
         <div class="title">
           <img src={mongoIcon} />
           <b>MongoDB</b>
@@ -104,7 +139,7 @@ import typescriptIcon from "../images/icons/typescript.svg";
           <li>NoSQL</li>
         </ul>
       </div>
-      <div class="item">
+      <div id="css" class="card">
         <div class="title">
           <img src={cssIcon} />
           <b>CSS</b>
@@ -116,7 +151,7 @@ import typescriptIcon from "../images/icons/typescript.svg";
           <li>... and regular CSS</li>
         </ul>
       </div>
-      <div class="item">
+      <div id="git" class="card">
         <div class="title">
           <img src={gitIcon} />
           <b>Git & GitHub</b>
@@ -127,28 +162,17 @@ import typescriptIcon from "../images/icons/typescript.svg";
           <li>GitHub Actions</li>
         </ul>
       </div>
-      <div class="item">
-        <div class="title">
-          <b>Others</b>
-        </div>
-        <ul class="ul-global">
-          <li>Software Engineering</li>
-          <li>RESTful APIs</li>
-          <li>Data Structures & Algorithms</li>
-        </ul>
-      </div>
-      <div class="item init-hide hide">
+      <div id="python" class="card">
         <div class="title">
           <img src={pythonIcon} />
           <b>Python</b>
         </div>
         <ul class="ul-global">
-          <li>Software Engineering</li>
-          <li>RESTful APIs</li>
-          <li>Data Structures & Algorithms</li>
+          <li>Scripting</li>
+          <li>Coding questions</li>
         </ul>
       </div>
-      <div class="item init-hide hide">
+      <div id="html" class="card">
         <div class="title">
           <img src={htmlIcon} />
           <b>HTML</b>
@@ -158,7 +182,7 @@ import typescriptIcon from "../images/icons/typescript.svg";
           <li>Astro</li>
         </ul>
       </div>
-      <div class="item init-hide hide">
+      <div id="docker" class="card">
         <div class="title">
           <img src={dockerIcon} />
           <b>Docker</b>
@@ -167,7 +191,7 @@ import typescriptIcon from "../images/icons/typescript.svg";
           <li>Basic Dockerfiles</li>
         </ul>
       </div>
-      <div class="item init-hide hide">
+      <div id="cpp" class="card">
         <div class="title">
           <img src={cppIcon} />
           <b>C & C++</b>
@@ -175,9 +199,10 @@ import typescriptIcon from "../images/icons/typescript.svg";
         <ul class="ul-global">
           <li>Using for miscellaneous stuff</li>
           <li>Coding questions</li>
+          <li>Computer Organisation, and a bit of Assembly</li>
         </ul>
       </div>
-      <div class="item init-hide hide">
+      <div id="ruby" class="card">
         <div class="title">
           <img src={rubyIcon} />
           <b>Ruby</b>
@@ -186,7 +211,7 @@ import typescriptIcon from "../images/icons/typescript.svg";
           <li>Ruby on Rails</li>
         </ul>
       </div>
-      <div class="item init-hide hide">
+      <div id="lua" class="card">
         <div class="title">
           <img src={luaIcon} />
           <b>Lua</b>
@@ -198,8 +223,34 @@ import typescriptIcon from "../images/icons/typescript.svg";
           <li>Light scripting</li>
         </ul>
       </div>
-      <button id="show-more">Show More</button>
+      <div id="other" class="card">
+        <div class="title">
+          <b>Others</b>
+        </div>
+        <ul class="ul-global">
+          <li>Software Engineering</li>
+          <li>RESTful APIs</li>
+          <li>Data Structures & Algorithms</li>
+        </ul>
+      </div>
+      <div class="items">
+        <div id="ts" class="item">TypeScript</div>
+        <div id="java" class="item">Java</div>
+        <div id="go" class="item">Golang</div>
+        <div id="sql" class="item">SQL</div>
+        <div id="mongo" class="item">MongoDB</div>
+        <div id="css" class="item">CSS</div>
+        <div id="git" class="item">Git & GitHub</div>
+        <div id="python" class="item">Python</div>
+        <div id="html" class="item">HTML</div>
+        <div id="docker" class="item">Docker</div>
+        <div id="cpp" class="item">C & C++</div>
+        <div id="ruby" class="item">Ruby</div>
+        <div id="lua" class="item">Lua</div>
+        <div id="other" class="item">Others</div>
+      </div>
     </div>
+    <em class="hint">click on the buttons to learn more!</em>
   </div>
 </section>
 
@@ -208,43 +259,58 @@ import typescriptIcon from "../images/icons/typescript.svg";
     background: var(--color-green-background);
   }
 
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    column-gap: 10px;
-    row-gap: 20px;
+  .hint {
+    color: var(--color-faded);
   }
 
-  #show-more {
-    border: 1px solid black;
-    border-radius: 10px;
-    color: var(--color-text);
-    font-size: 1.5rem;
-    height: 75px;
-    margin: auto 0;
-    /* backdrop-filter isn't supported by some smaller browsers (they will just see the same background colour as the section) */
-    backdrop-filter: brightness(1.3);
-    -webkit-backdrop-filter: brightness(1.3);
-    background: transparent;
+  .space {
+    display: flex;
+    column-gap: 50px;
+    margin-bottom: 1em;
   }
 
-  #show-more:hover,
-  #show-more:active {
-    backdrop-filter: brightness(1.5);
-    -webkit-backdrop-filter: brightness(1.5);
+  .items {
+    width: 70%;
+    margin: 1em auto 0 auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 10px 20px;
   }
 
   .item {
     /* backdrop-filter isn't supported by some smaller browsers (they will just see the same background colour as the section) */
-    backdrop-filter: brightness(1.1);
-    -webkit-backdrop-filter: brightness(1.1);
+    backdrop-filter: brightness(1.3);
+    -webkit-backdrop-filter: brightness(1.3);
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
+  .item:hover,
+  .item:active {
+    backdrop-filter: brightness(1.5);
+    -webkit-backdrop-filter: brightness(1.5);
+  }
+
+  /* TODO: transition the buttons to the right? */
+
+  .card {
+    backdrop-filter: brightness(1.3);
+    -webkit-backdrop-filter: brightness(1.3);
     border: 1px solid black;
     border-radius: 10px;
     padding: 10px;
+    width: 275px;
+    position: absolute;
+    opacity: 0;
   }
 
-  .hide {
-    display: none;
+  .reveal {
+    position: static;
+    opacity: 1;
+    transition: opacity 500ms ease-in-out;
   }
 
   img {
@@ -256,5 +322,21 @@ import typescriptIcon from "../images/icons/typescript.svg";
   div.title {
     display: flex;
     align-items: center;
+  }
+
+  @media (max-width: 800px) {
+    .space {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .card {
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    .items {
+      width: 100%;
+    }
   }
 </style>
