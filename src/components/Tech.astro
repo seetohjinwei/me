@@ -199,7 +199,7 @@ import typescriptIcon from "../images/icons/typescript.svg";
         <ul class="ul-global">
           <li>Using for miscellaneous stuff</li>
           <li>Coding questions</li>
-          <li>Computer Organisation, and a bit of Assembly</li>
+          <li>Computer Organisation, and some bonus Assembly</li>
         </ul>
       </div>
       <div id="ruby" class="card">
@@ -305,12 +305,22 @@ import typescriptIcon from "../images/icons/typescript.svg";
     width: 275px;
     position: absolute;
     opacity: 0;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+    z-index: -1;
   }
 
   .reveal {
     position: static;
     opacity: 1;
     transition: opacity 500ms ease-in-out;
+    -webkit-user-select: text; /* Safari */
+    -moz-user-select: text; /* Firefox */
+    -ms-user-select: text; /* IE10+/Edge */
+    user-select: text; /* Standard */
+    z-index: 100;
   }
 
   img {
