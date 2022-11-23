@@ -37,6 +37,7 @@
 }
 
 html {
+  background: var(--color-page-background);
   scroll-behavior: smooth;
 }
 

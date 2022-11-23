@@ -51,7 +51,7 @@ import typescriptIcon from "../images/icons/typescript.svg";
   let current: string | null = null;
 
   const cards = document.querySelectorAll(".card");
-  const items = document.querySelectorAll(".item");
+  const buttons = document.querySelectorAll(".button");
 
   const cardMap: { [id: string]: Element } = {};
   const itemMap: { [id: string]: Element } = {};
@@ -65,15 +65,15 @@ import typescriptIcon from "../images/icons/typescript.svg";
     cardMap[id] = card;
   });
 
-  items.forEach((item) => {
-    const id = item.id;
+  buttons.forEach((button) => {
+    const id = button.id;
     if (id === "") {
-      console.error(item);
-      throw "Item logged is missing id.";
+      console.error(button);
+      throw "Button logged is missing id.";
     }
-    itemMap[id] = item;
+    itemMap[id] = button;
 
-    item.addEventListener("click", function () {
+    button.addEventListener("click", function () {
       switchCard(id);
     });
   });
@@ -234,20 +234,20 @@ import typescriptIcon from "../images/icons/typescript.svg";
         </ul>
       </div>
       <div class="items">
-        <div id="ts" class="item">TypeScript</div>
-        <div id="java" class="item">Java</div>
-        <div id="go" class="item">Golang</div>
-        <div id="sql" class="item">SQL</div>
-        <div id="mongo" class="item">MongoDB</div>
-        <div id="css" class="item">CSS</div>
-        <div id="git" class="item">Git & GitHub</div>
-        <div id="python" class="item">Python</div>
-        <div id="html" class="item">HTML</div>
-        <div id="docker" class="item">Docker</div>
-        <div id="cpp" class="item">C & C++</div>
-        <div id="ruby" class="item">Ruby</div>
-        <div id="lua" class="item">Lua</div>
-        <div id="other" class="item">Others</div>
+        <div id="ts" class="button">TypeScript</div>
+        <div id="java" class="button">Java</div>
+        <div id="go" class="button">Golang</div>
+        <div id="sql" class="button">SQL</div>
+        <div id="mongo" class="button">MongoDB</div>
+        <div id="css" class="button">CSS</div>
+        <div id="git" class="button">Git & GitHub</div>
+        <div id="python" class="button">Python</div>
+        <div id="html" class="button">HTML</div>
+        <div id="docker" class="button">Docker</div>
+        <div id="cpp" class="button">C & C++</div>
+        <div id="ruby" class="button">Ruby</div>
+        <div id="lua" class="button">Lua</div>
+        <div id="other" class="button">Others</div>
       </div>
     </div>
     <em class="hint">click on the buttons to learn more!</em>
@@ -278,7 +278,7 @@ import typescriptIcon from "../images/icons/typescript.svg";
     gap: 10px 20px;
   }
 
-  .item {
+  .button {
     /* backdrop-filter isn't supported by some smaller browsers (they will just see the same background colour as the section) */
     backdrop-filter: brightness(1.3);
     -webkit-backdrop-filter: brightness(1.3);
@@ -288,8 +288,8 @@ import typescriptIcon from "../images/icons/typescript.svg";
     cursor: pointer;
   }
 
-  .item:hover,
-  .item:active {
+  .button:hover,
+  .button:active {
     backdrop-filter: brightness(1.5);
     -webkit-backdrop-filter: brightness(1.5);
   }
