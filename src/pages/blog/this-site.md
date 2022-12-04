@@ -15,7 +15,19 @@ My plan is to use the blog to write about things I found interesting and about t
 
 The rest of this post will be about the development of the site.
 
-## Why Astro?
+## Tech Stack
+
+The tech stack of the site is fairly simple, just Astro, and TypeScript (of course).
+
+> Pull content from anywhere and serve it fast with Astro's next-gen island architecture.
+>
+> \- Astro's [website](https://astro.build)
+
+Astro is essentially a way to cleverly bundle different forms of content together into 1 website. I use it to bundle vanilla HTML / JavaScript / CSS + Markdown.
+
+It's great for simpler websites that don't change often, like blogs and personal sites. (like mine!)
+
+### Why Astro?
 
 I was _too_ familiar with React. So when I was considering what to build my site with, I googled around for "React static site" and ended up with Gatsby. It was okay and worked, but it's really really slow. A simple portfolio page shouldn't _feel_ sluggish. It was especially bad when I tried to resize the window on Safari.
 
