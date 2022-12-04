@@ -97,6 +97,22 @@ div.container-global {
   width: clamp(300px, 95%, 900px);
 }
 
+div.button-global {
+  /* backdrop-filter isn't supported by some smaller browsers (they will just see the same background colour as the section) */
+  backdrop-filter: brightness(1.3);
+  -webkit-backdrop-filter: brightness(1.3);
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+div.button-global:hover,
+div.button-global:active {
+  backdrop-filter: brightness(1.5);
+  -webkit-backdrop-filter: brightness(1.5);
+}
+
 ul.ul-global {
   list-style-position: outside;
   list-style-type: circle;
