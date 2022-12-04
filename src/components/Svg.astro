@@ -13,6 +13,7 @@ const mapper = {
     type: "social",
     width: 480,
     height: 512,
+    actualWidth: 30,
   },
   linkedin: {
     pathd:
@@ -20,6 +21,7 @@ const mapper = {
     type: "social",
     width: 448,
     height: 512,
+    actualWidth: 30,
   },
   mail: {
     pathd:
@@ -27,6 +29,7 @@ const mapper = {
     type: "social",
     width: 512,
     height: 512,
+    actualWidth: 30,
   },
   star: {
     pathd:
@@ -34,16 +37,18 @@ const mapper = {
     type: "star",
     width: 576,
     height: 512,
+    actualWidth: 20,
   },
 };
 
-const { pathd, type, width, height } = mapper[icon];
+const { pathd, type, width, height, actualWidth } = mapper[icon];
 ---
 
 <svg
   class={type}
   xmlns="http://www.w3.org/2000/svg"
   viewBox={`0 0 ${width} ${height}`}
+  width={`${actualWidth}px`}
   ><path d={pathd}></path>
 </svg>
 
