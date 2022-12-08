@@ -10,10 +10,11 @@ type Props = MarkdownLayoutProps<{
   title: string;
   date?: string;
   tags?: string[];
+  author?: string;
 }>;
 
 const { frontmatter, headings } = Astro.props;
-const { title, date, tags = [] } = frontmatter;
+const { title, date, tags = [], author = "See Toh Jin Wei" } = frontmatter;
 const shouldShowH3 =
   headings.filter((h) => [1, 2, 3].includes(h.depth)).length <= 15;
 const headingsToShow = !shouldShowH3 ? [1, 2] : [1, 2, 3];
@@ -78,7 +79,8 @@ const headingsToShow = !shouldShowH3 ? [1, 2] : [1, 2, 3];
     <div class="container-global container">
       <div class="content">
         <h1>{title}</h1>
-        {date && <em class="date">{date}</em>}
+        {date && <em class="date">{date}, </em>}
+        <em class="date">written by {author}</em>
         <div class="tag-container">
           {
             tags.map((tag) => (
