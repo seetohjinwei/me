@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/Blog.astro
 title: "Building RepoStats: Statistics on your Repositories"
-date: "13 December 2022"
+date: "30 December 2022"
 tags: ["repostats", "github", "go", "svelte", "postgresql"]
 ---
 
@@ -53,14 +53,14 @@ Used for the database :) Reasons for why a database is needed is explained [down
 https://repostats.jinwei.dev/
 
 <br>
-<img src="https://jinwei.dev/blog/repostats/repostats.png" style="width: 80%; border: 1px solid var(--color-link);" alt="repostats website">
+<img src="https://jinwei.dev/blog/repostats/repostats.png" style="width: 700px; max-width: 100%; border: 1px solid var(--color-link);" alt="repostats website">
 
 The web app features a minimal and mobile-friendly interface which shows the breakdown of your repositories in a visual form.
 
 To use it, simply enter the `username` and `repository` of a public GitHub repository and you'll be brought over. For example, using `seetohjinwei` and `repostats` will bring you to this page!
 
 <br>
-<img src="https://jinwei.dev/blog/repostats/repo-mobile.png" style="width: 80%; border: 1px solid var(--color-link);" alt="repostats mobile page">
+<img src="https://jinwei.dev/blog/repostats/repo-page.png" style="width: 700px; max-width: 100%; border: 1px solid var(--color-link);" alt="repostats page">
 
 The website is built with Svelte and is a server-side rendered application.
 
@@ -77,6 +77,55 @@ Since data _has_ to be obtained from GitHub in some way, using their API made th
 However, their API is rate-limited to 60 an hour without authentication! That's really low as I initially had plans to implement user's statistics. After searching around and reading the docs for a bit, I realised that one needed to make authenticated requests to have a higher limit! (who reads docs before doing things anyways) Thankfully, the rate-limit is raised to 5000 per hour, which is much more generous, and should be enough for my usage if nobody is overly enthusiastic about it. However, I did not want to implement end-user login because nobody would want to log in just to view some fancy pie chart. So, I decided to use my own Personal Access Token for the authentication, but this means I have to re-new it once a year :/
 
 Even with the raised rates, I decided to put a bit of what I had learnt recently about PostgreSQL to use; and implement a database which caches the result. As of writing, requests for the same repository within an hour is fetched from my database. I do plan on adding a button for force refreshing the data though!
+
+## Repository Banner
+
+<img src="https://repostats.jinwei.dev/api/repo_image?username=seetohjinwei&repo=me" style="width: 500px; max-width: 100%; border: 1px solid var(--color-link);" alt="me banner">
+
+The above is an example banner using this page's repository!
+
+### SVGs...
+
+Generating this SVG took quite a bit more work than I expected. Initially, I tried to find a package that would just generate one for me. I wanted a package that can generate text and a pie chart all into a single SVG. However, all I could find was a hacky way that involved the use of _two_ separate packages.
+
+So, I wrote my own, with [ajstarks/svgo](https://github.com/ajstarks/svgo) as a SVG abstraction.
+
+I stumbled upon this [link](https://medium.com/hackernoon/a-simple-pie-chart-in-svg-dbdd653b6936) that helped out a bunch (beware that it has a _very_ strikingly bright background).
+
+A pie chart consists of slices of the pie, and each slice can be generated with just a single `svg path`. Unfortunately, the proposed in the above link does not handle cases where a slice takes up >50% of the page. The SVG path simply takes a shortcut and the slice no longer exists! Thankfully, it can be fixed by adding a mid point between the start and end points.
+
+```go
+/*
+M x y
+A rx ry x-axis-rotation large-arc-flag sweep-flag x y  (mid)
+A rx ry x-axis-rotation large-arc-flag sweep-flag x y  (end)
+L x y
+*/
+var pathDFormat = `M %.2f %.2f A %.2f %.2f 0 0 1 %.2f %.2f A %.2f %.2f 0 0 1 %.2f %.2f L %.2f %.2f`
+
+// NewSlice creates a slice with start, end in percentages.
+func (c *Circle) NewSlice(start, end float64) string {
+	// mid point is required because larger slices will take a "shortcut" instead
+	mid := start + (end-start)/2
+	startPoint := c.circumferencePoint(start * fullRadian)
+	midPoint := c.circumferencePoint(mid * fullRadian)
+	endPoint := c.circumferencePoint(end * fullRadian)
+
+	origin := c.point
+
+	return fmt.Sprintf(pathDFormat,
+		startPoint.x, startPoint.y,
+		c.radius, c.radius, midPoint.x, midPoint.y,
+		c.radius, c.radius, endPoint.x, endPoint.y,
+		origin.x, origin.y)
+}
+```
+
+Each slice can be created with just 4 commands: a `move`, 2 `arc`, and a `line`, denoted by `M`, `A`, `L` respectively (uppercase for absolute values). Some of the values are hardcoded in, because those are for tweaking ellipses.
+
+Meanwhile, the text on the left of the banner is just done through careful positioning of the coordinates and some `<text>`.
+
+At the moment, the package I wrote for this has all the values hardcoded in as constants at the top of the file, but if I do need this elsewhere, it would be fairly easy to extract them out :)
 
 ## Hosting RepoStats
 
