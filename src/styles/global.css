@@ -2,6 +2,7 @@
 :root {
   --color-page-background: #171214;
   --color-yellow-background: #5b4628;
+  --color-teal-background: #457a69;
   --color-green-background: #0b525b;
   --color-blue-background: #212f45;
   --color-footer: #171214;
@@ -21,6 +22,7 @@
 .light-mode {
   --color-page-background: #e4e4e4;
   --color-yellow-background: #f8f89f;
+  --color-teal-background: #a4dfcc;
   --color-green-background: #a2f6a2;
   --color-blue-background: #ade4f9;
   --color-footer: #171214;

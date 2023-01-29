@@ -1,6 +1,6 @@
 ---
-type colours = "page" | "yellow" | "green" | "blue";
-type types = "one" | "two" | "three";
+type colours = "page" | "yellow" | "teal" | "green" | "blue";
+type types = "one" | "two" | "three" | "four";
 export interface Props {
   colour: colours;
   type: types;
@@ -50,6 +50,10 @@ const { colour, type } = Astro.props;
     fill: var(--color-yellow-background);
   }
 
+  path.teal {
+    fill: var(--color-teal-background);
+  }
+
   path.green {
     fill: var(--color-green-background);
   }
@@ -74,5 +78,9 @@ const { colour, type } = Astro.props;
 
   svg.three {
     width: calc(274% + 1.3px);
+  }
+
+  svg.four {
+    width: calc(310% + 1.3px);
   }
 </style>

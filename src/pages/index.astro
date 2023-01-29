@@ -1,11 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-import Header from "../components/Header.astro";
 import AboutMe from "../components/AboutMe.astro";
-import Tech from "../components/Tech.astro";
-import ProjectsSection from "../components/ProjectsSection.astro";
 import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import ProjectsSection from "../components/ProjectsSection.astro";
+import Tech from "../components/Tech.astro";
+import WorkSection from "../components/WorkSection.astro";
 
 const sections = [
   {
@@ -26,6 +27,7 @@ const sections = [
 <Layout title="Jin Wei">
   <Header page="me" sections={sections} />
   <AboutMe />
+  <WorkSection />
   <Tech />
   <ProjectsSection />
   <Footer />
