@@ -17,6 +17,8 @@ Here, you can find some of my posts, mostly related to development and tech!
 
 ### Other Notes
 
+[System Design, Web Development](/notes/system-design)
+
 [Git](/notes/git)
 
 ### NUS Notes
