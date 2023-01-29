@@ -43,10 +43,23 @@ const { title, company, period, description = [] } = Astro.props;
     margin-bottom: 1em;
   }
 
+  .title {
+    margin-bottom: 0;
+  }
+
+  .company {
+    margin-top: 0;
+  }
+
+  .period p {
+    margin: 0;
+    font-size: 0.9em;
+  }
+
   .header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
   }
 
   .company {
@@ -58,6 +71,21 @@ const { title, company, period, description = [] } = Astro.props;
   }
 
   .description {
-    width: 75%;
+    width: 100%;
+  }
+
+  @media (min-width: 1000px) {
+    .header {
+      align-items: center;
+      flex-direction: row;
+    }
+
+    .description {
+      width: 75%;
+    }
+
+    .period p {
+      font-size: 1em;
+    }
   }
 </style>
