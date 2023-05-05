@@ -2,10 +2,7 @@
 export interface Props {
   title: string;
   company: string;
-  period: {
-    start: string;
-    end: string;
-  };
+  period: string;
   description?: string[];
 }
 
@@ -19,7 +16,7 @@ const { title, company, period, description = [] } = Astro.props;
       <h4 class="company">@ {company}</h4>
     </div>
     <div class="period">
-      <p>{period.start} - {period.end}</p>
+      <p>{period}</p>
     </div>
   </div>
   <div class="description">
