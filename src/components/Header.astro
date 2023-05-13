@@ -6,7 +6,26 @@ export interface Props {
   sections?: { anchor: string; name: string }[];
 }
 
-const { page = "", sections = [] } = Astro.props;
+const { page = "" } = Astro.props;
+
+const sections = [
+  {
+    anchor: "/",
+    name: "Me",
+  },
+  {
+    anchor: "/work",
+    name: "Work",
+  },
+  {
+    anchor: "/tech",
+    name: "Tech",
+  },
+  {
+    anchor: "/projects",
+    name: "Projects",
+  },
+];
 ---
 
 <header>
