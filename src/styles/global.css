@@ -1,6 +1,6 @@
 /* dark mode */
 :root {
-  --color-page-background: #171214;
+  --color-page-background: #222324;
   --color-yellow-background: #5b4628;
   --color-teal-background: #457a69;
   --color-green-background: #0b525b;
@@ -24,7 +24,7 @@
 }
 
 .light-mode {
-  --color-page-background: #e4e4e4;
+  --color-page-background: #f8f9fa;
   --color-yellow-background: #f8f89f;
   --color-teal-background: #a4dfcc;
   --color-green-background: #a2f6a2;
@@ -37,7 +37,7 @@
   --color-faded: #585858;
   --color-faded-more: #939393;
   --color-faded-less: #d5d5d5;
-  --color-accent: #ed7788;
+  --color-accent: #f63bdb;
   --color-accent-hover: #ff002b;
   --color-logo: #525291;
   --color-slider-dark-mode: #424242;
