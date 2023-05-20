@@ -25,19 +25,17 @@
 <style>
   ul {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 180px);
+    grid-template-columns: repeat(auto-fill, 175px);
     grid-row-gap: 0.5rem;
     list-style: none;
     padding: 0;
     margin: 0;
+  }
 
-    > li {
-      &::before {
-        content: "▸";
-        color: var(--color-link);
-        margin-right: 0.7rem;
-      }
-    }
+  li::before {
+    content: "▸";
+    color: var(--color-link);
+    margin-right: 0.7rem;
   }
 
   /* for large screens */

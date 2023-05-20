@@ -75,7 +75,7 @@
   }
 
   .label {
-    background-color: var(--color-button-dark-mode);
+    background-color: var(--color-slider-dark-mode);
     border-radius: 25px;
     cursor: pointer;
     height: 50px;
@@ -93,9 +93,9 @@
   }
 
   .slider::before {
-    background-color: var(--color-button-dark-mode);
+    background-color: var(--color-slider-dark-mode);
     border-radius: 50%;
-    box-shadow: inset 14px -2px 0px 0px var(--color-button-light-mode);
+    box-shadow: inset 14px -2px 0px 0px var(--color-slider-light-mode);
     content: "";
     height: 37.5px;
     left: 8px;
@@ -111,12 +111,12 @@
   }
 
   .input:checked ~ .slider {
-    background-color: var(--color-button-light-mode);
+    background-color: var(--color-slider-light-mode);
   }
 
   .input:checked ~ .slider::before {
     transform: translateX(47.5px);
-    background-color: var(--color-button-dark-mode);
+    background-color: var(--color-slider-dark-mode);
     box-shadow: none;
   }
 

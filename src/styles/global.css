@@ -16,8 +16,10 @@
   --color-link-hover: #ffc1cc;
   --color-logo: #9494d0;
   --color-logo-dark: #9494d0;
-  --color-button-dark-mode: #424242;
-  --color-button-light-mode: #eeeeee;
+  --color-slider-dark-mode: #424242;
+  --color-slider-light-mode: #eeeeee;
+  --color-button: #792c6e;
+  --color-button-focus: #864e7e;
 }
 
 .light-mode {
@@ -36,8 +38,10 @@
   --color-link: #ed7788;
   --color-link-hover: #ff002b;
   --color-logo: #525291;
-  --color-button-dark-mode: #424242;
-  --color-button-light-mode: #eeeeee;
+  --color-slider-dark-mode: #424242;
+  --color-slider-light-mode: #eeeeee;
+  --color-button: #ffbef6;
+  --color-button-focus: #f687e7;
 }
 
 html {
@@ -129,15 +133,15 @@ div.button-global:active {
 }
 
 .button-global {
-  background-color: var(--color-text);
-  color: var(--color-inverted);
+  background-color: var(--color-button);
+  color: var(--color-text);
   padding: 8px 12px;
-  border: 1px solid var(--color-text);
+  border: 1px solid var(--color-button);
   border-radius: 6px;
   cursor: pointer;
 
   &:hover, &:active {
-    background-color: var(--color-text-focus);
+    background-color: var(--color-button-focus);
   }
 }
 

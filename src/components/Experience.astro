@@ -1,0 +1,52 @@
+---
+---
+
+<script is:inline>
+function handleClick(target) {
+  const elements = document.querySelectorAll(".experience-card");
+  elements.forEach((element) => {
+    const id = element.id;
+    if (id !== target) {
+      element.classList.add("hide");
+    } else {
+      element.classList.remove("hide");
+    }
+  });
+}
+</script>
+
+<section class="section-global section" id="experience">
+  <div class="container-global container">
+    <h2>Experience</h2>
+    <div class="card-container">
+      <div class="tabs-list">
+        <button class="button-global" onclick="handleClick('cinch')">Cinch</button>
+        <button class="button-global" onclick="handleClick('nus')">NUS</button>
+      </div>
+      <div class="experience-card" id="cinch">
+        <hgroup>
+          <h3>Cinch</h3>
+          <p>Feb 2023 - Present</p>
+        </hgroup>
+      </div>
+      <div class="experience-card hide" id="nus">
+          <h3>NUS</h3>
+          <p>Jan 2023 - April 2023</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hide {
+    display: none !important;
+  }
+
+  .experience-card {
+
+  }
+
+  /* for large screens */
+  @media (min-width: 1000px) {
+  }
+</style>

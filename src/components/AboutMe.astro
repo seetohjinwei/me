@@ -34,6 +34,7 @@ import me2 from "../images/icons/me2.jpg";
             <Svg icon="github" />
           </a>
         </span>
+        &nbsp;
         <span>
           <a
             href="https://www.linkedin.com/in/seetohjinwei/"
@@ -42,6 +43,7 @@ import me2 from "../images/icons/me2.jpg";
             <Svg icon="linkedin" />
           </a>
         </span>
+        &nbsp;
         <span>
           <a href="mailto:seetohjinwei@gmail.com">
             <Svg icon="mail" />
@@ -66,15 +68,10 @@ import me2 from "../images/icons/me2.jpg";
     font-size: 150%;
   }
 
+  /* TODO: links hover color? */
+
   .roles {
     font-style: italic;
-  }
-
-  .links {
-    & > * {
-      margin-right: 12px;
-      /* TODO: add color when hover */
-    }
   }
 
   .arrow {
@@ -91,10 +88,10 @@ import me2 from "../images/icons/me2.jpg";
     height: 200px;
 
     transition: transform 0.2s ease-out;
+  }
 
-    &:hover {
-      transform: rotate(1deg);
-    }
+  img.my_picture:hover {
+    transform: rotate(1deg);
   }
 
   /* for large screens */
