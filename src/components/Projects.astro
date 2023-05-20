@@ -1,6 +1,4 @@
 ---
-import Divider from "./Divider.astro";
-
 import deaths from "../images/sites/50deaths.png";
 import me from "../images/sites/me.png";
 import mono from "../images/sites/mono.png";
@@ -10,9 +8,8 @@ import tm from "../images/sites/tm.png";
 ---
 
 <section class="section-global section" id="projects">
-  <Divider colour="green" type="four" />
   <div class="container-global">
-    <h2>Projects I've done...</h2>
+    <h2>Projects</h2>
 
     <div class="container">
       <h3 class="title">OrgaNiUS</h3>
@@ -446,14 +443,10 @@ import tm from "../images/sites/tm.png";
 </section>
 
 <style>
-  .section {
-    background: var(--color-blue-background);
-  }
-
   .container {
     /* backdrop-filter isn't supported by some smaller browsers (they will just see the same background colour as the section) */
-    backdrop-filter: brightness(1.1);
-    -webkit-backdrop-filter: brightness(1.1);
+    /* backdrop-filter: brightness(1.1); */
+    /* -webkit-backdrop-filter: brightness(1.1); */
     border: 1px solid black;
     border-radius: 10px;
     padding: 20px 40px;
