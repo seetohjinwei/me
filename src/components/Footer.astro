@@ -1,35 +1,24 @@
 ---
-import Svg from "./Svg.astro";
 ---
 
 <footer>
   <div class="left"><span class="logo"> See Toh Jin Wei</span></div>
   <div class="right">
-    <a
-      href="https://github.com/seetohjinwei/me"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <span class="star-container">
-        <span class="star">
-          <Svg icon="star" />
-        </span>
-        on GitHub
-      </span>
-    </a>
+    <p>
+      Developed by yours truly with <a href="https://astro.build/" target="_blank" rel="noopener noreferrer">Astro</a>.
+    </p>
   </div>
 </footer>
 
 <style>
   footer {
-    position: absolute;
-    bottom: -10px;
-    width: 100%;
-    background-color: var(--color-footer);
+    width: 60%;
+    /* margin-top: 1rem; */
+    margin-left: 20%;
   }
 
   footer > * {
-    color: var(--color-footer-text);
+    color: var(--color-text);
     margin: 1em 0;
   }
 
@@ -48,18 +37,5 @@ import Svg from "./Svg.astro";
     font-weight: 800;
     color: var(--color-logo-dark);
     font-size: 1.3em;
-  }
-
-  span.star {
-    display: inline-block;
-  }
-
-  span.star-container > span.star {
-    transform: scale(1);
-    transition: all 0.2s ease-out;
-  }
-
-  span.star-container:hover > span.star {
-    transform: scale(1.2);
   }
 </style>
