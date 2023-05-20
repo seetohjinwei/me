@@ -53,14 +53,14 @@ Used for the database :) Reasons for why a database is needed is explained [down
 https://repostats.jinwei.dev/
 
 <br>
-<img src="https://jinwei.dev/blog/repostats/repostats.png" style="width: 700px; max-width: 100%; border: 1px solid var(--color-link);" alt="repostats website">
+<img src="https://jinwei.dev/blog/repostats/repostats.png" style="width: 700px; max-width: 100%; border: 1px solid var(--color-accent);" alt="repostats website">
 
 The web app features a minimal and mobile-friendly interface which shows the breakdown of your repositories in a visual form.
 
 To use it, simply enter the `username` and `repository` of a public GitHub repository and you'll be brought over. For example, using `seetohjinwei` and `repostats` will bring you to this page!
 
 <br>
-<img src="https://jinwei.dev/blog/repostats/repo-page.png" style="width: 700px; max-width: 100%; border: 1px solid var(--color-link);" alt="repostats page">
+<img src="https://jinwei.dev/blog/repostats/repo-page.png" style="width: 700px; max-width: 100%; border: 1px solid var(--color-accent);" alt="repostats page">
 
 The website is built with Svelte and is a server-side rendered application.
 
@@ -80,7 +80,7 @@ Even with the raised rates, I decided to put a bit of what I had learnt recently
 
 ## Repository Banner
 
-<img src="https://repostats.jinwei.dev/api/repo_image?username=seetohjinwei&repo=me" style="width: 500px; max-width: 100%; border: 1px solid var(--color-link);" alt="me banner">
+<img src="https://repostats.jinwei.dev/api/repo_image?username=seetohjinwei&repo=me" style="width: 500px; max-width: 100%; border: 1px solid var(--color-accent);" alt="me banner">
 
 The above is an example banner using this page's repository!
 

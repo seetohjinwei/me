@@ -2,7 +2,7 @@
 ---
 
 <script is:inline>
-function handleClick(target) {
+function handleClick(self, target) {
   const elements = document.querySelectorAll(".experience-card");
   elements.forEach((element) => {
     const id = element.id;
@@ -12,6 +12,12 @@ function handleClick(target) {
       element.classList.remove("hide");
     }
   });
+
+  const activeButtons = document.querySelectorAll(".button-active");
+  activeButtons.forEach((element) => {
+    element.classList.remove("button-active");
+  });
+  self.classList.add("button-active");
 }
 </script>
 
@@ -20,18 +26,35 @@ function handleClick(target) {
     <h2>Experience</h2>
     <div class="card-container">
       <div class="tabs-list">
-        <button class="button-global" onclick="handleClick('cinch')">Cinch</button>
-        <button class="button-global" onclick="handleClick('nus')">NUS</button>
+        <button class="button button-active" onclick="handleClick(this, 'cinch')">Cinch</button>
+        <button class="button" onclick="handleClick(this, 'nus')">NUS</button>
       </div>
       <div class="experience-card" id="cinch">
         <hgroup>
-          <h3>Cinch</h3>
+          <h3>
+            <span class="linebreak">Full-Stack Engineer Intern (Risk)</span>
+            <span class="linebreak">~ Cinch</span>
+          </h3>
           <p>Feb 2023 - Present</p>
         </hgroup>
+        <ul>
+          <li>Developed and maintained robust tooling and pipelines for risk and data analysis.</li>
+          <li>Assisted in facilitating data driven decisions for risk management.</li>
+          <li>Performed integration with 3rd party companies to automate workflows.</li>
+        </ul>
       </div>
       <div class="experience-card hide" id="nus">
-          <h3>NUS</h3>
+        <hgroup>
+          <h3>
+            <span class="linebreak">Teaching Assistant</span>
+            <span class="linebreak">~ National University of Singapore</span>
+          </h3>
           <p>Jan 2023 - April 2023</p>
+        </hgroup>
+        <ul>
+          <li>Tutored class of 15 for Data Structures and Algorithms course (CS2040S), including weekly tutorials and grading.</li>
+          <li>Assisted in preparation of course materials.</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -42,11 +65,105 @@ function handleClick(target) {
     display: none !important;
   }
 
-  .experience-card {
+  .card-container {
+    display: flex;
+    flex-direction: column;
+  }
 
+  .tabs-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .button {
+    display: block;
+    flex-grow: 1;
+    background-color: transparent;
+    cursor: pointer;
+    color: var(--color-text);
+    font-weight: 700;
+
+    padding: 1rem 0;
+    border: none;
+    border-top: 2px solid var(--color-faded-more);
+  }
+
+  .button:hover, .button:active {
+    background-color: var(--color-faded-less);
+  }
+
+  .button-active {
+    border: none;
+    border-top: 2px solid var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  .button-active:hover, .button-active:active {
+    border: none;
+    border-top: 2px solid var(--color-accent-hover);
+    color: var(--color-accent-hover);
+  }
+
+  .experience-card {
+    padding: 0 1em;
+    max-width: 600px;
+  }
+
+  hgroup > * {
+    margin: 0;
+  }
+
+  hgroup > p {
+    font-size: 80%;
+  }
+
+  hgroup {
+    margin: 1rem 0;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    padding-left: 1.2rem;
+    position: relative;
+  }
+
+  li::before {
+    content: "▸";
+    color: var(--color-accent);
+    position: absolute;
+    left: 0;
   }
 
   /* for large screens */
   @media (min-width: 1000px) {
+    .card-container {
+      flex-direction: row;
+    }
+
+    .tabs-list {
+      flex-direction: column;
+    }
+
+    .button {
+      padding: 0 1rem;
+      border: none;
+      border-left: 2px solid var(--color-faded-more);
+    }
+
+    .button-active {
+      border: none;
+      border-left: 2px solid var(--color-accent);
+    }
+
+    .button-active:hover, .button-active:active {
+      border: none;
+      border-left: 2px solid var(--color-accent-hover);
+    }
   }
 </style>

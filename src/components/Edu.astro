@@ -48,7 +48,7 @@ function handleScroll(value) {
 </script>
 
 <script>
-function resizeHeight() {
+function eduResizeHeight() {
   const root = document.querySelector(":root");
   root.style.setProperty("--edu-card-height", "0px");
 
@@ -58,8 +58,8 @@ function resizeHeight() {
   root.style.setProperty("--edu-card-height", `${height}px`);
 }
 
-addEventListener("resize", resizeHeight)
-resizeHeight();
+addEventListener("resize", eduResizeHeight)
+eduResizeHeight();
 </script>
 
 <section class="section-global section" id="edu">
@@ -88,7 +88,7 @@ resizeHeight();
         </ul>
       </div>
       <div class="card right" id="mods">
-        <h3>Basic Computer Science</h3>
+        <h3>Computer Science Fundamentals</h3>
         <ul>
           <li>Programming Methodology (CS1101S)</li>
           <li>Discrete Mathematics (CS1231S)</li>
@@ -168,8 +168,8 @@ resizeHeight();
   .card {
     grid-area: 1 / 2 / 2 / 3;
 
-    border: 3px solid var(--color-text);
-    border-radius: 6px;
+    border: 1px solid var(--color-text);
+    border-radius: 12px;
     padding: 2em 2em;
     display: block;
     max-width: 800px;

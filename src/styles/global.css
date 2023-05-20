@@ -12,14 +12,15 @@
   --color-inverted: #424242;
   --color-faded: #cacaca;
   --color-faded-more: #807f7f;
-  --color-link: #f790e8;
-  --color-link-hover: #ffc1cc;
+  --color-faded-less: #262626;
+  --color-accent: #f790e8;
+  --color-accent-hover: #ffc1cc;
   --color-logo: #9494d0;
   --color-logo-dark: #9494d0;
   --color-slider-dark-mode: #424242;
   --color-slider-light-mode: #eeeeee;
   --color-button: #792c6e;
-  --color-button-focus: #864e7e;
+  --color-button-focus: #ce4abb;
 }
 
 .light-mode {
@@ -35,13 +36,14 @@
   --color-text-focus: #6b6b6b;
   --color-faded: #585858;
   --color-faded-more: #939393;
-  --color-link: #ed7788;
-  --color-link-hover: #ff002b;
+  --color-faded-less: #d5d5d5;
+  --color-accent: #ed7788;
+  --color-accent-hover: #ff002b;
   --color-logo: #525291;
   --color-slider-dark-mode: #424242;
   --color-slider-light-mode: #eeeeee;
-  --color-button: #ffbef6;
-  --color-button-focus: #f687e7;
+  --color-button: #f3abb5;
+  --color-button-focus: #ed7788;
 }
 
 html {
@@ -91,12 +93,12 @@ h5 {
 }
 
 a {
-  color: var(--color-link);
+  color: var(--color-accent);
   text-decoration: none;
 }
 
 a:hover {
-  color: var(--color-link-hover);
+  color: var(--color-accent-hover);
 }
 
 .underline {
@@ -139,10 +141,10 @@ div.button-global:active {
   border: 1px solid var(--color-button);
   border-radius: 6px;
   cursor: pointer;
+}
 
-  &:hover, &:active {
-    background-color: var(--color-button-focus);
-  }
+.button-global:hover, .button-global:active {
+  background-color: var(--color-button-focus);
 }
 
 ul.ul-global {
@@ -163,7 +165,7 @@ blockquote::before {
   width: 8px;
   height: 100%;
   left: -18px;
-  background-color: var(--color-link);
+  background-color: var(--color-accent);
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
 }
@@ -177,4 +179,9 @@ table {
   display: block;
   overflow-x: auto;
   white-space: nowrap;
+}
+
+.linebreak {
+  display: inline-block;
+  line-height: 100%;
 }
