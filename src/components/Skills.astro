@@ -1,0 +1,49 @@
+---
+---
+
+<section class="section-global section" id="skills">
+  <div class="container-global container">
+    <h2>Skills</h2>
+    <ul>
+      <li>Python</li>
+      <li>TypeScript</li>
+      <li>React + Next.js</li>
+      <li>Java</li>
+      <li>Golang</li>
+      <li>SQL</li>
+      <li>MongoDB</li>
+      <li>CSS</li>
+      <li>HTML</li>
+      <li>AWS</li>
+      <li>Git & GitHub</li>
+      <li>Docker</li>
+      <li>CI / CD</li>
+    </ul>
+  </div>
+</section>
+
+<style>
+  ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 180px);
+    grid-row-gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    > li {
+      &::before {
+        content: "▸";
+        color: var(--color-link);
+        margin-right: 0.7rem;
+      }
+    }
+  }
+
+  /* for large screens */
+  @media (min-width: 1000px) {
+    ul {
+      grid-template-columns: repeat(auto-fill, 200px);
+    }
+  }
+</style>
