@@ -1,47 +1,51 @@
 ---
-import Svg from "./Svg.astro";
-import Divider from "./Divider.astro";
+import Svg from "../components/Svg.astro";
 
 import me from "../images/icons/me.jpg";
+import me2 from "../images/icons/me2.jpg";
 ---
 
 <section class="section-global section" id="aboutme">
-  <Divider colour="page" type="one" />
   <div class="container-global container">
-    <img src={me} alt="my picture" width="200px" />
+    <img
+      class="my_picture"
+      src={me}
+      alt="picture of Jin Wei"
+      width="200px"
+      onmouseover={`this.src='${me2}'`}
+      onmouseout={`this.src='${me}'`}
+    />
     <div>
       <h1>
-        <span class="linebreak">Hey there,</span>
-        <span class="linebreak">I'm Jin Wei! <span class="wave">👋</span></span>
+        <div>
+          <span class="linebreak">Hey there,</span>
+          <span class="linebreak">I'm</span>
+        </div>
+        <div class="mega">Jin Wei</div>
       </h1>
-      <p>
-        I love developing web applications which are user-centric, robust and
-        scalable!
-      </p>
-      <p>
-        I'm currently studying Computer Science at National University of
-        Singapore.
-      </p>
-      <div class="link">
-        <span class="link">
-          <Svg icon="github" />
+      <p class="roles">Full Stack Intern @ Cinch | NUS Computer Science</p>
+      <p>I specialise in building full stack solutions for the web.</p>
+      <div class="links">
+        <span>
           <a
             href="https://github.com/seetohjinwei/"
             target="_blank"
-            rel="noopener noreferrer">seetohjinwei</a
-          >
+            rel="noopener noreferrer">
+            <Svg icon="github" />
+          </a>
         </span>
-        <span class="link">
-          <Svg icon="linkedin" />
+        <span>
           <a
             href="https://www.linkedin.com/in/seetohjinwei/"
             target="_blank"
-            rel="noopener noreferrer">seetohjinwei</a
-          >
+            rel="noopener noreferrer">
+            <Svg icon="linkedin" />
+          </a>
         </span>
-        <span class="link">
-          <Svg icon="mail" />
-          <a href="mailto:seetohjinwei@gmail.com">seetohjinwei@gmail.com</a>
+        <span>
+          <a href="mailto:seetohjinwei@gmail.com">
+            <Svg icon="mail" />
+          </a>
         </span>
       </div>
     </div>
@@ -49,10 +53,6 @@ import me from "../images/icons/me.jpg";
 </section>
 
 <style>
-  .section {
-    background: var(--color-yellow-background);
-  }
-
   .container {
     font-size: 120%;
   }
@@ -62,28 +62,41 @@ import me from "../images/icons/me.jpg";
     line-height: 100%;
   }
 
-  img {
+  .mega {
+    font-size: 150%;
+  }
+
+  .roles {
+    font-style: italic;
+  }
+
+  .links {
+    & > * {
+      margin-right: 12px;
+    }
+  }
+
+  .arrow {
+    position: absolute;
+  }
+
+  img.my_picture {
     display: block;
     margin: auto;
     border: 5px solid var(--color-faded-more);
     border-radius: 16px;
+
+    object-fit: cover;
+    height: 200px;
+
+    transition: transform 0.2s ease-out;
+
+    &:hover {
+      transform: rotate(3deg);
+    }
   }
 
-  div.link {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-  }
-
-  span.link {
-    align-items: center;
-    display: flex;
-  }
-
-  span.link > a {
-    margin: 0 1ch;
-  }
-
+  /* for large screens */
   @media (min-width: 1000px) {
     .container {
       /* move the image to the right, if screen is large enough */
@@ -91,13 +104,14 @@ import me from "../images/icons/me.jpg";
       flex-direction: row-reverse;
     }
 
-    img {
+    img.my_picture {
       margin-left: 2em;
+      object-fit: contain;
+      height: auto;
     }
 
-    div.link {
-      margin-top: 2em;
-      flex-direction: row;
+    .mega {
+      font-size: 250%;
     }
   }
 

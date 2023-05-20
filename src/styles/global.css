@@ -8,6 +8,7 @@
   --color-footer: #171214;
   --color-footer-text: #cacaca;
   --color-text: #eeeeee;
+  --color-text-focus: #cbcbcb;
   --color-inverted: #424242;
   --color-faded: #cacaca;
   --color-faded-more: #807f7f;
@@ -29,6 +30,7 @@
   --color-footer-text: #cacaca;
   --color-text: #424242;
   --color-inverted: #eeeeee;
+  --color-text-focus: #6b6b6b;
   --color-faded: #585858;
   --color-faded-more: #939393;
   --color-link: #ed7788;
@@ -124,6 +126,19 @@ div.button-global:hover,
 div.button-global:active {
   backdrop-filter: brightness(1.5);
   -webkit-backdrop-filter: brightness(1.5);
+}
+
+.button-global {
+  background-color: var(--color-text);
+  color: var(--color-inverted);
+  padding: 8px 12px;
+  border: 1px solid var(--color-text);
+  border-radius: 6px;
+  cursor: pointer;
+
+  &:hover, &:active {
+    background-color: var(--color-text-focus);
+  }
 }
 
 ul.ul-global {

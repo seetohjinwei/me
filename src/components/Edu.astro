@@ -1,0 +1,184 @@
+---
+---
+
+<script is:inline>
+// Ensure that the states here correspond to the cards below.
+const states = [
+  "summary",
+  "mods",
+];
+let state = "summary";
+
+function handleScroll(value) {
+  const index = states.indexOf(state);
+  const nextIndex = (index + value) % states.length;
+  const oldState = state;
+  const newState = states[nextIndex];
+  state = newState;
+
+  const oldElement = document.getElementById(oldState);
+  const newElement = document.getElementById(newState);
+
+  // Give a slight moment to let the DOM realise the element is no longer hidden.
+  if (value === 1) {
+    // scroll left
+    oldElement.classList.add("left");
+    newElement.classList.remove("right");
+  } else if (value === -1) {
+    // scroll right
+    oldElement.classList.add("right");
+    newElement.classList.remove("left");
+  }
+
+  const buttonRight = document.getElementById("button-right");
+  const buttonLeft = document.getElementById("button-left");
+  if (nextIndex === 0) {
+    buttonRight.classList.add("hide");
+  } else {
+    buttonRight.classList.remove("hide");
+  }
+  if (nextIndex === states.length - 1) {
+    buttonLeft.classList.add("hide");
+  } else {
+    buttonLeft.classList.remove("hide");
+  }
+
+  // Updating button text is possible too.
+}
+</script>
+
+<section class="section-global section" id="edu">
+  <div class="container-global container">
+    <h2>Education</h2>
+    <div class="card-container">
+      <div class="button-wrapper">
+        <button class="button-global button hide" id="button-right" onclick="handleScroll(-1)">Summary</button>
+      </div>
+      <div class="card" id="summary">
+        <div class="space">
+          <h3>National University of Singapore, Singapore</h3>
+          <span>August 2021 - May 2025</span>
+        </div>
+        <h4>Bachelor of Computing (Honours) in Computer Science</h4>
+        <p>Focus Area in Database Systems and Parallel Computing</p>
+        <ul>
+          <li>Grade Point Average: 4.85 / 5.00</li>
+          <li>Achieved Dean's List for Academic Year 2021 / 2022 Semester 2</li>
+          <li>Awarded Top Students for:</li>
+          <ul>
+            <li>Programming Methodology (CS1101S)</li>
+            <li>Programming Methodology II (CS2030S)</li>
+          </ul>
+          <li>Tutored Data Structures and Algorithms (CS2040S) during Academic Year 2022 / 2023 Semester 2</li>
+        </ul>
+      </div>
+      <div class="card right" id="mods">
+        <h3>Basic Computer Science</h3>
+        <ul>
+          <li>Programming Methodology (CS1101S)</li>
+          <li>Discrete Mathematics (CS1231S)</li>
+          <li>Programming Methodology II (CS2030S)</li>
+          <li>Data Structures & Algorithms (CS2040S)</li>
+          <li>Computer Organisation (CS2100)</li>
+          <li>Introduction to Operating Systems (CS2106)</li>
+          <li>Introduction to AI and Machine Learning (CS2109S)</li>
+          <li>Design & Analysis of Algorithms (CS3230)</li>
+        </ul>
+        <h3>Computer Science Electives</h3>
+        <ul>
+          <li>Software Engineering (CS2103T)</li>
+          <li>Introduction to Computer Networks (CS2105)</li>
+        </ul>
+        <h3>Database Systems</h3>
+        <ul>
+          <li>Database Systems (CS2102)</li>
+          <li>Database Systems Implementations (CS3223)</li>
+          <li>Distributed Database Systems (CS4224)</li>
+        </ul>
+        <h3>Parallel Computing</h3>
+        <ul>
+          <li>Parallel Computing (CS3210)</li>
+        </ul>
+        <h3>Math and Statistics</h3>
+        <ul>
+          <li>Quantitative Reasoning with Data (GEA1000)</li>
+          <li>Calculus in Computing (MA1521)</li>
+          <li>Linear Algebra (MA2001)</li>
+          <li>Probability and Statistics (ST2334)</li>
+          <li>Multivariable Calculus (MA2104)</li>
+        </ul>
+      </div>
+      <div class="button-wrapper">
+        <button class="button-global button" id="button-left" onclick="handleScroll(1)">Modules</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .button-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hide {
+    display: none !important;
+  }
+
+  .button {
+    &:hover, &:active {
+      height: 3em;
+    }
+  }
+
+  #button-left {
+    transform: rotate(90deg);
+  }
+
+  #button-right {
+    transform: rotate(-90deg);
+  }
+
+  .card-container {
+    display: grid;
+    grid-template-columns: 50px 1fr 50px;
+    overflow: hidden;
+  }
+
+  .card {
+    grid-area: 1 / 2 / 2 / 3;
+
+    border: 3px solid var(--color-text);
+    border-radius: 6px;
+    padding: 2em 2em;
+    display: block;
+    max-width: 800px;
+
+    transition: transform 0.6s cubic-bezier(0.65, 0.05, 0.36, 1);
+
+    height: 500px;
+    overflow-y: scroll;
+  }
+
+  .left {
+    transform: translateX(-100vw);
+  }
+
+  .right {
+    transform: translateX(100vw);
+  }
+
+  .space {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* for large screens */
+  @media (min-width: 1000px) {
+    .card {
+      height: 300px;
+    }
+  }
+</style>
