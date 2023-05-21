@@ -14,7 +14,7 @@
   --color-faded-more: #807f7f;
   --color-faded-less: #262626;
   --color-accent: #f790e8;
-  --color-accent-hover: #ffc1cc;
+  --color-accent-hover: #ff002b;
   --color-logo: #9494d0;
   --color-logo-dark: #9494d0;
   --color-slider-dark-mode: #424242;
@@ -185,3 +185,5 @@ table {
   display: inline-block;
   line-height: 100%;
 }
+
+/* TODO: style the scroll bar, including for Edu.astro */

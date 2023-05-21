@@ -1,14 +1,7 @@
 ---
 import DarkModeSwitcher from "./DarkModeSwitcher.astro";
 
-export interface Props {
-  page?: string;
-  sections?: { anchor: string; name: string }[];
-}
-
-const { page = "" } = Astro.props;
-
-const sections = [
+const defaultSections = [
   {
     anchor: "#aboutme",
     name: "Me",
@@ -30,6 +23,13 @@ const sections = [
     name: "Edu",
   },
 ];
+
+export interface Props {
+  page?: string;
+  sections?: { anchor: string; name: string }[];
+}
+
+const { page = "", sections = defaultSections } = Astro.props;
 ---
 
 <header>

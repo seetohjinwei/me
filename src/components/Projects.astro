@@ -5,6 +5,12 @@ import mono from "../images/sites/mono.png";
 import organius from "../images/sites/organius.png";
 import repostats from "../images/sites/repostats.png";
 import tm from "../images/sites/tm.png";
+
+export interface Props {
+  showAll?: boolean;
+}
+
+const { showAll = false } = Astro.props;
 ---
 
 <!-- Only keep top 3 projects here. -->
@@ -12,7 +18,7 @@ import tm from "../images/sites/tm.png";
 
 <section class="section-global section" id="projects">
   <div class="container-global">
-    <h2>Projects</h2>
+    <h2>{showAll ? "Projects Archive" : "Projects"}</h2>
 
     <div class="container">
       <h3 class="title">OrgaNiUS</h3>
