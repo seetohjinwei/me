@@ -183,6 +183,14 @@ eduResizeHeight();
     justify-content: space-between;
   }
 
+  #button-left::after {
+    content: " ▸";
+  }
+
+  #button-right::before {
+    content: "◂ "
+  }
+
   /* for large screens */
   @media (min-width: 1000px) {
     .card-container {
@@ -205,6 +213,14 @@ eduResizeHeight();
 
     #button-right {
       transform: rotate(-90deg);
+    }
+
+    #button-left::after {
+      content: none;
+    }
+
+    #button-right::before {
+      content: none;
     }
   }
 </style>
