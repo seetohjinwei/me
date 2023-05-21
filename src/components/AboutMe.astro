@@ -29,8 +29,11 @@ import me2 from "../images/icons/me2.jpg";
           <a
             href="https://github.com/seetohjinwei/"
             target="_blank"
-            rel="noopener noreferrer">
-            <Svg icon="github" />
+            rel="noopener noreferrer"
+            class="tooltip"
+          >
+            <Svg icon="github2" />
+            <span class="tooltip-text">GitHub</span>
           </a>
         </span>
         &nbsp;
@@ -38,14 +41,20 @@ import me2 from "../images/icons/me2.jpg";
           <a
             href="https://www.linkedin.com/in/seetohjinwei/"
             target="_blank"
-            rel="noopener noreferrer">
+            rel="noopener noreferrer"
+            class="tooltip"
+          >
             <Svg icon="linkedin" />
+            <span class="tooltip-text">LinkedIn</span>
           </a>
         </span>
         &nbsp;
         <span>
-          <a href="mailto:seetohjinwei@gmail.com">
+          <a href="mailto:seetohjinwei@gmail.com"
+            class="tooltip"
+          >
             <Svg icon="mail" />
+            <span class="tooltip-text">Contact via Email</span>
           </a>
         </span>
       </div>
@@ -61,8 +70,6 @@ import me2 from "../images/icons/me2.jpg";
   .mega {
     font-size: 150%;
   }
-
-  /* TODO: links hover color? */
 
   .roles {
     font-style: italic;

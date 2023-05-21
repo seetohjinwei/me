@@ -37,12 +37,19 @@ function handleClick(self, target) {
           </h3>
           <p>Feb 2023 - Present</p>
         </hgroup>
-        <ul>
+        <ul class="summary-list">
           <li>Developed and maintained robust tooling and pipelines for risk and data analysis.</li>
           <li>Assisted in facilitating data driven decisions for risk management.</li>
           <li>Performed integration with 3rd party companies to automate workflows.</li>
         </ul>
-        <!-- TODO: add skills used here -->
+        <ul class="skill-list">
+          <li><div class="skill-div">Python</div></li>
+          <li><div class="skill-div">FastAPI</div></li>
+          <li><div class="skill-div">Next.js + React</div></li>
+          <li><div class="skill-div">Amazon AWS</div></li>
+          <li><div class="skill-div">Google Cloud</div></li>
+          <li><div class="skill-div">MySQL</div></li>
+        </ul>
       </div>
       <div class="experience-card hide" id="nus">
         <hgroup>
@@ -52,9 +59,15 @@ function handleClick(self, target) {
           </h3>
           <p>Jan 2023 - April 2023</p>
         </hgroup>
-        <ul>
+        <ul class="summary-list">
           <li>Tutored class of 15 for Data Structures and Algorithms course (CS2040S), including weekly tutorials and grading.</li>
           <li>Assisted in preparation of course materials.</li>
+        </ul>
+        <ul class="skill-list">
+          <li><div class="skill-div">Data Structures</div></li>
+          <li><div class="skill-div">Algorithms</div></li>
+          <li><div class="skill-div">Teaching</div></li>
+          <li><div class="skill-div">Java</div></li>
         </ul>
       </div>
     </div>
@@ -109,7 +122,6 @@ function handleClick(self, target) {
 
   .experience-card {
     padding: 0 1em;
-    max-width: 600px;
   }
 
   hgroup > * {
@@ -124,18 +136,18 @@ function handleClick(self, target) {
     margin: 1rem 0;
   }
 
-  ul {
+  .summary-list {
     list-style: none;
     padding: 0;
-    margin: 0;
+    max-width: 600px;
   }
 
-  li {
+  .summary-list li {
     padding-left: 1.2rem;
     position: relative;
   }
 
-  li::before {
+  .summary-list li::before {
     content: "▸";
     color: var(--color-accent);
     position: absolute;

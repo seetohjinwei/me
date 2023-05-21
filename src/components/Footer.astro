@@ -2,19 +2,16 @@
 ---
 
 <footer>
-  <div class="left"><span class="logo"> See Toh Jin Wei</span></div>
+  <div class="left"><span class="logo">See Toh Jin Wei</span></div>
   <div class="right">
-    <p>
-      Developed by me with <a href="https://astro.build/" target="_blank" rel="noopener noreferrer">Astro</a>.
-    </p>
+    Developed by me with <a href="https://astro.build/" target="_blank" rel="noopener noreferrer">Astro</a>.
   </div>
 </footer>
 
 <style>
   footer {
-    width: 60%;
-    /* margin-top: 1rem; */
-    margin-left: 20%;
+    display: flex;
+    justify-content: space-around;
   }
 
   footer > * {
@@ -24,12 +21,10 @@
 
   .left {
     float: left;
-    margin-left: 2em;
   }
 
   .right {
     float: right;
-    margin-right: 2em;
   }
 
   span.logo {
@@ -37,5 +32,9 @@
     font-weight: 800;
     color: var(--color-logo-dark);
     font-size: 1.3em;
+  }
+
+  /* for large screens */
+  @media (min-width: 1000px) {
   }
 </style>

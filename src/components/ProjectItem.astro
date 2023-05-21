@@ -1,0 +1,142 @@
+---
+import Svg from "../components/Svg.astro";
+
+interface Link {
+  name: string; // shown in tooltip
+  icon: string;
+  link: string;
+}
+
+export interface Props {
+  index: number;
+  title: string;
+  tagline: string;
+  description: string[];
+  list?: string[];
+  image?: string;
+  skills: string[];
+  links: Link[];
+}
+
+const { index, title, tagline, description, list, image, skills, links } = Astro.props;
+---
+
+<div class="container">
+  <div class="card">
+    <div class="top">
+      {image && <img class="image" src={image} alt={title} />}
+      <hgroup class="hgroup">
+        <h3 class="title">{title}</h3>
+        <p>{tagline}</p>
+        <div class="index">{index.toString().padStart(2, '0')}</div>
+      </hgroup>
+    </div>
+    <div class="bottom">
+      {description.map((paragraph) => <p>{paragraph}</p>)}
+      <ul class="skill-list">
+        {skills.map((skill) => <li><div class="skill-div">{skill}</div></li>)}
+      </ul>
+      {list && <ul class="list">
+          {list.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      }
+      {links.map((link) => (
+        <>
+          <a 
+            target="_blank"
+            rel="noopener noreferrer"
+            href={link.link}
+            class="tooltip"
+          >
+            <Svg icon={link.icon} />
+            <span class="tooltip-text">{link.name}</span>
+          </a>
+          &nbsp;
+        </>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+  .container {
+    position: relative;
+  }
+
+  .card {
+    padding: 1rem 0;
+  }
+
+  .top {
+    display: flex;
+    gap: 0;
+    flex-direction: column-reverse;
+  }
+
+  .image {
+    width: 300px;
+    max-width: 100%;
+    max-height: 300px;
+  }
+
+  .hgroup {
+    position: relative;
+    width: 100%;
+  }
+
+  .hgroup > * {
+    z-index: 10;
+  }
+
+  .title {
+    font-size: 150%;
+  }
+
+  .index {
+    right: 0;
+    top: 0;
+    font-size: 10vw;
+    position: absolute;
+    z-index: 1;
+    opacity: 20%;
+  }
+
+  .list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .list li {
+    padding-left: 1.2rem;
+    position: relative;
+  }
+
+  .list li::before {
+    content: "▸";
+    color: var(--color-accent);
+    position: absolute;
+    left: 0;
+  }
+
+  /* for large screens */
+  @media (min-width: 1000px) {
+    .card {
+      padding: 1rem 2rem;
+    }
+
+    .top {
+      flex-direction: row;
+      gap: 2rem;
+    }
+
+    .title {
+      font-size: 300%;
+    }
+
+    .index {
+      top: -5vw;
+    }
+  }
+</style>
