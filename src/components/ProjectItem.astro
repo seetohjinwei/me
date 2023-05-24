@@ -27,12 +27,12 @@ const { index, title, tagline, description, list, image, skills, links } = Astro
       {image && <img class="image" src={image} alt={title} />}
       <hgroup class="hgroup">
         <h3 class="title">{title}</h3>
-        <p>{tagline}</p>
+        <p set:html={tagline} />
         <div class="index">{index.toString().padStart(2, '0')}</div>
       </hgroup>
     </div>
     <div class="bottom">
-      {description.map((paragraph) => <p>{paragraph}</p>)}
+      {description.map((paragraph) => <p set:html={paragraph} />)}
       <ul class="skill-list">
         {skills.map((skill) => <li><div class="skill-div">{skill}</div></li>)}
       </ul>
@@ -44,7 +44,7 @@ const { index, title, tagline, description, list, image, skills, links } = Astro
       }
       {links.map((link) => (
         <>
-          <a 
+          <a
             target="_blank"
             rel="noopener noreferrer"
             href={link.link}
