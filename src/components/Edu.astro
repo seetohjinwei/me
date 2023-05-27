@@ -2,12 +2,15 @@
 ---
 
 <script is:inline>
-// Ensure that the states here correspond to the cards below.
-const states = [
-  "#summary",
-  "#mods",
-];
-let state = "#summary";
+function formatSection(value) {
+  const section = value.slice(1);
+
+  // Simple toTitleCase is sufficient :)
+  const firstCharacter = section.charAt(0);
+  const rest = section.slice(1);
+
+  return firstCharacter.toUpperCase() + rest.toLowerCase();
+}
 
 function handleScroll(value) {
   const index = states.indexOf(state);
@@ -36,15 +39,58 @@ function handleScroll(value) {
     buttonRight.classList.add("hide");
   } else {
     buttonRight.classList.remove("hide");
+    buttonRight.innerText = formatSection(states[nextIndex - 1]);
   }
   if (nextIndex === states.length - 1) {
     buttonLeft.classList.add("hide");
   } else {
     buttonLeft.classList.remove("hide");
+    buttonLeft.innerText = formatSection(states[nextIndex + 1]);
   }
 
-  // Updating button text is possible too.
+  const sectionHeading = document.querySelector('#edu-heading');
+  
+  switch (newState) {
+    case "#teaching":
+      sectionHeading.innerText = "Education: Courses Taught";
+      break;
+    case "#summary":
+      sectionHeading.innerText = "Education";
+      break;
+    case "#courses":
+      sectionHeading.innerText = "Education: Courses Taken";
+      break;
+  }
 }
+
+// Ensure that the states here correspond to the cards below.
+const states = [
+  "#teaching",
+  "#summary",
+  "#courses",
+];
+let state = "#summary";
+
+addEventListener("load", () => {
+  // Read query parameters.
+  const urlSearchParams = new URLSearchParams(window.location.search);
+  const params = Object.fromEntries(urlSearchParams.entries());
+
+  const section = params.section;
+  const initialState = `#${section}`;
+  if (section === undefined || !states.includes(initialState)) {
+    return;
+  }
+
+  switch (initialState) {
+    case "#teaching":
+      handleScroll(-1);
+      break;
+    case "#courses":
+      handleScroll(1);
+      break;
+  }
+});
 </script>
 
 <script>
@@ -64,10 +110,21 @@ eduResizeHeight();
 
 <section class="section-global section" id="edu">
   <div class="container-global container">
-    <h2>Education</h2>
+    <h2 id="edu-heading">Education</h2>
     <div class="card-container">
       <div class="button-wrapper">
-        <button class="button-global button hide" id="button-right" onclick="handleScroll(-1)">Summary</button>
+        <button class="button-global button" id="button-right" onclick="handleScroll(-1)">Teaching</button>
+      </div>
+      <div class="card left" id="teaching">
+        <div class="space">
+          <h3>Data Structures & Algorithms (CS2040S)</h3>
+          <span>AY 2022 / 2023 Semester 2</span>
+        </div>
+        <ul class="summary-list-global">
+          <li>An introductory course for the design and implementation of fundamental data structures and algorithms, taught with Java.</li>
+          <li>Tutored class of 15, including conducting weekly tutorials, grading weekly problem sets and consultations.</li>
+          <li>Assisted in preparation of course materials.</li>
+        </ul>
       </div>
       <div class="card" id="summary">
         <div class="space">
@@ -76,46 +133,45 @@ eduResizeHeight();
         </div>
         <h4>Bachelor of Computing (Honours) in Computer Science</h4>
         <p>Focus Areas in Database Systems and Parallel Computing</p>
-        <ul>
+        <ul class="summary-list-global">
           <li>Grade Point Average: 4.85 / 5.00</li>
           <li>Achieved Dean's List for Academic Year 2021 / 2022 Semester 2</li>
           <li>Awarded Top Students for:</li>
-          <ul>
+          <ul class="summary-list-global">
             <li>Programming Methodology (CS1101S)</li>
             <li>Programming Methodology II (CS2030S)</li>
           </ul>
-          <li>Tutored Data Structures and Algorithms (CS2040S) during Academic Year 2022 / 2023 Semester 2</li>
         </ul>
       </div>
-      <div class="card right" id="mods">
+      <div class="card right" id="courses">
         <h3>Computer Science Fundamentals</h3>
-        <ul>
+        <ul class="summary-list-global">
           <li>Programming Methodology (CS1101S)</li>
           <li>Discrete Mathematics (CS1231S)</li>
           <li>Programming Methodology II (CS2030S)</li>
           <li>Data Structures & Algorithms (CS2040S)</li>
           <li>Computer Organisation (CS2100)</li>
           <li>Introduction to Operating Systems (CS2106)</li>
-          <li>Introduction to AI and Machine Learning (CS2109S)</li>
+          <!-- <li>Introduction to AI and Machine Learning (CS2109S)</li> -->
           <li>Design & Analysis of Algorithms (CS3230)</li>
         </ul>
         <h3>Computer Science Electives</h3>
-        <ul>
+        <ul class="summary-list-global">
           <li>Software Engineering (CS2103T)</li>
           <li>Introduction to Computer Networks (CS2105)</li>
         </ul>
         <h3>Database Systems</h3>
-        <ul>
+        <ul class="summary-list-global">
           <li>Database Systems (CS2102)</li>
           <li>Database Systems Implementations (CS3223)</li>
-          <li>Distributed Database Systems (CS4224)</li>
+          <!-- <li>Distributed Database Systems (CS4224)</li> -->
         </ul>
-        <h3>Parallel Computing</h3>
-        <ul>
-          <li>Parallel Computing (CS3210)</li>
-        </ul>
+        <!-- <h3>Parallel Computing</h3> -->
+        <!-- <ul class="summary-list-global"> -->
+        <!--   <li>Parallel Computing (CS3210)</li> -->
+        <!-- </ul> -->
         <h3>Math and Statistics</h3>
-        <ul>
+        <ul class="summary-list-global">
           <li>Quantitative Reasoning with Data (GEA1000)</li>
           <li>Calculus in Computing (MA1521)</li>
           <li>Linear Algebra (MA2001)</li>
@@ -154,6 +210,7 @@ eduResizeHeight();
   .card-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-gap: 0 1rem;
     overflow: hidden;
   }
 
@@ -177,12 +234,6 @@ eduResizeHeight();
     transform: translateX(150vw);
   }
 
-  .space {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
   #button-left::after {
     content: " ▸";
   }
@@ -195,6 +246,7 @@ eduResizeHeight();
   @media (min-width: 1000px) {
     .card-container {
       grid-template-columns: 50px 1fr 50px;
+      grid-gap: 0;
     }
 
     .card {
@@ -205,6 +257,7 @@ eduResizeHeight();
     .button {
       display: initial;
       width: initial;
+      font-size: 100%;
     }
 
     #button-left {
@@ -221,6 +274,12 @@ eduResizeHeight();
 
     #button-right::before {
       content: none;
+    }
+
+    .space {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
   }
 </style>

@@ -186,7 +186,34 @@ table {
   line-height: 100%;
 }
 
-.skill-list {
+.summary-list-global {
+  list-style: none;
+  padding: 0;
+}
+
+/* for nested list */
+.summary-list-global .summary-list-global {
+  padding-left: 1.2rem;
+}
+
+/* for doubly nested list */
+.summary-list-global .summary-list-global .summary-list-global {
+  padding-left: 2.4rem;
+}
+
+.summary-list-global li {
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.summary-list-global li::before {
+  content: "▸";
+  color: var(--color-accent);
+  position: absolute;
+  left: 0;
+}
+
+.skill-bubble-global {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -195,7 +222,7 @@ table {
   flex-wrap: wrap;
 }
 
-.skill-div {
+.skill-bubble-global li div {
   display: flex;
   margin-right: 1rem;
   margin-bottom: 0.6rem;

@@ -37,37 +37,34 @@ function handleClick(self, target) {
           </h3>
           <p>Feb 2023 - Present</p>
         </hgroup>
-        <ul class="summary-list">
+        <ul class="summary-list-global summary-list">
           <li>Developed and maintained robust tooling and pipelines for risk and data analysis.</li>
           <li>Assisted in facilitating data driven decisions for risk management.</li>
           <li>Performed integration with 3rd party companies to automate workflows.</li>
         </ul>
-        <ul class="skill-list">
-          <li><div class="skill-div">Python</div></li>
-          <li><div class="skill-div">FastAPI</div></li>
-          <li><div class="skill-div">Next.js + React</div></li>
-          <li><div class="skill-div">Amazon AWS</div></li>
-          <li><div class="skill-div">Google Cloud</div></li>
-          <li><div class="skill-div">MySQL</div></li>
+        <ul class="skill-bubble-global">
+          <li><div>Python</div></li>
+          <li><div>FastAPI</div></li>
+          <li><div>Next.js + React</div></li>
+          <li><div>Amazon AWS</div></li>
+          <li><div>Google Cloud</div></li>
+          <li><div>MySQL</div></li>
         </ul>
       </div>
       <div class="experience-card hide" id="nus">
         <hgroup>
           <h3>
-            <span class="linebreak">Teaching Assistant</span>
+            <span class="linebreak">Undergraduate Tutor</span>
             <span class="linebreak">~ National University of Singapore</span>
           </h3>
-          <p>Jan 2023 - April 2023</p>
+          <p>Various Semesters</p>
         </hgroup>
-        <ul class="summary-list">
-          <li>Tutored class of 15 for Data Structures and Algorithms course (CS2040S), including weekly tutorials and grading.</li>
-          <li>Assisted in preparation of course materials.</li>
+        <ul class="summary-list-global summary-list">
+          <li>Go to <a href="?section=teaching#edu">teaching section</a> for details.</li>
         </ul>
-        <ul class="skill-list">
-          <li><div class="skill-div">Data Structures</div></li>
-          <li><div class="skill-div">Algorithms</div></li>
-          <li><div class="skill-div">Teaching</div></li>
-          <li><div class="skill-div">Java</div></li>
+        <ul class="skill-bubble-global">
+          <li><div>Data Structures & Algorithms</div></li>
+          <li><div>Teaching</div></li>
         </ul>
       </div>
     </div>
@@ -124,34 +121,20 @@ function handleClick(self, target) {
     padding: 0 1em;
   }
 
+  .summary-list {
+    max-width: 600px;
+  }
+
   hgroup > * {
     margin: 0;
   }
 
   hgroup > p {
-    font-size: 80%;
+    font-size: 90%;
   }
 
   hgroup {
     margin: 1rem 0;
-  }
-
-  .summary-list {
-    list-style: none;
-    padding: 0;
-    max-width: 600px;
-  }
-
-  .summary-list li {
-    padding-left: 1.2rem;
-    position: relative;
-  }
-
-  .summary-list li::before {
-    content: "▸";
-    color: var(--color-accent);
-    position: absolute;
-    left: 0;
   }
 
   /* for large screens */

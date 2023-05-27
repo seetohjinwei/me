@@ -4,7 +4,7 @@
 <section class="section-global section" id="skills">
   <div class="container-global container">
     <h2>Skills</h2>
-    <ul>
+    <ul class="summary-list-global wrap">
       <li>Python</li>
       <li>TypeScript</li>
       <li>React + Next.js</li>
@@ -23,25 +23,12 @@
 </section>
 
 <style>
-  ul {
+  .wrap {
     display: grid;
     grid-template-columns: repeat(auto-fill, 175px);
     grid-row-gap: 0.5rem;
-    list-style: none;
-    padding: 0;
+
     margin: 0;
-  }
-
-  li {
-    padding-left: 1.2rem;
-    position: relative;
-  }
-
-  li::before {
-    content: "▸";
-    color: var(--color-accent);
-    position: absolute;
-    left: 0;
   }
 
   /* for large screens */

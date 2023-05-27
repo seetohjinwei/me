@@ -33,8 +33,8 @@ const { index, title, tagline, description, list, image, skills, links } = Astro
     </div>
     <div class="bottom">
       {description.map((paragraph) => <p set:html={paragraph} />)}
-      <ul class="skill-list">
-        {skills.map((skill) => <li><div class="skill-div">{skill}</div></li>)}
+      <ul class="skill-bubble-global">
+        {skills.map((skill) => <li><div>{skill}</div></li>)}
       </ul>
       {list && <ul class="list">
           {list.map((item) => (
