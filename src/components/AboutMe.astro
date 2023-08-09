@@ -15,15 +15,14 @@ import me2 from "../images/icons/me2.jpg";
       onmouseover={`this.src='${me2}'`}
       onmouseout={`this.src='${me}'`}
     />
-    <div>
+    <div class="content">
       <h1>
         <div>
           Hey there, I'm
         </div>
         <div class="mega">Jin Wei</div>
       </h1>
-      <p class="roles">Full Stack Intern @ Cinch | NUS Computer Science</p>
-      <p>I specialise in building full stack solutions for the web.</p>
+      <p class="roles">Penultimate NUS Computer Science</p>
       <div class="links">
         <span>
           <a
@@ -32,7 +31,7 @@ import me2 from "../images/icons/me2.jpg";
             rel="noopener noreferrer"
             class="tooltip"
           >
-            <Svg icon="github2" />
+            <Svg icon="github" />
             <span class="tooltip-text">GitHub</span>
           </a>
         </span>
@@ -100,6 +99,11 @@ import me2 from "../images/icons/me2.jpg";
     .container {
       /* move the image to the right, if screen is large enough */
       display: flex;
+    }
+
+    .content {
+      width: 100%;
+      margin-left: 100px;
     }
 
     img.my_picture {

@@ -20,6 +20,36 @@ const { showAll = false } = Astro.props;
 const limit = 3;
 const items = [
   {
+    title: "Personal Site & Blog",
+    tagline: "My very own site! You're on it right now.",
+    description: [
+      "Blazingly fast and built with Responsive Web Design in mind, the layout adapts to your screen size. Go ahead and give it a try!",
+      "I picked the initial color mode based on <em>your</em> browser's preference but check out the dark / light mode switcher at the top right if you feel like switching things up!",
+    ],
+    image: me,
+    skills: [
+      "Astro",
+      "TypeScript",
+    ],
+    links: [
+      {
+        name: "GitHub Repo",
+        icon: "github",
+        link: "https://github.com/seetohjinwei/me",
+      },
+      {
+        name: "Website",
+        icon: "website",
+        link: "https://jinwei.dev",
+      },
+      {
+        name: "Blog Post",
+        icon: "blog",
+        link: "https://jinwei.dev/blog/this-site/",
+      },
+    ],
+  },
+  {
     title: "OrgaNiUS",
     tagline: "Central hub for forming, planning and organising group work.",
     description: [
@@ -60,32 +90,21 @@ const items = [
     ],
   },
   {
-    title: "Personal Site & Blog",
-    tagline: "My very own site! You're on it right now.",
+    title: "WATcher",
+    tagline: "WATcher is a sister application to CATcher to be used to monitor software projects in a visual way, for educational use in particular.",
     description: [
-      "Blazingly fast and built with Responsive Web Design in mind, the layout adapts to your screen size. Go ahead and give it a try!",
-      "I picked the initial color mode based on <em>your</em> browser's preference but check out the dark / light mode switcher at the top right if you feel like switching things up!",
+      "This is an open-source project under the <a href='https://nus-oss.github.io/'>NUS-OSS initiative</a>.",
+      "I made several contributions, which mainly improved the data fetching service, and user interface to provide a smoother user experience.",
     ],
-    image: me,
     skills: [
-      "Astro",
+      "Angular",
       "TypeScript",
     ],
     links: [
       {
         name: "GitHub Repo",
         icon: "github",
-        link: "https://github.com/seetohjinwei/me",
-      },
-      {
-        name: "Website",
-        icon: "website",
-        link: "https://jinwei.dev",
-      },
-      {
-        name: "Blog Post",
-        icon: "blog",
-        link: "https://jinwei.dev/blog/this-site/",
+        link: "https://github.com/catcher-org/WATcher",
       },
     ],
   },
