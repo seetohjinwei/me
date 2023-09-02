@@ -12,8 +12,6 @@ import me2 from "../images/icons/me2.jpg";
       src={me}
       alt="picture of Jin Wei"
       width="200px"
-      onmouseover={`this.src='${me2}'`}
-      onmouseout={`this.src='${me}'`}
     />
     <div class="content">
       <h1>
@@ -88,10 +86,6 @@ import me2 from "../images/icons/me2.jpg";
     height: 200px;
 
     transition: transform 0.2s ease-out;
-  }
-
-  img.my_picture:hover {
-    transform: rotate(1deg);
   }
 
   /* for large screens */
