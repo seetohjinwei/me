@@ -26,10 +26,27 @@ function handleClick(self, target) {
     <h2>Experience</h2>
     <div class="card-container">
       <div class="tabs-list">
-        <button class="button button-active" onclick="handleClick(this, 'cinch')">Cinch</button>
+        <button class="button button-active" onclick="handleClick(this, 'tiktok')">TikTok</button>
+        <button class="button" onclick="handleClick(this, 'cinch')">Cinch</button>
         <button class="button" onclick="handleClick(this, 'nus')">NUS</button>
       </div>
-      <div class="experience-card" id="cinch">
+      <div class="experience-card" id="tiktok">
+        <hgroup>
+          <h3>
+            <span class="linebreak">Backend Engineer Intern (Cloud Infrastructure)</span>
+            <span class="linebreak">~ TikTok</span>
+          </h3>
+          <p>Jan 2024 - Present</p>
+        </hgroup>
+        <ul class="summary-list-global summary-list">
+          <li>Maintained the custom API gateway service for the internal cloud infrastructure APIs.</li>
+          <li>Maintained the custom authentication service for the internal cloud infrastructure.</li>
+        </ul>
+        <ul class="skill-bubble-global">
+          <li><div>Go</div></li>
+          <li><div>Cloud Infrastructure</div></li>
+        </ul>
+      </div><div class="experience-card hide" id="cinch">
         <hgroup>
           <h3>
             <span class="linebreak">Full-Stack Engineer Intern (Risk)</span>
@@ -38,11 +55,10 @@ function handleClick(self, target) {
           <p>Feb 2023 - Aug 2023</p>
         </hgroup>
         <ul class="summary-list-global summary-list">
+          <li>Primarily developed and maintained several backend microservices which are responsible for different areas of the business workflow (orders, assets, data, logging).</li>
           <li>Built Backend infrastructure, and Frontend UI for superadmin dashboards.</li>
-          <li>Developed and maintained robust tooling and pipelines for risk and data analysis.</li>
-          <li>Set-up and maintained some AWS services and CI / CD deployments.</li>
-          <li>Assisted in facilitating data driven decisions for risk management.</li>
-          <li>Performed integration with 3rd party companies to automate workflows.</li>
+          <li>Developed and upgraded multiple frontend dashboards for internal super-admin use.</li>
+          <li>Utilised various AWS services (Lambda, ECS, API Gateway, EventBridge) and set-up CI / CD deployments.</li>
         </ul>
         <ul class="skill-bubble-global">
           <li><div>FastAPI</div></li>
