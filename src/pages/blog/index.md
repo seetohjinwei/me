@@ -5,8 +5,11 @@ title: "Jin Wei's Blog"
 
 Here, you can find some of my posts, mostly related to development and tech!
 
+<!-- TODO: make this summary-list-global -->
+
 ## Posts
 
+<!-- - [Markdown Everything](/blog/markdown-everything) -->
 - [Building RepoStats: Statistics on your Repositories](/blog/building-repostats)
 - [Hosting on a Virtual Private Server (VPS)](/blog/hosting-vps)
 - [Building this site](/blog/this-site)
