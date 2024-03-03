@@ -33,8 +33,9 @@ function handleClick(self, target) {
       <div class="experience-card" id="tiktok">
         <hgroup>
           <h3>
-            <span class="linebreak">Backend Engineer Intern (Cloud Infrastructure)</span>
-            <span class="linebreak">~ TikTok</span>
+            <span class="linebreak">Backend Engineer Intern</span>
+            <span class="linebreak">(Cloud Infrastructure),</span>
+            <span class="linebreak">TikTok</span>
           </h3>
           <p>Jan 2024 - Present</p>
         </hgroup>
@@ -49,14 +50,14 @@ function handleClick(self, target) {
       </div><div class="experience-card hide" id="cinch">
         <hgroup>
           <h3>
-            <span class="linebreak">Full-Stack Engineer Intern (Risk)</span>
-            <span class="linebreak">~ Cinch</span>
+            <span class="linebreak">Full-Stack Engineer Intern (Risk),</span>
+            <span class="linebreak">Cinch</span>
           </h3>
-          <p>Feb 2023 - Aug 2023</p>
+          <p>Feb 2023 - Aug 2023 & Dec 2023 - Dec 2023</p>
         </hgroup>
         <ul class="summary-list-global summary-list">
           <li>Primarily developed and maintained several backend microservices which are responsible for different areas of the business workflow (orders, assets, data, logging).</li>
-          <li>Built Backend infrastructure, and Frontend UI for superadmin dashboards.</li>
+          <li>Integrated internal backend services with Samsung Knox Guard and other 3rd party services (Stripe, DataCultr, Slack) for automated risk management workflows.</li>
           <li>Developed and upgraded multiple frontend dashboards for internal super-admin use.</li>
           <li>Utilised various AWS services (Lambda, ECS, API Gateway, EventBridge) and set-up CI / CD deployments.</li>
         </ul>
@@ -71,13 +72,29 @@ function handleClick(self, target) {
       <div class="experience-card hide" id="nus">
         <hgroup>
           <h3>
-            <span class="linebreak">Undergraduate Tutor</span>
-            <span class="linebreak">~ National University of Singapore</span>
+            <span class="linebreak">Undergraduate Tutor,</span>
+            <span class="linebreak">National University of Singapore</span>
           </h3>
-          <p>Various Semesters</p>
         </hgroup>
         <ul class="summary-list-global summary-list">
-          <li>Go to <a href="?section=teaching#edu">teaching section</a> for details.</li>
+          <div class="space">
+            <h4>Software Engineering (CS2103T)</h4>
+            <span>Fall 2023</span>
+          </div>
+          <ul class="summary-list-global">
+            <li>An introductory course for systematic and rigorous development of software systems, covering main areas of software development.</li>
+            <li>Tutored class of 10, including conducting weekly tutorials.</li>
+          </ul>
+          <div class="space">
+            <h4>Data Structures & Algorithms (CS2040S)</h4>
+            <span>Spring 2023</span>
+          </div>
+          <ul class="summary-list-global">
+            <li>An introductory course for the design and implementation of fundamental data structures and algorithms, taught with Java.</li>
+            <li>Tutored class of 15, including conducting weekly tutorials, grading weekly problem sets and consultations.</li>
+            <li>Assisted in preparation of course materials.</li>
+          </ul>
+
         </ul>
         <ul class="skill-bubble-global">
           <li><div>Data Structures & Algorithms</div></li>
@@ -178,6 +195,12 @@ function handleClick(self, target) {
     .button-active:hover, .button-active:active {
       border: none;
       border-left: 2px solid var(--color-accent-hover);
+    }
+
+    .space {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
   }
 </style>
