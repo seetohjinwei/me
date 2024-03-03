@@ -1,35 +1,11 @@
 ---
 ---
 
-<script is:inline>
-function handleClick(self, target) {
-  const elements = document.querySelectorAll(".experience-card");
-  elements.forEach((element) => {
-    const id = element.id;
-    if (id !== target) {
-      element.classList.add("hide");
-    } else {
-      element.classList.remove("hide");
-    }
-  });
-
-  const activeButtons = document.querySelectorAll(".button-active");
-  activeButtons.forEach((element) => {
-    element.classList.remove("button-active");
-  });
-  self.classList.add("button-active");
-}
-</script>
-
 <section class="section-global section" id="experience">
   <div class="container-global container">
     <h2>Experience</h2>
     <div class="card-container">
-      <div class="tabs-list">
-        <button class="button button-active" onclick="handleClick(this, 'tiktok')">TikTok</button>
-        <button class="button" onclick="handleClick(this, 'cinch')">Cinch</button>
-        <button class="button" onclick="handleClick(this, 'nus')">NUS</button>
-      </div>
+      <div class="tab">TikTok</div>
       <div class="experience-card" id="tiktok">
         <hgroup>
           <h3>
@@ -47,7 +23,11 @@ function handleClick(self, target) {
           <li><div>Go</div></li>
           <li><div>Cloud Infrastructure</div></li>
         </ul>
-      </div><div class="experience-card hide" id="cinch">
+      </div>
+    </div>
+    <div class="card-container">
+      <div class="tab">Cinch</div>
+      <div class="experience-card" id="cinch">
         <hgroup>
           <h3>
             <span class="linebreak">Full-Stack Engineer Intern (Risk),</span>
@@ -69,39 +49,42 @@ function handleClick(self, target) {
           <li><div>DevOps</div></li>
         </ul>
       </div>
-      <div class="experience-card hide" id="nus">
-        <hgroup>
-          <h3>
-            <span class="linebreak">Undergraduate Tutor,</span>
-            <span class="linebreak">National University of Singapore</span>
-          </h3>
-        </hgroup>
-        <ul class="summary-list-global summary-list">
-          <div class="space">
-            <h4>Software Engineering (CS2103T)</h4>
-            <span>Fall 2023</span>
-          </div>
-          <ul class="summary-list-global">
-            <li>An introductory course for systematic and rigorous development of software systems, covering main areas of software development.</li>
-            <li>Tutored class of 10, including conducting weekly tutorials.</li>
-          </ul>
-          <div class="space">
-            <h4>Data Structures & Algorithms (CS2040S)</h4>
-            <span>Spring 2023</span>
-          </div>
-          <ul class="summary-list-global">
-            <li>An introductory course for the design and implementation of fundamental data structures and algorithms, taught with Java.</li>
-            <li>Tutored class of 15, including conducting weekly tutorials, grading weekly problem sets and consultations.</li>
-            <li>Assisted in preparation of course materials.</li>
-          </ul>
-
-        </ul>
-        <ul class="skill-bubble-global">
-          <li><div>Data Structures & Algorithms</div></li>
-          <li><div>Teaching</div></li>
-        </ul>
-      </div>
     </div>
+    <div class="card-container">
+    <div class="tab">NUS</div>
+    <div class="experience-card" id="nus">
+      <hgroup>
+        <h3>
+          <span class="linebreak">Undergraduate Tutor,</span>
+          <span class="linebreak">National University of Singapore</span>
+        </h3>
+      </hgroup>
+      <ul class="summary-list-global summary-list">
+        <div class="space">
+          <h4>Software Engineering (CS2103T)</h4>
+          <span>Fall 2023</span>
+        </div>
+        <ul class="summary-list-global">
+          <li>An introductory course for systematic and rigorous development of software systems, covering main areas of software development.</li>
+          <li>Tutored class of 10, including conducting weekly tutorials.</li>
+        </ul>
+        <div class="space">
+          <h4>Data Structures & Algorithms (CS2040S)</h4>
+          <span>Spring 2023</span>
+        </div>
+        <ul class="summary-list-global">
+          <li>An introductory course for the design and implementation of fundamental data structures and algorithms, taught with Java.</li>
+          <li>Tutored class of 15, including conducting weekly tutorials, grading weekly problem sets and consultations.</li>
+          <li>Assisted in preparation of course materials.</li>
+        </ul>
+
+      </ul>
+      <ul class="skill-bubble-global">
+        <li><div>Data Structures & Algorithms</div></li>
+        <li><div>Teaching</div></li>
+      </ul>
+    </div>
+  </div>
   </div>
 </section>
 
@@ -113,6 +96,8 @@ function handleClick(self, target) {
   .card-container {
     display: flex;
     flex-direction: column;
+
+    margin: 1rem 0;
   }
 
   .tabs-list {
@@ -121,38 +106,18 @@ function handleClick(self, target) {
     justify-content: space-between;
   }
 
-  .button {
-    display: block;
-    flex-grow: 1;
+  .tab {
     background-color: transparent;
-    cursor: pointer;
     color: var(--color-text);
     font-weight: 700;
     font-size: 100%;
 
-    padding: 1rem 0;
-    border: none;
-    border-top: 2px solid var(--color-faded-more);
+    /* hide on mobile */
+    display: none;
   }
 
-  .button:hover, .button:active {
+  .tab:hover, .tab:active {
     background-color: var(--color-faded-less);
-  }
-
-  .button-active {
-    border: none;
-    border-top: 2px solid var(--color-accent);
-    color: var(--color-accent);
-  }
-
-  .button-active:hover, .button-active:active {
-    border: none;
-    border-top: 2px solid var(--color-accent-hover);
-    color: var(--color-accent-hover);
-  }
-
-  .experience-card {
-    padding: 0 1em;
   }
 
   .summary-list {
@@ -181,20 +146,14 @@ function handleClick(self, target) {
       flex-direction: column;
     }
 
-    .button {
-      padding: 0 1rem;
-      border: none;
-      border-left: 2px solid var(--color-faded-more);
-    }
-
-    .button-active {
+    .tab {
+      padding: 0 2rem;
       border: none;
       border-left: 2px solid var(--color-accent);
-    }
 
-    .button-active:hover, .button-active:active {
-      border: none;
-      border-left: 2px solid var(--color-accent-hover);
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .space {
